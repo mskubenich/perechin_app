@@ -1,0 +1,7 @@
+<%= link_to "New role", new_admin_role_path %>
+<hr/>
+Roles List<br/><br/>
+<% for role in @roles %>
+    <%= link_to role.name, admin_role_path(role) %> => <%= role.description %> :: <%= link_to "Delete", admin_role_path(role), :confirm => "Are you sure?", :method => :delete %>
+    <hr/>
+<% end %>

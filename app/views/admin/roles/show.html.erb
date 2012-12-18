@@ -1,0 +1,36 @@
+<%= @role.name %>
+<hr/>
+<%= @role.description %>
+<hr/>
+Role permitions list:
+<table>
+  <tr>
+    <td>
+      Method
+    </td>
+    <td>
+      Controller
+    </td>
+    <td>
+      Action
+    </td>
+    <td>
+      Access
+    </td>
+  </tr>
+  <% @role.controller_role_permissions.each do |item| %>
+      <tr>
+        <td>
+          <%= item.action.method %>
+        </td>
+        <td>
+          <%= item.action.controller %>
+        </td>
+        <td>
+          <%= item.action.action %>
+        <td>
+          <%= item.has_access? %>
+        </td>
+      </tr>
+  <% end %>
+</table>

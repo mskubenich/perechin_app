@@ -15,3 +15,8 @@
 /tmp
 /app/assets/images/avatars/*
 /app/assets/images/news/*
+/doc
+*.swp
+*~
+.project
+.DC_Store

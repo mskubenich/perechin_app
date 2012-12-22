@@ -7,8 +7,8 @@ use_recipes :git, :rails, :bundle, :unicorn
 
 server '31.131.16.100', :web, :app, :db, :primary => true
 set :user, 'perechin'
-set :deploy_to, '/home/perechin/web-app'
-set :repository, 'git@github.com:mskubenich/sample_app.git'
+set :deploy_to, '/home/perechin/perechin_app'
+set :repository, 'git@github.com:mskubenich/perechin_app.git'
 
 after 'deploy:update', 'bundle:install'
 after 'deploy:restart', 'unicorn:stop'

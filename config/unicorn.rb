@@ -1,20 +1,36 @@
-worker_processes 2
-working_directory "/home/perechin/perechin_app/"
-
-preload_app true
+deploy_to  = "/home/perechin"
+rails_root = "#{deploy_to}/perechin_app"
+pid_file   = "#{deploy_to}/tmp/pids/unicorn.pid"
+socket_file= "#{deploy_to}/tmp/sockets/unicorn.sock"
+log_file   = "#{rails_root}/log/unicorn.log"
+err_log    = "#{rails_root}/log/unicorn_error.log"
+old_pid    = pid_file + '.oldbin'
 
 timeout 30
+worker_processes 4
+listen socket_file, :backlog => 1024
+pid pid_file
+stderr_path err_log
+stdout_path log_file
 
-listen "/home/perechin/perechin_app/tmp/sockets/unicorn.sock", :backlog => 64
+preload_app true .
 
-pid "/home/perechin/perechin_app/tmp/pids/unicorn.pid"
+GC.copy_on_write_friendly = true if GC.respond_to?(:copy_on_write_friendly=)
 
-stderr_path "/home/perechin/perechin_app/log/unicorn.stderr.log"
-stdout_path "/home/perechin/perechin_app/log/unicorn.stdout.log"
+before_exec do |server|
+  ENV["BUNDLE_GEMFILE"] = "#{rails_root}/Gemfile"
+end
 
 before_fork do |server, worker|
   defined?(ActiveRecord::Base) and
       ActiveRecord::Base.connection.disconnect!
+
+  if File.exists?(old_pid) && server.pid != old_pid
+    begin
+      Process.kill("QUIT", File.read(old_pid).to_i)
+    rescue Errno::ENOENT, Errno::ESRCH
+    end
+  end
 end
 
 after_fork do |server, worker|

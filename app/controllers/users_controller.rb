@@ -13,9 +13,8 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     @user.role = Role.find_by_name "user"
     if @user.save
-      sign_in @user
-      flash[:success] = "Welcome to the Sample App!"
-      redirect_to @user
+      flash[:success] = "Check you mail and confirm registration!"
+      redirect_to root_path
     else
       @title = "Sign Up"
       render 'new'

@@ -11,12 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121215192315) do
+ActiveRecord::Schema.define(:version => 20121226125750) do
 
   create_table "actions", :force => true do |t|
     t.string "controller"
     t.string "action"
     t.string "method"
+  end
+
+  create_table "activations", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "activation_key"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "attached_assets", :force => true do |t|
@@ -31,6 +38,13 @@ ActiveRecord::Schema.define(:version => 20121215192315) do
     t.integer "role_id"
     t.integer "action_id"
     t.boolean "has_access"
+  end
+
+  create_table "join_confirmations", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "activation_code"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "news", :force => true do |t|

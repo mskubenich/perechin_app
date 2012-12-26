@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>письмо</title>
+  <%= stylesheet_link_tag 'style', :media => 'screen' %>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>Name</td>
+    <td><%= @user.name %></td>
+  </tr>
+  <tr>
+    <td>Mail</td>
+    <td><%= @user.email %></td>
+  </tr>
+  <tr>
+    <td>Pass</td>
+    <td><%= @user.password %></td>
+  </tr>
+  <tr>
+    <td>ConfirmationLink</td>
+    <td><a href="http://www.perechin.net/join_confirm?activation_code=<%= @user.join_confirmation.activation_code %>">Confirmation Link</a></td>
+  </tr>
+  <tr>
+    <td>Примечание</td>
+    <td></td>
+  </tr>
+</table>
+</body>
+</html>

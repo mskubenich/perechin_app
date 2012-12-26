@@ -12,7 +12,7 @@
 <div class="container">
   <%= render 'layouts/header' %>
   <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, :class => "flash #{key}") %>
+      <h3 style="color: red"><%= content_tag(:div, value, :class => "flash #{key}") %></h3>
   <% end %>
   <div class="content">
     <div class="sidebar block">

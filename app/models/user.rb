@@ -1,6 +1,7 @@
 
 class User < ActiveRecord::Base
   belongs_to :role
+  has_one :join_confirmation
 
   attr_accessor :password
   attr_accessible :name, :email, :password, :password_confirmation, :avatar
@@ -22,6 +23,7 @@ class User < ActiveRecord::Base
             :length       => { :within => 6..20 }
 
   before_save :encrypt_password
+  after_create :send_registration_email
 
   # Return true if the user's password matches the submitted password.
   def has_password?(submitted_password)
@@ -30,7 +32,14 @@ class User < ActiveRecord::Base
 
   def self.authenticate(email, submitted_password)
     user = find_by_email(email)
-    return nil  if user.nil?
+    if user
+      if user.join_confirmation == nil && user.has_password?(submitted_password)
+        return user
+      end
+    end
+    return nil
+
+
     return user if user.has_password?(submitted_password)
   end
 
@@ -57,15 +66,10 @@ class User < ActiveRecord::Base
   def secure_hash(string)
     Digest::SHA2.hexdigest(string)
   end
+
+  def send_registration_email
+    self.join_confirmation = JoinConfirmation.create(:activation_code => Array.new(45){(97 + rand(26)).chr}.join)
+    RegistrationMailer.registration_email(self).deliver
+  end
 end
-# == Schema Information
-#
-# Table name: users
-#
-#  id         :integer(4)      not null, primary key
-#  name       :string(255)
-#  email      :string(255)
-#  created_at :datetime        not null
-#  updated_at :datetime        not null
-#
 

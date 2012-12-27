@@ -9,7 +9,6 @@
     <% end %>
   </div>
 
-
   <div class="news_body">
     <%= @news.body.to_s %>
   </div>
@@ -18,19 +17,19 @@
 
 
 <div id="comments">
-  <h1>Discussion: <%= @news.comments.count.to_s %> Comments :</h1>
+  <div class="news_title">Discussion: <%= @news.comments.count.to_s %> comments:</div>
   <% @news.comments.each do |comment| %>
       <%= render :partial => 'comment', :locals => { :comment => comment } %>
   <% end %>
 </div>
 
 <div>
-  Add comment:<br/>
-  <textarea id="new_comment" cols="50" rows="10">
+  <div class="news_title">Add comment:</div>
+  <textarea id="new_comment" cols="78" rows="10">
 
   </textarea>
-  <br/><br/>
-  <input type="button" id="add_comment" class="button red" value="Add comment"/>
+  <br/>
+  <input type="button" id="add_comment" value="Add comment"/>
 </div>
 
 <script type="text/javascript">

@@ -9,17 +9,11 @@ function include(filename)
     script = document.createElement('script');
     script.src = filename;
     script.type = 'text/javascript';
-    script.onload = function(){
-        Galleria.loadTheme('/assets/galleria/themes/classic/galleria.classic.min.js');
-        Galleria.run('#galleria');
-    };
 
     head.appendChild(script)
 }
 
-include('/assets/galleria/galleria-1.2.8.min.js?body=1');
-
-
+include('<%= asset_path "/galleria/galleria-1.2.8.min.js" %>');
 
 function add_comment_handler(new_comment_url){
     j("#add_comment").click(function(){

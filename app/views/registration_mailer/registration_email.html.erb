@@ -1,33 +1,74 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>письмо</title>
-  <%= stylesheet_link_tag 'style', :media => 'screen' %>
-</head>
 
-<body>
-<table>
-  <tr>
-    <td>Name</td>
-    <td><%= @user.name %></td>
-  </tr>
-  <tr>
-    <td>Mail</td>
-    <td><%= @user.email %></td>
-  </tr>
-  <tr>
-    <td>Pass</td>
-    <td><%= @user.password %></td>
-  </tr>
-  <tr>
-    <td>ConfirmationLink</td>
-    <td><a href="http://www.perechin.net/join_confirm?activation_code=<%= @user.join_confirmation.activation_code %>">Confirmation Link</a></td>
+    <td>Confirmation Link</a></td>
   </tr>
   <tr>
     <td>Примечание</td>
     <td></td>
   </tr>
 </table>
+
+
+
 </body>
 </html>
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+<HEAD>
+  <TITLE> Perechin.net - Підтвердження реєстрації нового користувача. </TITLE>
+  <style>
+
+      BODY { font-family: "Cyrillic Old", "times new roman", fantasy }
+
+
+
+      H1 { color: orangedark }
+
+      H2 { color: black }
+
+      A:link { color: orangered }       /* unvisited link */
+      A:visited { color: blackred }   /* visited links */
+      A:active { color: lime }    /* active links */
+      A:active { text-decoration: blink }
+      P { font: 12pt/14pt sans-serif }
+      P { font: 80% sans-serif }
+      P { font: x-large/110% "times new roman", serif }
+      P { font: bold italic large Palatino, serif }
+      P { font: normal small-caps 120%/120% serif }
+      p { color: orange }
+      H2 { background: #FFC886 }
+
+
+
+      BLOCKQUOTE { letter-spacing: 0 }
+  </style>
+
+</HEAD>
+<BODY>
+
+<center>
+  <%= image_tag 'header_letter1.png' %>
+
+  <TABLE BORDER WIDTH="1000" height="300"><tr><td>
+    <center>
+      <h2> Вітаємо <%= @user.name%>!</h2>
+      <h3>Даний лист відправлено з порталу <a href="http://perechin.net">PERECHIN.NET</a></h3>
+      <hr>
+      </br>
+
+      <h3>Для підтвердження реєстрації на нашому порталі перейдіть за посиланням:</br>
+        <a href="http://www.perechin.net/join_confirm?activation_code=<%= @user.join_confirmation.activation_code %>">Підтвердити реєстрацію</a></br></h3>
+      <h3>Ваш пароль: <%= @user.password %></h3>
+      </br>Якщо ви не маєте ніякого відношення до реєстрації на нашому порталі - просто проігноруйте дане повідомлення.
+
+      </br></br>З повагою, адміністрація perechin.net
+    </center>
+  </td></tr></table>
+  <%= image_tag 'footer1.png'%>
+
+</center>
+
+</BODY>
+</HTML>
+

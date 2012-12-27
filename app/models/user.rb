@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :name, :email, :password, :password_confirmation, :avatar
 
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :small => "100x100>" },
+  has_attached_file :avatar, :styles => { :original => "400x400>" },
                     :url  => "/assets/avatars/users/:id/:style/:basename.:extension",
                     :default_url => "/assets/noavatar.gif",
                     :path => ":rails_root/app/assets/images/avatars/users/:id/:style/:basename.:extension"

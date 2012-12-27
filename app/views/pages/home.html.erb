@@ -6,7 +6,7 @@
         <span class="news_title"><%= link_to news.title.to_s, news_path(news) %></span>
       </div>
       <div class="news_preview">
-        <%= image_tag  news.attached_assets[0].asset.url(:medium) %>
+        <%= image_tag  news.attached_assets[0].asset.url(:original) %>
         <div class="news_date">
           <%= news.created_at %>
         </div>

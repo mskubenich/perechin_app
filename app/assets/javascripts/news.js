@@ -17,7 +17,11 @@ function include(filename)
     head.appendChild(script)
 }
 
-include('/assets/galleria/galleria-1.2.8.min.js?body=1');
+j(document).ready(function(){
+    if(j("#galleria").length){
+        include('/assets/galleria/galleria-1.2.8.min.js?body=1');
+    }
+});
 
 
 

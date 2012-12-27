@@ -5,7 +5,7 @@
 
   <div id="galleria">
     <% @news.attached_assets.each do |asset| %>
-        <%= image_tag asset.asset.url(:medium) %>
+        <%= image_tag asset.asset.url(:original) %>
     <% end %>
   </div>
 

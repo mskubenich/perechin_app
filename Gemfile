@@ -6,8 +6,8 @@ gem 'rake', '0.8.7'
 gem 'mysql2'
 
 
-
-gem 'jquery-rails'
+gem 'sass-rails',   '~> 3.2.3'
+gem 'coffee-rails', '~> 3.2.1'
 
 
 group :development do

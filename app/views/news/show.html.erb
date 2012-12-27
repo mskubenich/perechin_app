@@ -2,26 +2,43 @@
   <div>
     <span class="news_title"><%= @news.title.to_s %></span>
   </div>
-  <div class="news_preview">
-    <%= image_tag  @news.attached_assets[0].asset.url(:medium) %>
-    <div class="news_date">
-      <%= @news.created_at %>
-    </div>
-    <div class="news_comments">
-      0 comments
-    </div>
-    <div class="news_reviews">
-      0  views
-    </div>
-  </div>
-  <div class="news_body">
-    <%= @news.body.to_s %>
-  </div>
 
-  <div>
+  <div id="galleria">
     <% @news.attached_assets.each do |asset| %>
         <%= image_tag asset.asset.url(:medium) %>
     <% end %>
   </div>
+  <script>
+      Galleria.loadTheme('/assets/galleria/themes/classic/galleria.classic.min.js');
+      Galleria.run('#galleria');
+  </script>
+
+
+  <div class="news_body">
+    <%= @news.body.to_s %>
+  </div>
 
 </div>
+
+
+<div id="comments">
+  <h1>Discussion: <%= @news.comments.count.to_s %> Comments :</h1>
+  <% @news.comments.each do |comment| %>
+      <%= render :partial => 'comment', :locals => { :comment => comment } %>
+  <% end %>
+</div>
+
+<div>
+  Add comment:<br/>
+  <textarea id="new_comment" cols="50" rows="10">
+
+  </textarea>
+  <br/><br/>
+  <input type="button" id="add_comment" class="button red" value="Add comment"/>
+</div>
+
+<script type="text/javascript">
+    j(document).ready(function(){
+        add_comment_handler('<%= news_new_comment_url(@news) %>');
+    });
+</script>

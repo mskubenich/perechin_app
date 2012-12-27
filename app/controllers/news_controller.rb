@@ -29,4 +29,11 @@ class NewsController < ApplicationController
   def show
     @news = News.find(params[:id])
   end
+
+  def create_comment
+    @comment = Comment.create(:user_id => current_user.id, :news_id => params[:news_id], :text => params[:text])
+    if @comment.save
+      render :partial => 'comment', :locals => {:comment => @comment}
+    end
+  end
 end

@@ -2,6 +2,7 @@
 class User < ActiveRecord::Base
   belongs_to :role
   has_one :join_confirmation
+  has_many :comments
 
   attr_accessor :password
   attr_accessible :name, :email, :password, :password_confirmation, :avatar
@@ -38,9 +39,6 @@ class User < ActiveRecord::Base
       end
     end
     return nil
-
-
-    return user if user.has_password?(submitted_password)
   end
 
   def self.authenticate_with_salt(id, cookie_salt)

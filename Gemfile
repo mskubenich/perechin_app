@@ -4,7 +4,7 @@ gem 'rails', '3.2.6'
 gem 'paperclip'
 gem 'rake', '0.8.7'
 gem 'mysql2'
-
+gem 'jquery-rails'
 
 gem 'sass-rails',   '~> 3.2.3'
 gem 'coffee-rails', '~> 3.2.1'
@@ -18,7 +18,6 @@ end
 group :test do
   gem 'rspec-rails', '2.11.0'
   gem 'webrat'
-  gem 'factory_girl_rails', '1.0'
 end
 
 group :production do

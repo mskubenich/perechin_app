@@ -36,4 +36,10 @@ class NewsController < ApplicationController
       render :partial => 'comment', :locals => {:comment => @comment}
     end
   end
+
+  def destroy
+    @news = News.find(params[:id]).destroy
+    redirect_to :back
+  end
+
 end

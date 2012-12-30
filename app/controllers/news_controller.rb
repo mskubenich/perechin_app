@@ -7,7 +7,7 @@ class NewsController < ApplicationController
   end
 
   def create
-    @news = News.new(params[:news])
+    @news = current_user.news.build(params[:news])
     if @news.save
       if params[:assets]
         params[:assets].each do |item|

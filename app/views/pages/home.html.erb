@@ -1,27 +1,7 @@
-<div class="title">News:</div>
+<h2 class="star">Останні новини:</h2>
 
 <% @news.each do |news|%>
-    <div class="news_container">
-      <div>
-        <span class="news_title"><%= link_to news.title.to_s, news_path(news) %></span>
-      </div>
-      <div class="news_preview">
-        <%= image_tag  news.attached_assets[0].asset.url(:original) %>
-        <div class="news_date">
-          <%= news.created_at %>
-        </div>
-        <div class="news_comments">
-          0 comments
-        </div>
-        <div class="news_reviews">
-          0  views
-        </div>
-      </div>
-      <div class="news_body">
-        <%= news.body.to_s[0..500] + "..." %>
-      </div>
-      <div>
-      </div>
-      <%= button_to "delete", news_path(news), :method  => :delete, :confirm => "Sure?" %>
-    </div>
+  <%= render :partial => 'news/news', :locals => {:news => news} %>
 <% end %>
+
+

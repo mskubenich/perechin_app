@@ -1,6 +1,7 @@
 class News < ActiveRecord::Base
   has_many :attached_assets, :dependent => :destroy
   has_many :comments, :dependent => :destroy
+  belongs_to :user
 
   attr_accessible :body, :title, :attached_assets
 

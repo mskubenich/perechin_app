@@ -24,7 +24,7 @@ class CreateActions < ActiveRecord::Migration
 
     Action.create :controller => "sessions", :action => :new, :method => :get
     Action.create :controller => "sessions", :action => :create, :method => :post
-    Action.create :controller => "sessions", :action => :destroy, :method => :get
+    Action.create :controller => "sessions", :action => :destroy, :method => :post
 
     Action.create :controller => "users", :action => :new, :method => :get
     Action.create :controller => "users", :action => :show, :method => :get

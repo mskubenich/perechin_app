@@ -9,26 +9,102 @@
   <%=  favicon_link_tag 'favicon.ico' %>
 </head>
 <body>
-<div class="container">
-  <%= render 'layouts/header' %>
-  <% flash.each do |key, value| %>
-      <h3 style="color: red"><%= content_tag(:div, value, :class => "flash #{key}") %></h3>
-  <% end %>
-  <div class="content">
-    <div class="sidebar block">
-        <div class="body">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </div>
+<div class="main">
+  <div class="header">
+    <div class="header_resize">
+      <div class="logo">
+        <h1><a href="/">Перечин.net<small>Портал твого міста.</small></a></h1>
+      </div>
+      <div class="menu_nav">
+        <ul>
+          <li><%= link_to "Home", root_path,  :class=>"active" %></li>
+          <% if signed_in? %>
+              <li><%= link_to "Add News", new_news_path %></li>  .
+              <li><%= link_to "Admin", admin_roles_path %></li>
+          <% end %>
+          <% if signed_in? %>
+              <li><%= link_to current_user.name, current_user %></li>
+              <li><%= link_to "Sign out", signout_path, :method => :delete %></li>
+          <% else %>
+              <li><%= link_to "Sign in", signin_path %></li>
+              <li><%= link_to "Sign up", sign_up_path %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="clr"></div>
     </div>
-    <div class="yield block">
-      <div class="body">
+  </div>
+  <div class="hbg">&nbsp;</div>
+  <div class="content">
+    <div class="content_resize">
+      <div class="mainbar">
         <%= yield %>
       </div>
+      <div class="sidebar">
+        <div class="gadget">
+          <h2 class="star"><span>Погода:</span></h2>
+          <div class="clr"></div>
+          <%= render :partial => 'layouts/weather' %>
+        </div>
+        <div class="gadget">
+          <h2 class="star"><span>Sponsors</span></h2>
+          <div class="clr"></div>
+          <ul class="ex_menu">
+            <li><a href="#">Lorem ipsum dolor</a><br />
+              Donec libero. Suspendisse bibendum</li>
+            <li><a href="#">Dui pede condimentum</a><br />
+              Phasellus suscipit, leo a pharetra</li>
+            <li><a href="#">Condimentum lorem</a><br />
+              Tellus eleifend magna eget</li>
+            <li><a href="#">Fringilla velit magna</a><br />
+              Curabitur vel urna in tristique</li>
+            <li><a href="#">Suspendisse bibendum</a><br />
+              Cras id urna orbi tincidunt orci ac</li>
+            <li><a href="#">Donec mattis</a><br />
+              purus nec placerat bibendum</li>
+          </ul>
+        </div>
+      </div>
+      <div class="clr"></div>
     </div>
-    <div class="clear"></div>
+  </div>
+  <div class="fbg">
+    <div class="fbg_resize">
+      <div class="col c1">
+        <h2><span>About</span></h2>
+        <%= image_tag 'white.jpg', :width => 56, :height =>56 %>
+        <p><%= link_to "About Us", about_path %>orem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu posuere nunc justo tempus leo. llorem, eu posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum. <a href="#">Learn more...</a></p>
+      </div>
+      <div class="col c2">
+        <h2><span>Lorem Ipsum</span></h2>
+        <ul class="sb_menu">
+          <li><a href="#">consequat molestie</a></li>
+          <li><a href="#">sem justo</a></li>
+          <li><a href="#">semper</a></li>
+          <li><a href="#">magna sed purus</a></li>
+          <li><a href="#">tincidunt</a></li>
+        </ul>
+      </div>
+      <div class="col c3">
+        <h2><span>Contact</span></h2>
+        <p>Praesen
+        <%= link_to "Contact Us", contact_path %>
+        <%= link_to "Help", help_path %>t dapibus, neque id cursus faucibus, tortor neque egestas augue.</p>
+        <p><a href="#">support@yoursite.com</a></p>
+        <p>+1 (123) 444-5677<br />
+          +1 (123) 444-5678</p>
+        <p>Address: 123 TemplateAccess Rd1</p>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer_resize">
+      <p class="lf">Copyright &copy; 2012-2013 <a href="#">Perechin.net</a> - All Rights Reserved</p>
+      <p class="rf"><a href="http://www.free-css.com/">Perechin.net Team</a></p>
+      <div class="clr"></div>
+    </div>
   </div>
 </div>
-<br/>
-<%= render 'layouts/footer' %>
 </body>
 </html>

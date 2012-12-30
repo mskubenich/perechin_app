@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   belongs_to :role
   has_one :join_confirmation
   has_many :comments
+  has_many :news
 
   attr_accessor :password
   attr_accessible :name, :email, :password, :password_confirmation, :avatar

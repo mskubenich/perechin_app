@@ -505,3 +505,14 @@ ol li .send {
     font-size:0;
     line-height:0;
 }
+
+.flash{
+    text-align: center;
+    height: 30px;
+    -moz-transition: all 1.8s 0.1s ease;
+    -o-transition: all 1.8s 0.1s ease;
+    -webkit-transition: all 1.8s 0.1s ease;
+}
+.flash h3{
+    color:red;
+}

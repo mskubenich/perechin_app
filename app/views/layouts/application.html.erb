@@ -35,6 +35,11 @@
     </div>
   </div>
   <div class="hbg">&nbsp;</div>
+  <div class="flash">
+    <% flash.each do |key, value| %>
+        <h3><%= content_tag(:div, value, :class => "flash #{key}") %></h3>
+    <% end %>
+  </div>
   <div class="content">
     <div class="content_resize">
       <div class="mainbar">

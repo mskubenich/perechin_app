@@ -22,4 +22,5 @@
 .DC_Store
 /config/database.yml
 /.idea
+/.idea/*
 

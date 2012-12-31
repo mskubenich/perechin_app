@@ -14,3 +14,8 @@
 //= require jquery_ujs
 
 j = jQuery.noConflict();
+
+j(document).ready(function(){
+    setTimeout('j(".flash").css("color", "white")', 5000);
+    setTimeout('j(".flash").css("height", "0px")', 6800);
+});

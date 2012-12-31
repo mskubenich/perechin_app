@@ -265,6 +265,17 @@ a.rm, a.com {
     background: url(logo.jpg) no-repeat center top;
     height: 262px;
     border: 0;
+    position: relative;
+    margin-top: 30px;
+}
+.hbg .qwerty{
+    position: absolute;
+    font-family: "Courier New";
+    font: times new roman;
+    color: red;
+    font-size: 25px;
+    top: 50px;
+    left: 18%;
 }
 .menu_nav {
     margin:0;
@@ -504,6 +515,12 @@ ol li .send {
     width:100%;
     font-size:0;
     line-height:0;
+    position: relative;
+}
+.clr .qwerty{
+    position: absolute;
+    top: 100px;
+    left: 200px;
 }
 
 .flash{

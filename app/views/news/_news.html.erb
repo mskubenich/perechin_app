@@ -3,9 +3,11 @@
   <h2><span><%= link_to news.title.to_s, news_path(news) %></span></h2>
   <div class="clr"></div>
   <p>Розмістив: <%= news.user.name %> &nbsp;|&nbsp; Теги: <a href="#">закарпаття</a>, <a href="#">політика</a></p>
+  <% if news.attached_assets.count > 0 %>
   <div class="img">
     <div><%= image_tag  news.attached_assets[0].asset.url(:original) %></div>
   </div>
+  <% end %>
   <p><%= news.body.to_s[0..500] + "..." %></p>
   <p class="spec"><%= link_to "Читати більше...", news_path(news), :class => "rm"%>&nbsp;|&nbsp;<%= link_to "Коментарі("+news.comments.count.to_s+")", news_path(news), :class => "com" %>
   <% if current_user && current_user.role.name == "admin" %>

@@ -1,5 +1,8 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
+//= require ./jquery_ui/jquery-ui.min
+//= require ./elrte/js/elrte.min
+//= require ./elrte/js/i18n/elrte.ru.js
 
 
 function include(filename)
@@ -44,4 +47,13 @@ j(document).ready(function(){
     if(j("#galleria").length){
         include('/assets/galleria/galleria-1.2.8.min.js?body=1');
     }
+    var opts = {
+        cssClass : 'el-rte',
+        lang     : 'ru',
+        height   : 450,
+        toolbar  : 'complete',
+        cssfiles : ['css/elrte-inner.css']
+    };
+    j('#editor').elrte(opts);
 });
+

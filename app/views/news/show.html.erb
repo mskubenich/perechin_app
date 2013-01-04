@@ -3,12 +3,14 @@
   <h2><span><%= @news.title %></span></h2>
   <div class="clr"></div>
   <p>Розмістив: <%= @news.user.name %> &nbsp;|&nbsp; Теги: <a href="#">закарпаття</a>, <a href="#">політика</a></p>
+  <% if @news.attached_assets.count > 0 %>
   <div id="galleria">
     <% @news.attached_assets.each do |asset| %>
         <%= image_tag asset.asset.url(:original) %>
     <% end %>
   </div>
-  <p><%= @news.body %></p>
+  <% end %>
+  <div><%= raw @news.body %></div>
   <p>
     <% if current_user && current_user.role.name == "admin" %>
         &nbsp;<%= link_to "Видалити", news_path(@news), :method => :delete, :class => "rm"%>
@@ -16,9 +18,6 @@
 
   </p>
 </div>
-
-
-
 
 <div id="comments">
   <div class="news_title">Discussion: <%= @news.comments.count.to_s %> comments:</div>

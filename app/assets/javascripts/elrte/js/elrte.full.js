@@ -6351,6 +6351,9 @@ elRTE.prototype.ui.prototype.buttons.image = function(rte, name) {
 				});
 			});
 		},
+        select_file = function(){
+            alert('here');
+        },
 		preview = function() {
 			var src = self.src.main.src.val();
 			
@@ -6416,8 +6419,8 @@ elRTE.prototype.ui.prototype.buttons.image = function(rte, name) {
 	
 	this.img     = null;
 	this.prevImg = null;
-	this.preview = $('<div class="elrte-image-preview"/>').text('Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin');
-	
+	this.preview = $('<div class="elrte-image-preview"/>').text('Proin elit arcu, rutrum commodo, vehicul');
+    this.preview.css('width', '90%');
 	this.init = function() {	
 		this.labels = {
 			main   : 'Properies',
@@ -6435,7 +6438,8 @@ elRTE.prototype.ui.prototype.buttons.image = function(rte, name) {
 		
 		this.src = {
 			main : {
-				src    : $('<input type="text" />').css('width', '100%').change(preview),
+                selected_file    : $('<input type="file" />').change(select_file),
+                src    : $('<input type="text" />').css('width', '100%').change(preview),
 				title  : $('<input type="text" />').css('width', '100%'),
 				alt    : $('<input type="text" />').css('width', '100%'),
 				width  : $('<input type="text" />').attr('size', 5).css('text-align', 'right').change(size),
@@ -6585,7 +6589,8 @@ elRTE.prototype.ui.prototype.buttons.image = function(rte, name) {
 		}
 		
 		dialog.tab('main', this.rte.i18n('Properies'))
-			.append([this.rte.i18n('Image URL'), src],                 'main', true)
+            .append([this.rte.i18n('Select Image'), this.src.main.selected_file],                 'main', true)
+            .append([this.rte.i18n('Image URL'), src],                 'main', true)
 			.append([this.rte.i18n('Title'),     this.src.main.title], 'main', true)
 			.append([this.rte.i18n('Alt text'),  this.src.main.alt],   'main', true)
 			.append([this.rte.i18n('Size'), $('<span />').append(this.src.main.width).append(' x ').append(this.src.main.height).append(' px')], 'main', true)

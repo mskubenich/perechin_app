@@ -9,12 +9,12 @@ body.el-rte-structure td,
 body.el-rte-structure th           { border:1px dotted #ccc; }
 
 body.el-rte-structure p            {
-	background-image:url(../images/outline-p.png);
+	background-image:url(elrte/images/outline-p.png);
 	background-repeat:no-repeat;
 	background-position:right top;
 	border:1px dotted #99ccff; }
 body.el-rte-structure div          {
-	background-image:url(../images/outline-div.png);
+	background-image:url(elrte/images/outline-div.png);
 	background-repeat:no-repeat;
 	background-position:right top;
 	border:1px dotted #aaa;
@@ -26,7 +26,7 @@ body.el-rte-structure a.elrte-anchor {
 	width:12px; 
 	height:12px; 
 	border:1px dotted #ccc;
-	background: url('../images/elrte-toolbar.png') -564px -8px no-repeat;
+	background: url('elrte/images/elrte-toolbar.png') -564px -8px no-repeat;
 }
 
 img                 { cursor: default; }
@@ -47,22 +47,22 @@ img.elrte-webkit-hl { outline:1px dashed #777; }
 .elrte-iframe,
 .elrte-media {
 	border:1px solid #ccc;
-	background:#eee url(../images/media-flash.png) center center no-repeat;
+	background:#eee url(elrte/images/media-flash.png) center center no-repeat;
 }
 
-.elrte-media-x-shockwave-flash     { background-image:url(../images/media-flash.png); }
-.elrte-media-youtube               { background-image:url(../images/media-youtube.png); }
-.elrte-media-vimeo                 { background-image:url(../images/media-vimeo.png); }
-.elrte-media-rutube                { background-image:url(../images/media-rutube.png); }
-.elrte-media-quicktime             { background-image:url(../images/media-quicktime.png); }
-.elrte-media-x-director            { background-image:url(../images/media-director.png); }
-.elrte-media-x-mplayer2            { background-image:url(../images/media-winmedia.png); }
-.elrte-media-x-pn-realaudio-plugin { background-image:url(../images/media-realaudio.png); }
+.elrte-media-x-shockwave-flash     { background-image:url(elrte/images/media-flash.png); }
+.elrte-media-youtube               { background-image:url(elrte/images/media-youtube.png); }
+.elrte-media-vimeo                 { background-image:url(elrte/images/media-vimeo.png); }
+.elrte-media-rutube                { background-image:url(elrte/images/media-rutube.png); }
+.elrte-media-quicktime             { background-image:url(elrte/images/media-quicktime.png); }
+.elrte-media-x-director            { background-image:url(elrte/images/media-director.png); }
+.elrte-media-x-mplayer2            { background-image:url(elrte/images/media-winmedia.png); }
+.elrte-media-x-pn-realaudio-plugin { background-image:url(elrte/images/media-realaudio.png); }
 
-.elrte-yandex-maps                 { background-image:url(../images/yandex-maps.png); }
-.elrte-google-maps                 { background-image:url(../images/google-maps.png); display: block; }
+.elrte-yandex-maps                 { background-image:url(elrte/images/yandex-maps.png); }
+.elrte-google-maps                 { background-image:url(elrte/images/google-maps.png); display: block; }
 
-.elrte-iframe                      { background-image:url(../images/iframe.png); }
+.elrte-iframe                      { background-image:url(elrte/images/iframe.png); }
 
 .elrte-pagebreak {
 	display:block;
@@ -72,7 +72,7 @@ img.elrte-webkit-hl { outline:1px dashed #777; }
 	outline:1px dotted #777;
 	outline-left:none;
 	outline-right:none;
-	background:transparent url(../images/pagebreak.gif) center center no-repeat;
+	background:transparent url(elrte/images/pagebreak.gif) center center no-repeat;
 }
 
 .elrte-pagebreak:after {

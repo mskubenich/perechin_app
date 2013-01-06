@@ -52,7 +52,7 @@ j(document).ready(function(){
         lang     : 'ru',
         height   : 450,
         toolbar  : 'complete',
-        cssfiles : ['css/elrte-inner.css']
+        cssfiles : ['<%= asset_path('elrte/css/elrte-inner.css') %>']
     };
     j('#editor').elrte(opts);
 });

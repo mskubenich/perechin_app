@@ -141,7 +141,7 @@ a { outline: none; }
 }
 
 .el-dialogform .spinner {
-	background:url(../images/loading.gif) 50% 50% no-repeat;
+	background:url(elrte/images/loading.gif) 50% 50% no-repeat;
 	text-align:center;
 	width:150px;
 	height:50px;
@@ -150,11 +150,15 @@ a { outline: none; }
 	font-weight:bold;
 }
 .el-dialogform-error {
-	background: #fee; color:#ff0000; border: 2px #844 solid; padding: 10px; margin-bottom: 1em 0;
+	background: #fee;
+    color:#ff0000;
+    border: 2px #844 solid;
+    padding: 10px;
+    margin-bottom: 1em;
 	
 }
 .el-dialogform-message {
-	background: #efe; color: #040; border: 2px #484 solid; padding: 10px; margin-bottom: 1em 0;
+	background: #efe; color: #040; border: 2px #484 solid; padding: 10px; margin-bottom: 1em;
 }
 
 
@@ -251,12 +255,11 @@ a { outline: none; }
 
 .elrte-swf-placeholder {
 	width:1px;
-	background: url('../images/swf.png') 0 0 no-repeat;	
 }
 
 /* style to detect images url */
 /*.el-rte */
-.elrtetesturl { color:red; background-image:url(../images/pixel.gif);}
+.elrtetesturl { color:red; background-image:url(elrte/images/pixel.gif);}
 
 /* панель инструментов */
 .el-rte .toolbar {  background-color:#eee; padding:3px 7px 2px 7px; border:1px solid #ccc; white-space:normal; }
@@ -275,7 +278,7 @@ a { outline: none; }
 	margin:0;
 	list-style:none;
 	padding:0 2px 0 5px;
-	background: url('../images/elrte-toolbar.png') -934px -2px no-repeat;	
+	background: url('elrte/images/elrte-toolbar.png') -934px -2px no-repeat;
 }
 /* первая панель кнопок */
 .el-rte .toolbar ul.first {
@@ -294,7 +297,7 @@ a { outline: none; }
     *display: inline;
 	margin:1px 1px;
 	padding:0; /* Joomla 1.6 compat */
-	background:url('../images/elrte-toolbar.png') no-repeat; 
+	background:url('elrte/images/elrte-toolbar.png') no-repeat;
 	border:1px solid #ccc;	
 	z-index:100;
 
@@ -302,7 +305,7 @@ a { outline: none; }
 /* активная и подсвеченная и неактивная кнопка */
 .el-rte .toolbar ul li.hover    { border:1px solid #54b9bf; }
 .el-rte .toolbar ul li.active   { background-color:#c3dbef; border:1px solid #fff; }
-.el-rte .toolbar ul li.disabled { opacity:alpha(0.3); opacity: 0.3; filter:Alpha(Opacity=30);}
+.el-rte .toolbar ul li.disabled { opacity: 0.3; filter:Alpha(Opacity=30);}
 /*  кнопки  */
 .el-rte .toolbar ul li.about               {background-position:-829px -5px;}
 .el-rte .toolbar ul li.save                {background-position:-30px -2px;}
@@ -503,7 +506,7 @@ a { outline: none; }
 	height:46px;
 	float:left; 
 	margin:.5em 1em;
-	background:url('../images/elrte-toolbar.png') -880px -7px no-repeat;
+	background:url('elrte/images/elrte-toolbar.png') -880px -7px no-repeat;
 }
 .elrte-ver  { font-size:.9em; padding-left:.7em; }
 .elrte-copy { font-size:.9em; padding-left:.3em; }

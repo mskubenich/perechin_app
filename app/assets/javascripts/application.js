@@ -15,6 +15,21 @@
 
 j = jQuery.noConflict();
 
+function include(filename)
+{
+    var head = document.getElementsByTagName('head')[0];
+
+    script = document.createElement('script');
+    script.src = filename;
+    script.type = 'text/javascript';
+    script.onload = function(){
+        Galleria.loadTheme('/assets/galleria/themes/classic/galleria.classic.min.js');
+        Galleria.run('#galleria');
+    };
+
+    head.appendChild(script)
+}
+
 j(document).ready(function(){
     setTimeout('j(".flash_message").css("color", "white")', 5000);
     setTimeout('j(".flash_message").css("height", "0px")', 6800);

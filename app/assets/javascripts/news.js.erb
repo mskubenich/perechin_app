@@ -4,22 +4,6 @@
 //= require ./elrte/js/elrte.full
 //= require ./elrte/js/i18n/elrte.ru.js
 
-
-function include(filename)
-{
-    var head = document.getElementsByTagName('head')[0];
-
-    script = document.createElement('script');
-    script.src = filename;
-    script.type = 'text/javascript';
-    script.onload = function(){
-        Galleria.loadTheme('/assets/galleria/themes/classic/galleria.classic.min.js');
-        Galleria.run('#galleria');
-    };
-
-    head.appendChild(script)
-}
-
 function add_comment_handler(new_comment_url){
     j("#add_comment").click(function(){
         if(j("#new_comment").val().trim() != ""){
@@ -51,8 +35,7 @@ j(document).ready(function(){
         cssClass : 'el-rte',
         lang     : 'ru',
         height   : 450,
-        toolbar  : 'complete',
-        cssfiles : ['<%= asset_path('elrte/css/elrte-inner.css') %>']
+        toolbar  : 'complete'
     };
     j('#editor').elrte(opts);
 });

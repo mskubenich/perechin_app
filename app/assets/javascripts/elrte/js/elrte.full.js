@@ -5,7 +5,6 @@
  * @param Object o - class options. Object. {textdomain : 'имя_группы_сообщений', messages : {textdomain1 : {}[, textdomain2 : {}]...}}
  *
  * Usage:
- * 
  * var msgs = { Hello : 'Превэд', 'Hello %user' : 'Превед %user' };
  * //load messages and set default textdomain
  * var translator = new eli18n( {textdomain : 'test', messages : {test : msgs}} )
@@ -19,6 +18,8 @@
  * @author:    Dmitry (dio) Levashov dio@std42.ru
  * license:   BSD license
  **/
+var file_number = 0;
+
 function eli18n(o) {
 	
 	/**
@@ -159,7 +160,7 @@ function elDialogForm(o) {
 			closeOnEscape : true,
 			buttons  : {
 				Cancel : function() { self.close(); },
-				Ok     : function() { self.form.trigger('submit'); }
+				Ok     : function() { self.form.trigger('submit');}
 			}
 		}
 	};
@@ -6357,7 +6358,21 @@ elRTE.prototype.ui.prototype.buttons.image = function(rte, name) {
 			});
 		},
         select_file = function(){
-            alert('here');
+            var file = self.src.main.selected_file[0].files[0];
+            //if (file.type.indexOf("image") == 0) {
+                var reader = new FileReader();
+                reader.onload = function(event){
+                    file_number += 1;
+                    self.src.main.src.val(event.target.result);
+                    $('.el-rte').append((self.src.main.selected_file).unbind('change'));
+                    self.src.main.selected_file = $("<input type='file' name='images[asset"+file_number.toString()+"]' class='attached_image'/>").change(select_file);
+                    self.src.main.src.trigger('change');
+                };
+                reader.onerror = function(event) {
+                    alert( 'error' );
+                };
+                reader.readAsDataURL(file);
+           // }
         },
 		preview = function() {
 			var src = self.src.main.src.val();
@@ -6439,11 +6454,11 @@ elRTE.prototype.ui.prototype.buttons.image = function(rte, name) {
 			href    : 'URL',
 			target  : 'Open in',
 			title   : 'Title'
-		}
-		
+		};
+
 		this.src = {
 			main : {
-                selected_file    : $('<input type="file" />').change(select_file),
+                selected_file    : $('<input type="file" name="images[asset'+file_number+']" class="attached_image"/>').change(select_file),
                 src    : $('<input type="text" />').css('width', '100%').change(preview),
 				title  : $('<input type="text" />').css('width', '100%'),
 				alt    : $('<input type="text" />').css('width', '100%'),
@@ -6567,7 +6582,8 @@ elRTE.prototype.ui.prototype.buttons.image = function(rte, name) {
 			fm = !!rte.options.fmOpen,
 			src = fm
 				? $('<div class="elrte-image-src-fm"><span class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-folder-open"/></span></div>')
-					.append(this.src.main.src.css('width', '87%'))
+					.append(this.src.main.src.css('width', '87%')
+            )
 				: this.src.main.src;
 			
 			;
@@ -6647,7 +6663,7 @@ elRTE.prototype.ui.prototype.buttons.image = function(rte, name) {
 		!this.img[0].parentNode && (this.img = $(this.rte.doc.createElement('img')));
 		
 		this.img.attr('src', src)
-			.attr('style', this.src.adv.style.val());
+			.attr('style', this.src.adv.style.val()).attr('asset', 'images[asset'+(file_number-1).toString()+']' ).attr('assetnum', (file_number-1).toString());
 		
 		$.each(this.src, function(i, elements) {
 			$.each(elements, function(name, el) {

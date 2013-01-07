@@ -137,6 +137,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   jquery-rails
   mysql2
+  nokogiri
   paperclip
   rails (= 3.2.6)
   rake (= 0.8.7)

@@ -9,6 +9,8 @@ gem 'jquery-rails'
 gem 'sass-rails',   '~> 3.2.3'
 gem 'coffee-rails', '~> 3.2.1'
 
+gem 'nokogiri'
+
 
 group :development do
   gem 'rspec-rails', '2.11.0'

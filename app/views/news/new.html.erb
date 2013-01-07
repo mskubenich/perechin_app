@@ -1,4 +1,4 @@
-<%= form_for(@news, :html => { :multipart => true }) do |f| %>
+<%= form_for(@news, :html => {:multipart => true, :id => 'news_form' }) do |f| %>
     <% if @news.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@news.errors.count, "error") %>
@@ -17,15 +17,11 @@
     </div>
     <div class="field">
       <%= f.label :preview %><br />
-      <%= f.text_area :preview %>
+      <%= f.text_area :preview, :cols => 81, :rows => 10 %>
     </div>
     <div class="field">
       <%= f.label :body %><br />
-      <%= f.text_area :body, :id => :editor %>
-    </div>
-    <div class="field">
-      <%= f.label :asset %>
-      <%= file_field_tag 'asset', :multiple => true, :name => 'assets[][asset]' %>
+      <%= f.text_area :body %>
     </div>
     <div class="field">
       <%= f.label :source %>
@@ -35,5 +31,7 @@
       <%= f.submit "Add" %>
     </div>
 <% end %>
+
+<%= debug params %>
 
 

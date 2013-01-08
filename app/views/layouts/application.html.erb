@@ -37,11 +37,11 @@
   <div class="hbg">
     <div class="qwerty">З Новим Роком та Різдвом Христовим!</div>
   </div>
-  <div class="flash_message">
-    <% flash.each do |key, value| %>
+  <% flash.each do |key, value| %>
+    <div class="flash_message">
         <h3><%= content_tag(:div, value, :class => "flash #{key}") %></h3>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
   <div class="content">
     <div class="content_resize">
       <div class="mainbar">

@@ -6364,7 +6364,7 @@ elRTE.prototype.ui.prototype.buttons.image = function(rte, name) {
                 reader.onload = function(event){
                     file_number += 1;
                     self.src.main.src.val(event.target.result);
-                    $('.el-rte').append((self.src.main.selected_file).unbind('change'));
+                    $('.el-rte').append((self.src.main.selected_file).unbind('change').css('display', 'none'));
                     self.src.main.selected_file = $("<input type='file' name='images[asset"+file_number.toString()+"]' class='attached_image'/>").change(select_file);
                     self.src.main.src.trigger('change');
                 };

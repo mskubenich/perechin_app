@@ -6,7 +6,7 @@ class News < ActiveRecord::Base
   attr_accessible :body, :title, :attached_assets, :source, :preview
 
   validates :title, :presence => true
-  validates :body, :presence => true, :length => {:minimum => 200}
+  validates :body, :presence => true
   validates :source, :presence => true
   validates :preview, :presence => true
 

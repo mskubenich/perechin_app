@@ -335,13 +335,52 @@ ol li .send {
     left: 200px;
 }
 
-.flash{
+.flash_message{
     text-align: center;
     height: 30px;
     -moz-transition: all 1.8s 0.1s ease;
     -o-transition: all 1.8s 0.1s ease;
     -webkit-transition: all 1.8s 0.1s ease;
 }
-.flash h3{
+.flash_message h3{
     color:red;
+}
+
+.field input, textarea{
+    width: 100%;
+    border: 1px solid blue;
+    border-radius: 4px;
+}
+
+.field > label{
+  font: normal 24px Arial, Helvetica, sans-serif;
+  color: #323A3F;
+}
+
+/*buttons */
+.submit_button{
+  font-family: verdana;
+  min-width: 60px;
+  height: 35px;
+  background-color: blue;
+  margin: 0 auto;
+  color: #ffffff;
+  border: 0;
+  &:hover{
+    cursor: pointer;
+    background-color: #0060ff;
+  }
+}
+.remove_button{
+  font-family: verdana;
+  min-width: 60px;
+  height: 35px;
+  background-color: red;
+  margin: 0 auto;
+  color: #ffffff;
+  border: 0;
+  &:hover{
+    cursor: pointer;
+    background-color: #ff7200;
+  }
 }

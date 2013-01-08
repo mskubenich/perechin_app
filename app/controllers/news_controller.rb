@@ -12,22 +12,16 @@ class NewsController < ApplicationController
       require 'nokogiri'
       page =  Nokogiri::HTML(params[:news][:body])
       page.xpath("//img[@asset]").each do |img|
-
         if params[:images]['asset'+img['assetnum']]
-          puts "has file"
-          puts params[:images]['asset'+img['assetnum']]
-
           image = AttachedAsset.create(:news_id => @news.id, :asset => params[:images]['asset'+img['assetnum']])
-          img['href'] = image.asset.url(:original)
-          img.add_namespace_definition 'asset_id', image.id.to_s
+          img.attribute('src').value = image.asset.url(:original)
+          img['asset_id'] = image.id.to_s
+          params[:images].delete('asset'+img['assetnum'])
           img.remove_attribute 'assetnum'
           img.remove_attribute 'asset'
-          params[:images].delete 'asset'+img['assetnum'].to_s
-
         else
           img.replace ""
         end
-
       end
       if params[:images]
         params[:images].each do |key, value|

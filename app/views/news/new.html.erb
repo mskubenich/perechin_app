@@ -12,26 +12,24 @@
         </div>
     <% end %>
     <div class="field">
-      <%= f.label :title %><br />
+      <%= f.label 'Заголовок:' %><br />
       <%= f.text_field :title %>
     </div>
     <div class="field">
-      <%= f.label :preview %><br />
-      <%= f.text_area :preview, :cols => 81, :rows => 10 %>
+      <%= f.label 'Коротке прев\'ю:' %><br />
+      <%= f.text_area :preview, :rows => 10 %>
     </div>
     <div class="field">
-      <%= f.label :body %><br />
+      <%= f.label 'Вміст новини:' %><br />
       <%= f.text_area :body %>
     </div>
     <div class="field">
-      <%= f.label :source %>
+      <%= f.label 'Джерело:' %>
       <%= f.text_field :source %>
     </div>
     <div class="actions">
-      <%= f.submit "Add" %>
+      <%= f.submit "Додати новину", :class => 'submit_button' %>
     </div>
 <% end %>
-
-<%= debug params %>
 
 

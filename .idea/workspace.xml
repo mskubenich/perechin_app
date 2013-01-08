@@ -22,64 +22,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="news_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/news_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="55" selection-start="765" selection-end="765" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="news.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/news.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="36" selection-start="293" selection-end="293" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="show.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/news/show.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="19" selection-start="346" selection-end="346" vertical-scroll-proportion="-3.2692308">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="new.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/news/new.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="9" selection-start="1064" selection-end="1064" vertical-scroll-proportion="-19.923077">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="elrte.full.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/elrte/js/elrte.full.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6374" column="73" selection-start="183318" selection-end="183318" vertical-scroll-proportion="-15.32">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="28" selection-start="1453" selection-end="1453" vertical-scroll-proportion="0.5391791">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="362" column="6" selection-start="6026" selection-end="6026" vertical-scroll-proportion="0.0">
+            <state line="15" column="36" selection-start="396" selection-end="396" vertical-scroll-proportion="30.26923">
               <folding />
             </state>
           </provider>
@@ -88,16 +34,16 @@
       <file leaf-file-name="_news.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/news/_news.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="191" selection-start="767" selection-end="767" vertical-scroll-proportion="-7.1923075">
+            <state line="13" column="146" selection-start="975" selection-end="975" vertical-scroll-proportion="-8.5">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="news.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/news.scss">
+      <file leaf-file-name="application.scss" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="131" column="20" selection-start="2520" selection-end="2520" vertical-scroll-proportion="0.0">
+            <state line="32" column="19" selection-start="579" selection-end="579" vertical-scroll-proportion="0.50701755">
               <folding />
             </state>
           </provider>
@@ -127,11 +73,11 @@
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/news.scss" />
         <option value="$PROJECT_DIR$/app/views/news/new.html.erb" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/application.scss" />
-        <option value="$PROJECT_DIR$/app/views/news/_news.html.erb" />
         <option value="$PROJECT_DIR$/app/views/news/show.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/elrte/js/elrte.full.js" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/news/_news.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/application.scss" />
       </list>
     </option>
   </component>
@@ -823,20 +769,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="362" column="6" selection-start="6026" selection-end="6026" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/news/_news.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="191" selection-start="767" selection-end="767" vertical-scroll-proportion="-7.1923075">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/news/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="19" selection-start="346" selection-end="346" vertical-scroll-proportion="-3.2692308">
@@ -860,7 +792,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="28" selection-start="1453" selection-end="1453" vertical-scroll-proportion="0.5391791">
+        <state line="15" column="36" selection-start="396" selection-end="396" vertical-scroll-proportion="30.26923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/news/_news.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="146" selection-start="975" selection-end="975" vertical-scroll-proportion="-8.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="19" selection-start="579" selection-end="579" vertical-scroll-proportion="0.50701755">
           <folding />
         </state>
       </provider>

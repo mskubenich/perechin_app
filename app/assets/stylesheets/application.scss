@@ -1,6 +1,15 @@
-
-
 @charset "utf-8";
+
+@font-face {
+  font-family: SegoeWP;
+  src: url('fonts/SegoeWP-Light.ttf') format("opentype");
+}
+
+@font-face {
+  font-family: NewYorkTimes;
+  src: url('fonts/Old English Text MT.ttf') format("opentype");
+}
+
 body {
     margin:0;
     padding:0;
@@ -20,6 +29,10 @@ html, .main {
     top: 0px;
     left: 0px;
     border: 0;
+    & > h1 > a{
+      font-size: 60px;
+      font-family: NewYorkTimes;
+    }
 }
 h1 {
     margin:0;
@@ -359,7 +372,8 @@ ol li .send {
 
 /*buttons */
 .submit_button{
-  font-family: verdana;
+  font-family: SegoeWP;
+  font-weight: bold;
   min-width: 60px;
   height: 35px;
   background-color: blue;
@@ -372,7 +386,8 @@ ol li .send {
   }
 }
 .remove_button{
-  font-family: verdana;
+  font-family: SegoeWP;
+  font-weight: bold;
   min-width: 60px;
   height: 35px;
   background-color: red;

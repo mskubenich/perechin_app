@@ -11,7 +11,7 @@
   <p><%= news.preview || news.body.to_s[0..500] + "..." %></p>
   <p class="spec"><%= link_to "Читати більше...", news_path(news), :class => "rm"%>&nbsp;|&nbsp;<%= link_to "Коментарі("+news.comments.count.to_s+")", news_path(news), :class => "com" %> </p>
   <% if current_user && current_user.role.name == "admin" %>
-    <%= button_to "Видалити", news_path(news), :method => :delete, :class => "remove_button"%>
+    <%= button_to "Видалити", news_path(news), :method => :delete, :class => "remove_button", :confirm => "Are you sure you wont to delete news ?"%>
   <% end %>
 
 </div>

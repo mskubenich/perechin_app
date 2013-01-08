@@ -22,10 +22,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="application.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="36" selection-start="396" selection-end="396" vertical-scroll-proportion="30.26923">
+            <state line="41" column="65" selection-start="1398" selection-end="1398" vertical-scroll-proportion="0.51978415">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="30" column="3" selection-start="1039" selection-end="1039" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -40,10 +49,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.scss" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="application.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="19" selection-start="579" selection-end="579" vertical-scroll-proportion="0.50701755">
+            <state line="32" column="19" selection-start="579" selection-end="579" vertical-scroll-proportion="-21.76">
               <folding />
             </state>
           </provider>
@@ -75,9 +84,9 @@
         <option value="$PROJECT_DIR$/app/views/news/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/news/show.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/elrte/js/elrte.full.js" />
-        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/views/news/_news.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.scss" />
+        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
       </list>
     </option>
   </component>
@@ -239,6 +248,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sample_app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="perechin_app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javascripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -711,11 +742,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="3" selection-start="1039" selection-end="1039" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/elrte/css/elrte.min.css.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="324" column="46" selection-start="5454" selection-end="5454" vertical-scroll-proportion="0.23047619" />
@@ -790,13 +816,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="36" selection-start="396" selection-end="396" vertical-scroll-proportion="30.26923">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/news/_news.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="146" selection-start="975" selection-end="975" vertical-scroll-proportion="-8.5">
@@ -806,7 +825,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="19" selection-start="579" selection-end="579" vertical-scroll-proportion="0.50701755">
+        <state line="32" column="19" selection-start="579" selection-end="579" vertical-scroll-proportion="-21.76">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="3" selection-start="1039" selection-end="1039" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="65" selection-start="1398" selection-end="1398" vertical-scroll-proportion="0.51978415">
           <folding />
         </state>
       </provider>

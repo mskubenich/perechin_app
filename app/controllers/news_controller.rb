@@ -69,4 +69,8 @@ class NewsController < ApplicationController
     redirect_to :back
   end
 
+  def index
+    @news = News.search(params[:page])
+  end
+
 end

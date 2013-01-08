@@ -2,7 +2,7 @@ class PagesController < ApplicationController
 
   def home
     @title = 'Home'
-    @news = News.order('created_at').all.reverse
+    @news = News.all(:limit => 4, :order => 'created_at DESC')
   end
 
   def contact

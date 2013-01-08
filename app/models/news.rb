@@ -10,9 +10,10 @@ class News < ActiveRecord::Base
   validates :source, :presence => true
   validates :preview, :presence => true
 
-  def assets_array=(array)
-    array.each do |file|
-      attached_assets.build(:asset => file[:asset])
-    end
+  def self.search(page = 1)
+    items_per_page = 10
+    paginate :per_page => items_per_page, :page => page, :order => 'created_at DESC'
   end
+
+
 end

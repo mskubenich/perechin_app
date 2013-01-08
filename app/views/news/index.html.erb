@@ -1,0 +1,7 @@
+<h2 class="star">Новини:</h2>
+
+<% @news.each do |news|%>
+    <%= render :partial => 'news/news', :locals => {:news => news} %>
+<% end %>
+<%= will_paginate @news %>
+

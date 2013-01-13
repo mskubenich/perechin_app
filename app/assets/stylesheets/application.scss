@@ -371,31 +371,65 @@ ol li .send {
 }
 
 /*buttons */
-.submit_button{
-  font-family: SegoeWP;
-  font-weight: bold;
+.edit_button{
+  left: 2px;
+  font-family: Verdana;
+  font-size: 15px;
   min-width: 60px;
-  height: 35px;
+  height: 30px;
   background-color: blue;
   margin: 0 auto;
   color: #ffffff;
   border: 0;
+  border-radius: 3px;
   &:hover{
     cursor: pointer;
     background-color: #0060ff;
   }
 }
 .remove_button{
-  font-family: SegoeWP;
-  font-weight: bold;
+  left: 2px;
+  font-family: Verdana;
+  font-size: 15px;
   min-width: 60px;
-  height: 35px;
+  height: 30px;
   background-color: red;
   margin: 0 auto;
   color: #ffffff;
   border: 0;
+  border-radius: 3px;
   &:hover{
     cursor: pointer;
     background-color: #ff7200;
+  }
+}
+.submit_button{
+  left: 2px;
+  font-family: Verdana;
+  font-size: 15px;
+  min-width: 60px;
+  height: 30px;
+  background-color: #00cc2b;
+  margin: 0 auto;
+  color: #ffffff;
+  border: 0;
+  border-radius: 3px;
+  &:hover{
+    cursor: pointer;
+    background-color: #00e80f;
+  }
+}
+
+.buttons{
+  & form{
+    margin: 0;
+    padding: 0;
+    display: inline;
+    & div{
+      display: inline;
+    }
+    & input{
+      display: inline;
+    }
   }
 }

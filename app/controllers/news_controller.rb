@@ -31,17 +31,17 @@ class NewsController < ApplicationController
 
       @news.body = page.css("body:first").inner_html
       @news.save
-    #  if params[:assets]
-    #    params[:assets].each do |item|
-    #      AttachedAsset.create(:news_id => @news.id, :asset => item[:asset])
-    #    end
-    #  end
-    #
-    #  #@news.attached_assets.build(:asset => params[:assets])
-    # # @news.assets_array = params[:assets]
-    #
-       flash[:success] = "Succesfully created news: " + @news.title
-       redirect_to root_path
+      #  if params[:assets]
+      #    params[:assets].each do |item|
+      #      AttachedAsset.create(:news_id => @news.id, :asset => item[:asset])
+      #    end
+      #  end
+      #
+      #  #@news.attached_assets.build(:asset => params[:assets])
+      # # @news.assets_array = params[:assets]
+      #
+      flash[:success] = "Succesfully created news: " + @news.title
+      redirect_to root_path
     else
       flash[:success] = "Error created news"
       render 'new'
@@ -51,6 +51,55 @@ class NewsController < ApplicationController
     #<%= f.label :asset %>
     #  <%= file_field_tag 'asset', :multiple => true, :name => 'assets[][asset]' %>
     #</div>
+  end
+
+  def edit
+    @news = News.find params[:id]
+    @title = "Add news"
+  end
+
+  def update
+    @news = News.find params[:id]
+    if @news.update_attributes params[:news]
+      require 'nokogiri'
+      page =  Nokogiri::HTML(params[:news][:body])
+
+      @news.attached_assets.each do |image|
+        image_present = false
+        page.xpath("//img[@asset_id=#{image.id.to_s}]").each do |img|
+          image_present = true
+        end
+        unless image_present
+          image.destroy
+        end
+      end
+
+      page.xpath("//img[@asset]").each do |img|
+        if params[:images]['asset'+img['assetnum']]
+          image = AttachedAsset.create(:news_id => @news.id, :asset => params[:images]['asset'+img['assetnum']])
+          img.attribute('src').value = image.asset.url(:original)
+          img['asset_id'] = image.id.to_s
+          params[:images].delete('asset'+img['assetnum'])
+          img.remove_attribute 'assetnum'
+          img.remove_attribute 'asset'
+        else
+          img.replace ""
+        end
+      end
+      if params[:images]
+        params[:images].each do |key, value|
+          AttachedAsset.create(:news_id => @news.id, :asset => value)
+        end
+      end
+
+      @news.body = page.css("body:first").inner_html
+      @news.save
+      flash[:success] = "Succesfully changed news: " + @news.title
+      redirect_to root_path
+    else
+      flash[:success] = "Error created news"
+      render 'new'
+    end
   end
 
   def show

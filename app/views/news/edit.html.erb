@@ -1,0 +1,35 @@
+<%= form_for(@news, :html => {:multipart => true, :id => 'news_form' }) do |f| %>
+    <% if @news.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@news.errors.count, "error") %>
+            prohibited this news from being saved:</h2>
+          <p>There were problems with the following fields:</p>
+          <ul>
+            <% @news.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <div class="field">
+      <%= f.label 'Заголовок:' %><br />
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label 'Коротке прев\'ю:' %><br />
+      <%= f.text_area :preview, :rows => 10 %>
+    </div>
+    <div class="field">
+      <%= f.label 'Вміст новини:' %><br />
+      <%= f.text_area :body %>
+    </div>
+    <div class="field">
+      <%= f.label 'Джерело:' %>
+      <%= f.text_field :source %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Зберегти зміни", :class => 'submit_button' %>
+    </div>
+<% end %>
+
+

@@ -11,7 +11,7 @@
   </div>
   <% end %>
   <div><%= raw @news.body %></div>
-  <div>Джерело:?&nbsp; <%= raw @news.source %></div>
+  <div>Джерело:&nbsp; <%= raw @news.source %></div>
   <p>
     <% if current_user && current_user.role.name == "admin" %>
         &nbsp;<%= button_to "Видалити", news_path(@news), :method => :delete, :class => "remove_button", :confirm => "Are you sure you wont to delete news ?"%>

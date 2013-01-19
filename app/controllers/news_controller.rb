@@ -31,15 +31,6 @@ class NewsController < ApplicationController
 
       @news.body = page.css("body:first").inner_html
       @news.save
-      #  if params[:assets]
-      #    params[:assets].each do |item|
-      #      AttachedAsset.create(:news_id => @news.id, :asset => item[:asset])
-      #    end
-      #  end
-      #
-      #  #@news.attached_assets.build(:asset => params[:assets])
-      # # @news.assets_array = params[:assets]
-      #
       flash[:success] = "Succesfully created news: " + @news.title
       redirect_to root_path
     else

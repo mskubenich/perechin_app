@@ -24,7 +24,7 @@ html, .main {
 }
 .logo {
     padding:0 0 0 40px;
-    width:auto;
+    width: auto;
     position: absolute;
     top: 0px;
     left: 0px;
@@ -88,6 +88,7 @@ a.rm, a.com {
 }
 .hbg {
     background: url(logo.jpg) no-repeat center top;
+    background-size: 970px 262px;
     height: 262px;
     border: 0;
     position: relative;
@@ -214,16 +215,16 @@ ul.ex_menu li a:hover {
     display:block;
     font-size:18px;
 }
-.content p.pages {
+.content div.pagination {
     font-size:11px;
     text-align:right;
 }
-.content p.pages span, .content p.pages a:hover {
+.content div.pagination em, .content div.pagination a:hover {
     padding:5px 10px;
     color:#fff;
     background-color:#49b6e9;
 }
-.content p.pages a {
+.content div.pagination a {
     padding:5px 10px;
     color:#fff;
     background-color:#b9b9b9;

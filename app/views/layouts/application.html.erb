@@ -47,28 +47,7 @@
         <%= yield %>
       </div>
       <div class="sidebar">
-        <div class="gadget">
-          <h2 class="star"><span>Меню:</span></h2>
-          <div class="clr"></div>
-          <ul>
-            <li>
-              <%= link_to "Додому", root_path %>
-            </li>
-            <li>
-              <%= link_to "Новини", news_index_path %>
-            </li>
-          </ul>
-        </div>
-        <div class="gadget">
-          <h2 class="star"><span>Погода:</span></h2>
-          <div class="clr"></div>
-          <%= render :partial => 'layouts/weather' %>
-        </div>
-        <div class="gadget">
-          <h2 class="star"><span>Курс валют:</span></h2>
-          <div class="clr"></div>
-          <%= render :partial => 'layouts/exchange_rate' %>
-        </div>
+        <%=  render :partial => 'layouts/sidebar' %>
       </div>
       <div class="clr"></div>
     </div>

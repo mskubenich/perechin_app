@@ -12,14 +12,14 @@
 </div>
 <% if params[:controller] =~ /admin\/[A-Za-z]*/ %>
     <div class="gadget">
-      <h2 class="star"><span>Меню:</span></h2>
+      <h2 class="star"><span>Адмінка:</span></h2>
       <div class="clr"></div>
       <ul class="sb_menu">
         <li>
-          <%= link_to "Ролі", root_path %>
+          <%= link_to "Ролі", admin_roles_path %>
         </li>
         <li>
-          <%= link_to "Категорії/теги", news_index_path %>
+          <%= link_to "Категорії/теги", admin_tags_path %>
         </li>
       </ul>
     </div>

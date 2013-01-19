@@ -128,11 +128,12 @@ a.rm, a.com {
 .menu_nav ul li.active a, .menu_nav ul li a:hover {
     color:#61c0ec;
 }
-.content_resize {
+
+.content{
+    width: 970px;
     margin:0 auto;
-    padding:0;
-    width:970px;
 }
+
 .content .mainbar {
     margin:0;
     padding:0;
@@ -360,7 +361,11 @@ ol li .send {
     color:red;
 }
 
-.field input, textarea{
+.field{
+  width: 100%;
+}
+
+.field input[type=text], textarea{
     width: 100%;
     border: 1px solid blue;
     border-radius: 4px;
@@ -433,4 +438,31 @@ ol li .send {
       display: inline;
     }
   }
+}
+
+/* autocomplete */
+
+.autocomplete{
+  position: relative;
+  height: 0px;
+  width: 0px;
+  display: none;
+}
+.autocomplete .list{
+   padding: 4px;
+   color: blue;
+   position: absolute;
+   background-color: white;
+   border: 1px solid blue;
+   z-index: 1000;
+}
+.tag_option{
+  cursor: pointer;
+} 
+.tag{
+  border: 2px solid #00cc2b;
+  border-radius: 4px;
+  margin: 2px;
+  padding: 2px;
+  display: inline-block;
 }

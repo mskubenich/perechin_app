@@ -1,0 +1,3 @@
+<% @tags.each do |tag| %>
+  <div class="tag_option" onclick="add_tag('<%= tag.title%>', '<%= tag.id %>')"><%= tag.title %></div>
+<% end %>

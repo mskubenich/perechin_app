@@ -8,8 +8,8 @@ class Admin::RolesController < ApplicationController
   end
 
   def new
-    @title = "Create Role"
-    @role = Role.new
+    @title = "Create Tag"
+    @role = Tag.new
   end
 
   def create

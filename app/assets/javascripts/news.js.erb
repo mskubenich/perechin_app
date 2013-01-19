@@ -4,6 +4,8 @@
 //= require ./elrte/js/elrte.full
 //= require ./elrte/js/i18n/elrte.ru.js
 
+var timeout;
+
 function add_comment_handler(new_comment_url){
     j("#add_comment").click(function(){
         if(j("#new_comment").val().trim() != ""){
@@ -27,11 +29,60 @@ function add_comment_handler(new_comment_url){
     });
 }
 
-function remove_unusable_images(){
+function tag_field_changed(field){
+    if(j(field).val() == ""){
+        j(".autocomplete").hide();
+    }else{
+        j.ajax({
+            url: '/admin/tags_search',
+            data: {keyword: j(field).val()},
+            type: 'GET',
+            beforeSend: function () {
+            },
+            complete: function(){
+            },
+            error: function(err){
+                alert("error");
+            },
+            success: function(data){
+                j(".autocomplete").show();
+                if(data != ""){
+                    j(".list").html(data);
+                }else{
+                    j(".list").html('');
+                    j(".autocomplete").hide();
+                }
+            }
+        });
+    }
+}
 
+function add_tag_button_clicked(){
+    if(j("#tag_selector").val() != ""){
+        j(".tags_container").append("<div class='tag'>"+j("#tag_selector").val()+"</div>");
+        j("#tag_selector").val('');
+        j(".autocomplete").hide();
+    }
+}
+
+function add_tag(name, id){
+    j("#tag_selector").val('');
+    j(".tags_container").append("<div class='tag'>"+name+"</div>");
+    j(".autocomplete").hide();
 }
 
 j(document).ready(function(){
+    j('#tag_selector').each(function(){
+        j(this).keyup(function(){
+            tag_field_changed(this);
+        });
+        j(this).blur(function(e){
+            timeout = setTimeout('j(".autocomplete").hide()', 3000);
+        });
+        j(this).focus(function(e){
+            clearTimeout(timeout);
+        });
+    });
     if(j("#galleria").length){
         include('/assets/galleria/galleria-1.2.8.min.js?body=1');
     }

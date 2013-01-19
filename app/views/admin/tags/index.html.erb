@@ -1,0 +1,7 @@
+<%= link_to "New tag", new_admin_tag_path %>
+<hr/>
+Tag List<br/><br/>
+<% for tag in @tags %>
+    <%= tag.title %> => <%= link_to "Edit", edit_admin_tag_path(tag) %>::<%= link_to "Delete", admin_tag_path(tag), :confirm => "Are you sure?", :method => :delete %>
+    <hr/>
+<% end %>

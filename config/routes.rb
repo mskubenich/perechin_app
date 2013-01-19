@@ -18,9 +18,17 @@ SampleApp::Application.routes.draw do
   match '/about',   :to => 'pages#about'
   match '/help',    :to => 'pages#help'
 
+
   namespace :admin do
     resources :roles
+    resources :tags
+    match "tags_search", :to => "tags#tags_for_autocomplete"
+
   end
+
+
+
+
 
   match '/join_confirm', :to => 'sessions#join_confirm'
 

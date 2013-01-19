@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130113185138) do
+ActiveRecord::Schema.define(:version => 20130119133545) do
 
   create_table "actions", :force => true do |t|
     t.string "controller"
@@ -58,9 +58,20 @@ ActiveRecord::Schema.define(:version => 20130113185138) do
     t.text     "preview"
   end
 
+  create_table "news_tags", :force => true do |t|
+    t.integer "news_id"
+    t.integer "tag_id"
+  end
+
   create_table "roles", :force => true do |t|
     t.string "name"
     t.text   "description"
+  end
+
+  create_table "tags", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

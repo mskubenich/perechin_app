@@ -16,7 +16,7 @@ class News < ActiveRecord::Base
     conditions = [" id > 0 "]
     if tag
       paginate :per_page => items_per_page, :page => page,
-               :conditions => conditions,
+               :conditions => ["tags.id = " + tag],
                :joins => :tags,
                :order => 'created_at DESC'
     else

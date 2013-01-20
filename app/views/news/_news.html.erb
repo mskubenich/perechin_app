@@ -2,7 +2,11 @@
   <p class="date"><%= news.created_at.year %><span><%= news.created_at.day%>/<%= news.created_at.month %></span></p>
   <h2><span><%= link_to news.title.to_s, news_path(news) %></span></h2>
   <div class="clr"></div>
-  <p><% if current_user && current_user.role.name == "admin" %><%= "Розмістив:"+news.user.name %>&nbsp;|&nbsp; <% end  %> Теги: <a href="#">закарпаття</a>, <a href="#">політика</a></p>
+  <p><% if current_user && current_user.role.name == "admin" %><%= "Розмістив:"+news.user.name %>&nbsp;|&nbsp; <% end  %> Теги:
+    <% news.tags.each do |tag| %>
+    <a href="#"><%= tag.title %></a>,
+    <% end %>
+  </p>
   <% if news.attached_assets.count > 0 %>
   <div class="img">
     <div><%= image_tag  news.attached_assets[0].asset.url(:original) %></div>

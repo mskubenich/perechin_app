@@ -9,6 +9,7 @@ class NewsController < ApplicationController
   def create
     @news = current_user.news.build(params[:news])
     if @news.save
+      #save attached images
       require 'nokogiri'
       page =  Nokogiri::HTML(params[:news][:body])
       page.xpath("//img[@asset]").each do |img|
@@ -28,8 +29,18 @@ class NewsController < ApplicationController
           AttachedAsset.create(:news_id => @news.id, :asset => value)
         end
       end
-
       @news.body = page.css("body:first").inner_html
+      #save tags
+      tags = []
+      params[:tags].each do |key, value|
+        tag = Tag.find_by_title key
+        unless tag
+          tag = Tag.create(:title => key)
+        end
+        tags << tag
+      end
+      @news.tags = tags
+
       @news.save
       flash[:success] = "Succesfully created news: " + @news.title
       redirect_to root_path
@@ -37,11 +48,6 @@ class NewsController < ApplicationController
       flash[:success] = "Error created news"
       render 'new'
     end
-
-    #<div class="field">
-    #<%= f.label :asset %>
-    #  <%= file_field_tag 'asset', :multiple => true, :name => 'assets[][asset]' %>
-    #</div>
   end
 
   def edit
@@ -82,8 +88,19 @@ class NewsController < ApplicationController
           AttachedAsset.create(:news_id => @news.id, :asset => value)
         end
       end
-
       @news.body = page.css("body:first").inner_html
+
+      #save tags
+      tags = []
+      params[:tags].each do |key, value|
+        tag = Tag.find_by_title key
+        unless tag
+          tag = Tag.create(:title => key)
+        end
+        tags << tag
+      end
+      @news.tags = tags
+
       @news.save
       flash[:success] = "Succesfully changed news: " + @news.title
       redirect_to root_path

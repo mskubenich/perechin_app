@@ -59,16 +59,23 @@ function tag_field_changed(field){
 
 function add_tag_button_clicked(){
     if(j("#tag_selector").val() != ""){
-        j(".tags_container").append("<div class='tag'>"+j("#tag_selector").val()+"</div>");
-        j("#tag_selector").val('');
-        j(".autocomplete").hide();
+        add_tag(j("#tag_selector").val(), null, "#00cc2b;");
     }
 }
 
-function add_tag(name, id){
+function add_tag(name, id, color){
+    color =  color || "#0089ff;";
     j("#tag_selector").val('');
-    j(".tags_container").append("<div class='tag'>"+name+"</div>");
+    j(".tags_container").append("<div class='tag' style='border: 2px solid "+ color +"'>" +
+            "<div class='remove_icon' onclick='remove_tag(this);'>" +
+            "</div>"+name+"" +
+            "<input name='tags["+ name +"]' style='display: none;' >" +
+            "</div>");
     j(".autocomplete").hide();
+}
+
+function remove_tag(span){
+    j(span).parent().remove();
 }
 
 j(document).ready(function(){

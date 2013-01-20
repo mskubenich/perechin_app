@@ -2,7 +2,11 @@
   <p class="date"><%= @news.created_at.year %><span><%= @news.created_at.day%>/<%= @news.created_at.month %></span></p>
   <h2><span><%= @news.title %></span></h2>
   <div class="clr"></div>
-  <p>Розмістив: <%= @news.user.name %> &nbsp;|&nbsp; Теги: <a href="#">закарпаття</a>, <a href="#">політика</a></p>
+  <p>Розмістив: <%= @news.user.name %> &nbsp;|&nbsp; Теги:
+    <% @news.tags.each do |tag| %>
+        <a href="#"><%= tag.title %></a>,
+    <% end %>
+  </p>
   <% if @news.id <= 25 && @news.attached_assets.count > 0 %>
   <div id="galleria">
     <% @news.attached_assets.each do |asset| %>
@@ -12,12 +16,12 @@
   <% end %>
   <div><%= raw @news.body %></div>
   <div>Джерело:&nbsp; <%= raw @news.source %></div>
-  <p>
+  <div class="buttons">
     <% if current_user && current_user.role.name == "admin" %>
-        &nbsp;<%= button_to "Видалити", news_path(@news), :method => :delete, :class => "remove_button", :confirm => "Are you sure you wont to delete news ?"%>
+        <%= button_to "Видалити", news_path(@news), :method => :delete, :class => "remove_button", :confirm => "Are you sure you wont to delete news ?" %>
+        <%= button_to "Змінити", edit_news_path(@news), :method => :get, :class => "edit_button" %>
     <% end %>
-
-  </p>
+  </div>
 </div>
 
 <div id="comments">

@@ -11,9 +11,16 @@ class News < ActiveRecord::Base
   validates :source, :presence => true
   validates :preview, :presence => true
 
-  def self.search(page = 1)
-    items_per_page = 10
-    paginate :per_page => items_per_page, :page => page, :order => 'created_at DESC'
+  def self.search(page = 1, tag)
+    items_per_page = 3
+    conditions = []
+    if tag
+      conditions << "tags.id = " + tag
+    end
+    paginate :per_page => items_per_page, :page => page,
+             :conditions => conditions,
+             :joins => :tags,
+             :order => 'created_at DESC'
   end
 
 

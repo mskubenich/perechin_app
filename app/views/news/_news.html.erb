@@ -4,7 +4,7 @@
   <div class="clr"></div>
   <p><% if current_user && current_user.role.name == "admin" %><%= "Розмістив:"+news.user.name %>&nbsp;|&nbsp; <% end  %> Теги:
     <% news.tags.each do |tag| %>
-    <a href="#"><%= tag.title %></a>,
+        <%= link_to tag.title, news_index_path(:tag => tag.id)%>,
     <% end %>
   </p>
   <% if news.attached_assets.count > 0 %>

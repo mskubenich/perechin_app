@@ -127,7 +127,8 @@ class NewsController < ApplicationController
   end
 
   def index
-    @news = News.search(params[:page])
+    @news = News.search(params[:page], params[:tag])
+    @tag = Tag.find(params[:tag]) if params[:tag]
   end
 
 end

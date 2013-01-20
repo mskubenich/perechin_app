@@ -12,7 +12,7 @@ class News < ActiveRecord::Base
   validates :preview, :presence => true
 
   def self.search(page = 1, tag)
-    items_per_page = 3
+    items_per_page = 10
     conditions = []
     if tag
       conditions << "tags.id = " + tag

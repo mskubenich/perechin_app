@@ -13,14 +13,16 @@ class News < ActiveRecord::Base
 
   def self.search(page = 1, tag)
     items_per_page = 10
-    conditions = []
+    conditions = [" id > 0 "]
     if tag
-      conditions << "tags.id = " + tag
+      paginate :per_page => items_per_page, :page => page,
+               :conditions => conditions,
+               :joins => :tags,
+               :order => 'created_at DESC'
+    else
+      paginate :per_page => items_per_page, :page => page,
+               :order => 'created_at DESC'
     end
-    paginate :per_page => items_per_page, :page => page,
-             :conditions => conditions,
-             :joins => :tags,
-             :order => 'created_at DESC'
   end
 
 

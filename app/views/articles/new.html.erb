@@ -1,0 +1,62 @@
+<%= form_for(@article, :html => {:multipart => true, :id => 'article_form' }) do |f| %>
+    <% if @article.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@article.errors.count, "error") %>
+            prohibited this article from being saved:</h2>
+          <p>There were problems with the following fields:</p>
+          <ul>
+            <% @article.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <div class="field">
+      <%= f.label 'Заголовок:' %><br />
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label 'Коротке прев\'ю:' %><br />
+      <%= f.text_area :preview, :rows => 10 %>
+    </div>
+    <div class="field tag_sel">
+      <%= f.label 'Теги:' %>
+      <div class="tags_container">
+        <% if params[:tags] %>
+          <% params[:tags].each do |key, value| %>
+              <div class='tag' style='border: 2px solid #00cc2b;'>
+                <div class='remove_icon' onclick='remove_tag(this);'></div>
+                <%= key %>
+                <input name='tags[<%= key %>]' style='display: none;'>
+              </div>
+          <% end %>
+        <% else %>
+            <% @article.tags.each do |key, value| %>
+                <div class='tag' style='border: 2px solid #00cc2b;'>
+                  <div class='remove_icon' onclick='remove_tag(this);'></div>
+                  <%= key %>
+                  <input name='tags[<%= key %>]' style='display: none;'>
+                </div>
+            <% end %>
+        <% end %>
+      </div>
+      <input type="text" style="width: 300px" id="tag_selector">&nbsp;
+      <input type="button" class="add_button" value="+" onclick="add_tag_button_clicked()"/>
+      <div class="autocomplete"><div class="list">
+
+      </div></div>
+    </div>
+    <div class="field">
+      <%= f.label 'Вміст новини:' %><br />
+      <%= f.text_area :body %>
+    </div>
+    <div class="field">
+      <%= f.label 'Джерело:' %>
+      <%= f.text_field :source %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Додати статтю", :class => 'submit_button' %>
+    </div>
+<% end %>
+
+

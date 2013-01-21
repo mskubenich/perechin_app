@@ -123,7 +123,7 @@ class NewsController < ApplicationController
 
   def destroy
     @news = News.find(params[:id]).destroy
-    redirect_to :back
+    redirect_to news_index_path
   end
 
   def index

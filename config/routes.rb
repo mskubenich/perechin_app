@@ -13,6 +13,9 @@ SampleApp::Application.routes.draw do
   resources :news do
     match 'new_comment', :to => 'news#create_comment'
   end
+  resources :articles do
+    match 'new_comment', :to => 'articles#create_comment'
+  end
 
   match '/contact', :to => 'pages#contact'
   match '/about',   :to => 'pages#about'

@@ -19,7 +19,8 @@
         <ul>
           <li><%= link_to "Home", root_path,  :class=>"active" %></li>
           <% if signed_in? %>
-              <li><%= link_to "Add News", new_news_path %></li>  .
+              <li><%= link_to "Add News", new_news_path %></li>
+              <li><%= link_to "Add Article", new_article_path %></li>  .
               <li><%= link_to "Admin", admin_roles_path %></li>
           <% end %>
           <% if signed_in? %>

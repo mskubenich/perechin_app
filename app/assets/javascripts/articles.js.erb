@@ -1,0 +1,122 @@
+// Place all the behaviors and hooks related to the matching controller here.
+// All this logic will automatically be available in application.js.
+//= require ./jquery_ui/jquery-ui.min
+//= require ./elrte/js/elrte.full
+//= require ./elrte/js/i18n/elrte.ru.js
+
+var timeout;
+
+function add_comment_handler(new_comment_url){
+    j("#add_comment").click(function(){
+        if(j("#new_comment").val().trim() != ""){
+            j.ajax({
+                url: new_comment_url,
+                data: {text: j("#new_comment").val()},
+                type: 'POST',
+                beforeSend: function () {
+                },
+                complete: function(){
+                },
+                error: function(err){
+                    alert("error");
+                },
+                success: function(data){
+                    j("#comments").append(data);
+                    j("#new_comment").val("");
+                }
+            });
+        }
+    });
+}
+
+function tag_field_changed(field){
+    if(j(field).val() == ""){
+        j(".autocomplete").hide();
+    }else{
+        j.ajax({
+            url: '/admin/tags_search',
+            data: {keyword: j(field).val()},
+            type: 'GET',
+            beforeSend: function () {
+            },
+            complete: function(){
+            },
+            error: function(err){
+                alert("error");
+            },
+            success: function(data){
+                j(".autocomplete").show();
+                if(data != ""){
+                    j(".list").html(data);
+                }else{
+                    j(".list").html('');
+                    j(".autocomplete").hide();
+                }
+            }
+        });
+    }
+}
+
+function add_tag_button_clicked(){
+    if(j("#tag_selector").val() != ""){
+        add_tag(j("#tag_selector").val(), null, "#00cc2b;");
+    }
+}
+
+function add_tag(name, id, color){
+    color =  color || "#0089ff;";
+    j("#tag_selector").val('');
+    j(".tags_container").append("<div class='tag' style='border: 2px solid "+ color +"'>" +
+            "<div class='remove_icon' onclick='remove_tag(this);'>" +
+            "</div>"+name+"" +
+            "<input name='tags["+ name +"]' style='display: none;' >" +
+            "</div>");
+    j(".autocomplete").hide();
+}
+
+function remove_tag(span){
+    j(span).parent().remove();
+}
+
+j(document).ready(function(){
+    j('#tag_selector').each(function(){
+        j(this).keyup(function(){
+            tag_field_changed(this);
+        });
+        j(this).blur(function(e){
+            timeout = setTimeout('j(".autocomplete").hide()', 3000);
+        });
+        j(this).focus(function(e){
+            clearTimeout(timeout);
+        });
+    });
+    if(j("#galleria").length){
+        include('/assets/galleria/galleria-1.2.8.min.js?body=1');
+    }
+    var opts = {
+        cssClass : 'el-rte',
+        lang     : 'ru',
+        height   : 450,
+        toolbar  : 'complete'
+    };
+    j('#article_body').elrte(opts);
+    j('#article_form').submit(function(){
+        var form = j(this);
+        form.find('.attached_image').each(function(){
+            var name = j(this).attr('name');
+            var is_image = false;
+            form.find('iframe').each(function(){
+                j(this.contentWindow.document).find("img[asset='"+name+"']").each(function(){
+                    is_image = true;
+                    j(this).attr('src','');
+                });
+            });
+            if(!is_image){
+                j(this).remove();
+            }
+        });
+        form.find('#article_body').val(form.find('iframe').get(0).contentWindow.document.body.innerHTML);
+//return false;
+    });
+});
+

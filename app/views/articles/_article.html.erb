@@ -1,0 +1,26 @@
+<div class="article">
+  <p class="date"><%= article.created_at.year %><span><%= article.created_at.day%>/<%= article.created_at.month %></span></p>
+  <h2><span><%= link_to article.title.to_s, article_path(article) %></span></h2>
+  <div class="clr"></div>
+  <p><% if current_user && current_user.role.name == "admin" %><%= "Розмістив:"+article.user.name %>&nbsp;|&nbsp; <% end  %> Теги:
+    <% article.tags.each do |tag| %>
+        <%= link_to tag.title, articles_path(:tag => tag.id)%>,
+    <% end %>
+  </p>
+  <% if article.attached_assets.count > 0 %>
+  <div class="img">
+    <div><%= image_tag  article.attached_assets[0].asset.url(:original) %></div>
+  </div>
+  <% end %>
+  <p><%= article.preview || article.body.to_s[0..500] + "..." %></p>
+  <p class="spec"><%= link_to "Читати більше...", article_path(article), :class => "rm"%>&nbsp;|&nbsp;<%= link_to "Коментарі("+article.comments.count.to_s+")", article_path(article), :class => "com" %> </p>
+  <div class="buttons">
+  <% if current_user && current_user.role.name == "admin" %>
+      <%= button_to "Видалити", article_path(article), :method => :delete, :class => "remove_button", :confirm => "Are you sure you wont to delete article ?" %>
+      <%= button_to "Змінити", edit_article_path(article), :method => :get, :class => "edit_button" %>
+  <% end %>
+  </div>
+
+</div>
+
+

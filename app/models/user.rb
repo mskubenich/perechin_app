@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_one :join_confirmation
   has_many :comments
   has_many :news
+  has_many :articles
 
   attr_accessor :password
   attr_accessible :name, :email, :password, :password_confirmation, :avatar

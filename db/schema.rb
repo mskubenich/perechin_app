@@ -11,12 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130119133545) do
+ActiveRecord::Schema.define(:version => 20130121155322) do
 
   create_table "actions", :force => true do |t|
     t.string "controller"
     t.string "action"
     t.string "method"
+  end
+
+  create_table "articles", :force => true do |t|
+    t.string   "title"
+    t.text     "body",       :limit => 16777215
+    t.integer  "user_id"
+    t.string   "source"
+    t.text     "preview"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
+
+  create_table "articles_tags", :force => true do |t|
+    t.integer "article_id"
+    t.integer "tag_id"
   end
 
   create_table "attached_assets", :force => true do |t|
@@ -25,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20130119133545) do
     t.integer  "asset_file_size"
     t.datetime "asset_updated_at"
     t.integer  "news_id"
+    t.integer  "article_id"
   end
 
   create_table "comments", :force => true do |t|
@@ -33,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20130119133545) do
     t.integer  "news_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "article_id"
   end
 
   create_table "controller_role_permissions", :force => true do |t|
@@ -86,6 +103,7 @@ ActiveRecord::Schema.define(:version => 20130119133545) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.integer  "role_id"
+    t.integer  "article_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

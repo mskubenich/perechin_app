@@ -1,0 +1,9 @@
+<h2 class="star"><%= link_to "Статті", articles_path %>: &nbsp;<%= @tag.title if @tag %></h2>
+
+
+<%= will_paginate @articles %>
+<% @articles.each do |article|%>
+    <%= render :partial => 'articles/article', :locals => {:article => article} %>
+<% end %>
+<%= will_paginate @articles %>
+

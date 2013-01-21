@@ -1,0 +1,49 @@
+<div class="article">
+  <p class="date"><%= @article.created_at.year %><span><%= @article.created_at.day%>/<%= @article.created_at.month %></span></p>
+  <h2><span><%= @article.title %></span></h2>
+  <div class="clr"></div>
+  <p>Розмістив: <%= @article.user.name %> &nbsp;|&nbsp; Теги:
+    <% @article.tags.each do |tag| %>
+        <%= link_to tag.title, articles_path(:tag => tag.id)%>,
+    <% end %>
+  </p>
+  <% if @article.id <= 25 && @article.attached_assets.count > 0 %>
+  <div id="galleria">
+    <% @article.attached_assets.each do |asset| %>
+        <%= image_tag asset.asset.url(:original) %>
+    <% end %>
+  </div>
+  <% end %>
+  <div><%= raw @article.body %></div>
+  <div>Джерело:&nbsp; <%= raw @article.source %></div>
+  <div class="buttons">
+    <% if current_user && current_user.role.name == "admin" %>
+        <%= button_to "Видалити", article_path(@article), :method => :delete, :class => "remove_button", :confirm => "Are you sure you wont to delete article ?" %>
+        <%= button_to "Змінити", edit_article_path(@article), :method => :get, :class => "edit_button" %>
+    <% end %>
+  </div>
+</div>
+
+<div id="comments">
+  <div class="article_title">Discussion: <%= @article.comments.count.to_s %> comments:</div>
+  <% @article.comments.each do |comment| %>
+      <%= render :partial => 'comment', :locals => { :comment => comment } %>
+  <% end %>
+</div>
+
+<% if current_user %>
+<div>
+  <div class="article_title">Add comment:</div>
+  <textarea id="new_comment" cols="78" rows="10">
+
+  </textarea>
+  <br/>
+  <input type="button" id="add_comment" value="Add comment"/>
+</div>
+
+<script type="text/javascript">
+    j(document).ready(function(){
+        add_comment_handler('<%= article_new_comment_url(@article) %>');
+    });
+</script>
+<% end %>

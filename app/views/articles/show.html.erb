@@ -7,13 +7,6 @@
         <%= link_to tag.title, articles_path(:tag => tag.id)%>,
     <% end %>
   </p>
-  <% if @article.id <= 25 && @article.attached_assets.count > 0 %>
-  <div id="galleria">
-    <% @article.attached_assets.each do |asset| %>
-        <%= image_tag asset.asset.url(:original) %>
-    <% end %>
-  </div>
-  <% end %>
   <div><%= raw @article.body %></div>
   <div>Джерело:&nbsp; <%= raw @article.source %></div>
   <div class="buttons">

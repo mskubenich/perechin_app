@@ -4,5 +4,4 @@
   <%= render :partial => 'news/news', :locals => {:news => news} %>
 <% end %>
 
-<%= button_to "Більше новин...", news_index_path, :class=>"submit_button" %>
-
+<%= link_to "<div class='submit_button' >Більше новин...<div/>", news_index_path %>

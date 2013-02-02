@@ -17,18 +17,18 @@
       </div>
       <div class="menu_nav">
         <ul>
-          <li><%= link_to "Home", root_path,  :class=>"active" %></li>
+          <li><%= link_to "Головна", root_path,  :class=>"active" %></li>
           <% if signed_in? %>
-              <li><%= link_to "Add News", new_news_path %></li>
-              <li><%= link_to "Add Article", new_article_path %></li>  .
-              <li><%= link_to "Admin", admin_roles_path %></li>
+              <li><%= link_to "Додати новину", new_news_path %></li>
+              <li><%= link_to "Додати статті", new_article_path %></li>  .
+              <li><%= link_to "Адмін", admin_roles_path %></li>
           <% end %>
           <% if signed_in? %>
               <li><%= link_to current_user.name, current_user %></li>
-              <li><%= link_to "Sign out", signout_path, :method => :delete %></li>
+              <li><%= link_to "Вийти", signout_path, :method => :delete %></li>
           <% else %>
-              <li><%= link_to "Sign in", signin_path %></li>
-              <li><%= link_to "Sign up", sign_up_path %></li>
+              <li><%= link_to "Увійти", signin_path %></li>
+              <li><%= link_to "Зареєструватися", sign_up_path %></li>
           <% end %>
         </ul>
       </div>
@@ -44,6 +44,17 @@
   <% end %>
   <div class="content">
     <div class="content_resize">
+      <ul class="menu">
+        <li>
+          <%= link_to "Додому", root_path %>
+        </li>
+        <li>
+          <%= link_to "Новини", news_index_path %>
+        </li>
+        <li>
+          <%= link_to "Статті", articles_path %>
+        </li>
+      </ul>
       <div class="mainbar">
         <%= yield %>
       </div>

@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 @font-face {
-  font-family: SegoeWP;
+  font-family: NormalFont;
   src: url('fonts/SegoeWP-Light.ttf') format("opentype");
 }
 
@@ -514,15 +514,15 @@ ol li .send {
 /*home menu */
 ul.menu  > li{
   display: inline-block;
-  font-family: sans-serif;
+  font-family: NormalFont;
+  padding-top: 15px;
   & a{
     text-decoration: none; 
     color: rgb(149, 149, 149);
-    font-size: 18px;
+    font-size: 22px;
     font-style: normal;
     font-weight: normal;
     padding-right: 10px;
-    font-family: Arial;
     &:hover{
       color: #00b3ea;
     }

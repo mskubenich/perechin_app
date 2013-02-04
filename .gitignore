@@ -21,6 +21,10 @@
 .project
 .DC_Store
 /config/database.yml
-.idea
 .sass-cache/
 public/assets/
+/.idea/.generators
+/.idea/.rakeTasks
+/.idea/misc.xml
+/.idea/sample_app.iml
+/.idea/workspace.xml

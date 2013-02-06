@@ -41,6 +41,8 @@ class NewsController < ApplicationController
       end
       @news.tags = tags
 
+      @news.view_count = 0
+
       @news.save
       flash[:success] = "Succesfully created news: " + @news.title
       redirect_to root_path
@@ -112,6 +114,8 @@ class NewsController < ApplicationController
 
   def show
     @news = News.find(params[:id])
+    sql = ActiveRecord::Base.connection()
+    sql.execute("UPDATE news SET view_count = #{(@news.view_count + 1).to_s} WHERE id = #{(@news.id).to_s}")
   end
 
   def create_comment

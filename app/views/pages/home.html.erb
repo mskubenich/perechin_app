@@ -1,7 +1,51 @@
-<h2 class="star">Останні новини:</h2>
+<div id="galleria">
+</div>
+<div class="news_list">
+  Останні новини:<br/><br/>
+  <% @last_news.each do |news|%>
+      <%= news.created_at.day%>/<%= news.created_at.month %>/<%= news.created_at.year %>&nbsp;<%= news.created_at.hour%>:<%= news.created_at.min %>&nbsp;<%= link_to news.title.to_s, news_path(news) %>
+      <%= image_tag 'vico-views.png', :style => "display: inline" %>&nbsp;<%= news.view_count %>&nbsp;
+      <%= image_tag 'vico-comments.png', :style => "display: inline" %>&nbsp;<%= news.comments.count %>
+      <br/>
+  <% end %>
+  <%= link_to raw("<div class='read_more'>Більше новин...</div>"), news_index_path %>
+</div>
 
-<% @news.each do |news|%>
-  <%= render :partial => 'news/news', :locals => {:news => news} %>
+<div class="news_list">
+Останні статті:<br/><br/>
+<% @last_articles.each do |article|%>
+    <%= article.created_at.day%>/<%= article.created_at.month %>/<%= article.created_at.year %>&nbsp;<%= article.created_at.hour%>:<%= article.created_at.min %>&nbsp;<%= link_to article.title.to_s, articles_path(article) %>
+    <%= image_tag 'vico-views.png', :style => "display: inline" %>&nbsp;<%= article.view_count %>&nbsp;
+    <%= image_tag 'vico-comments.png', :style => "display: inline" %>&nbsp;<%= article.comments.count %>
+    <br/>
 <% end %>
+<%= link_to raw("<div class='read_more'>Більше статей...</div>"), articles_path %>
+</div>
 
-<%= link_to "Більше новин...", news_index_path %>
+
+<script type="text/javascript">
+    j(document).ready(function(){
+        if(j("#galleria")){
+            Galleria.loadTheme('/assets/galleria/themes/classic/galleria.classic.min.js');
+            var data = [
+                <% @galleria_news.each do |news|%>
+                {
+                    image: '<%= news.attached_assets[0].asset.url(:original)%>',
+                    title: '<%= news.title %>',
+                    description: '<%= news.preview%>',
+                    link: '<%= news_path(news)%>'
+                }
+                <% if news != @galleria_news.last %>
+                ,
+                <% end %>
+                <% end %>
+            ];
+            Galleria.configure({
+                autoplay: true,
+                dataSource: data
+            });
+
+            Galleria.run('#galleria');
+        }
+    });
+</script>

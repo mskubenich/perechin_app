@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130121155322) do
+ActiveRecord::Schema.define(:version => 20130206080759) do
 
   create_table "actions", :force => true do |t|
     t.string "controller"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20130121155322) do
     t.text     "preview"
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
+    t.integer  "view_count"
   end
 
   create_table "articles_tags", :force => true do |t|
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20130121155322) do
     t.integer  "user_id"
     t.string   "source"
     t.text     "preview"
+    t.integer  "view_count"
   end
 
   create_table "news_tags", :force => true do |t|

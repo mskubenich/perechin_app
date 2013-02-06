@@ -73,7 +73,7 @@ a {
 a.rm, a.com {
     text-decoration:none;
 }
-.header, .content, .menu_nav, .fbg, .footer, form, ol, ol li, ul, .content .mainbar, .content .sidebar {
+.header, .content, .menu_nav, .fbg, .footer, form, ol, ol li, ul{
     margin:0;
     padding:0;
 }
@@ -137,10 +137,10 @@ a.rm, a.com {
 
 .content .mainbar {
     margin:0;
-    padding:0;
+    padding-right: 10px;
     float:left;
-    width:670px;
-    border: 0;
+    width:655px;
+    border: 1px solid #dedede;
 }
 .content .mainbar img.fl {
     margin:4px 16px 4px 0;
@@ -170,6 +170,7 @@ a.rm, a.com {
     padding:0;
     float:right;
     width:300px;
+    border: 1px solid #dedede;
 }
 .content .sidebar .gadget {
     margin:0;
@@ -527,4 +528,15 @@ ul.menu  > li{
       color: #00b3ea;
     }
   }
+}
+
+.read_more{
+  background-color: rgba(0, 125, 255, 0.74);
+  width: 100%;
+  text-align: center;
+    text-decoration: none;
+    color: white;
+  font-size: 18px;
+  padding: 5px;
+
 }

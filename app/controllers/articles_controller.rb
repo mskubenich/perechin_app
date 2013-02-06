@@ -40,6 +40,8 @@ class ArticlesController < ApplicationController
         end
         @article.tags = tags
 
+        @news.view_count = 0
+
         @article.save
         flash[:success] = "Succesfully created article: " + @article.title
         redirect_to articles_path
@@ -111,6 +113,8 @@ class ArticlesController < ApplicationController
 
     def show
       @article = Article.find(params[:id])
+      sql = ActiveRecord::Base.connection()
+      sql.execute("UPDATE articles SET view_count = #{(@article.view_count + 1).to_s} WHERE id = #{(@article.id).to_s}")
     end
 
     def create_comment

@@ -1,0 +1,24 @@
+<table>
+  <% @users.each do |user|%>
+    <tr>
+      <td>
+          <%= image_tag user.avatar.url(:original) %>
+      </td>
+      <td>
+        <%= user.name %>
+      </td>
+      <td>
+        <%= user.email %>
+      </td>
+      <td>
+        <%= user.created_at %>
+      </td>
+      <td>
+        <%= user.role.name %>
+      </td>
+      <td>
+        <%= user.join_confirmation ? "not activated" : "" %>
+      </td>
+    </tr>
+  <% end %>
+</table>

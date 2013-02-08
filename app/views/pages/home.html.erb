@@ -3,7 +3,10 @@
 <div class="news_list">
   Останні новини:<br/><br/>
   <% @last_news.each do |news|%>
-      <%= news.created_at.day%>/<%= news.created_at.month %>/<%= news.created_at.year %>&nbsp;<%= news.created_at.hour%>:<%= news.created_at.min %>&nbsp;<%= link_to news.title.to_s, news_path(news) %>
+    <span class="gray_span">
+      <%= news.created_at.day%>/<%= news.created_at.month %>/<%= news.created_at.year %>&nbsp;<%= news.created_at.hour%>:<%= news.created_at.min %>&nbsp;
+    </span>
+    <%= link_to news.title.to_s, news_path(news) %>
       <%= image_tag 'vico-views.png', :style => "display: inline" %>&nbsp;<%= news.view_count %>&nbsp;
       <%= image_tag 'vico-comments.png', :style => "display: inline" %>&nbsp;<%= news.comments.count %>
       <br/>
@@ -14,7 +17,10 @@
 <div class="news_list">
 Останні статті:<br/><br/>
 <% @last_articles.each do |article|%>
-    <%= article.created_at.day%>/<%= article.created_at.month %>/<%= article.created_at.year %>&nbsp;<%= article.created_at.hour%>:<%= article.created_at.min %>&nbsp;<%= link_to article.title.to_s, articles_path(article) %>
+    <span class="gray_span">
+      <%= article.created_at.day%>/<%= article.created_at.month %>/<%= article.created_at.year %>&nbsp;<%= article.created_at.hour%>:<%= article.created_at.min %>&nbsp;
+    </span>
+    <%= link_to article.title.to_s, articles_path(article) %>
     <%= image_tag 'vico-views.png', :style => "display: inline" %>&nbsp;<%= article.view_count %>&nbsp;
     <%= image_tag 'vico-comments.png', :style => "display: inline" %>&nbsp;<%= article.comments.count %>
     <br/>

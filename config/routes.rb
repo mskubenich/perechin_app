@@ -26,12 +26,8 @@ SampleApp::Application.routes.draw do
     resources :roles
     resources :tags
     match "tags_search", :to => "tags#tags_for_autocomplete"
-
+    resources :users, :only => :index
   end
-
-
-
-
 
   match '/join_confirm', :to => 'sessions#join_confirm'
 

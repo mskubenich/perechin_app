@@ -58,7 +58,7 @@
         <%= yield %>
       </div>
       <div class="sidebar">
-        <%=  render :partial => 'layouts/sidebar' %>
+        <%=  render :partial => 'layouts/sidebar', :locals => {:tags => @tags} %>
       </div>
       <div class="clr"></div>
     </div>

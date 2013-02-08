@@ -40,7 +40,7 @@ class ArticlesController < ApplicationController
         end
         @article.tags = tags
 
-        @news.view_count = 0
+        @article.view_count = 0
 
         @article.save
         flash[:success] = "Succesfully created article: " + @article.title

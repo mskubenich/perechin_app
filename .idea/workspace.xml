@@ -22,64 +22,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="7" selection-start="2229" selection-end="2229" vertical-scroll-proportion="-19.807692">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="181" column="3" selection-start="3176" selection-end="3176" vertical-scroll-proportion="-8.28">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="7" selection-start="493" selection-end="493" vertical-scroll-proportion="0.51428574">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="show.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/news/show.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="23" selection-start="633" selection-end="633" vertical-scroll-proportion="-4.576923">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="news.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/news.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="54" selection-start="1783" selection-end="1783" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pages_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/pages_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="17" selection-start="808" selection-end="808" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/news/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="42" selection-start="193" selection-end="193" vertical-scroll-proportion="0.0">
+            <state line="5" column="42" selection-start="193" selection-end="193" vertical-scroll-proportion="-3.2692308">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/pages/home.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pages_controller.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/pages_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="12" selection-start="1089" selection-end="1089" vertical-scroll-proportion="0.47250858">
               <folding />
             </state>
           </provider>
@@ -106,7 +70,6 @@
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/admin/users/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/articles_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/pages_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/home_layout.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/_sidebar.html.erb" />
@@ -114,6 +77,7 @@
         <option value="$PROJECT_DIR$/app/views/news/show.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/news.scss" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.scss" />
+        <option value="$PROJECT_DIR$/app/controllers/pages_controller.rb" />
       </list>
     </option>
   </component>
@@ -955,23 +919,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/pages/home.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/news/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="42" selection-start="193" selection-end="193" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/pages_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="17" selection-start="808" selection-end="808" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/home_layout.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="9" selection-start="0" selection-end="2299" vertical-scroll-proportion="-10.461538">
@@ -993,37 +940,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/news/show.html.erb">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="23" selection-start="633" selection-end="633" vertical-scroll-proportion="-4.576923">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/news.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="54" selection-start="1783" selection-end="1783" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="7" selection-start="2229" selection-end="2229" vertical-scroll-proportion="-19.807692">
+        <state line="18" column="7" selection-start="493" selection-end="493" vertical-scroll-proportion="0.51428574">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="181" column="3" selection-start="3176" selection-end="3176" vertical-scroll-proportion="-8.28">
+        <state line="181" column="3" selection-start="3176" selection-end="3176" vertical-scroll-proportion="0.3631579">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="7" selection-start="493" selection-end="493" vertical-scroll-proportion="0.51428574">
+        <state line="78" column="7" selection-start="2229" selection-end="2229" vertical-scroll-proportion="0.90509665">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/news/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="23" selection-start="633" selection-end="633" vertical-scroll-proportion="0.21402878">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/news.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="54" selection-start="1783" selection-end="1783" vertical-scroll-proportion="0.6571429">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/news/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="42" selection-start="193" selection-end="193" vertical-scroll-proportion="-3.2692308">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/pages/home.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/pages_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="12" selection-start="1089" selection-end="1089" vertical-scroll-proportion="0.47250858">
           <folding />
         </state>
       </provider>

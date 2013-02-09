@@ -16,6 +16,7 @@ class PagesController < ApplicationController
       tag['size'] = (((tag['totalcount'].to_i * (max_size-min_size))+min_value)/((max_value-min_value))+min_size)
       puts tag['totalcount']
     end
+    @tags = @tags.sort_by{ |tag| tag['id'] }
 
       render :layout => 'home_layout'
   end

@@ -14,7 +14,7 @@
     <% end %>
   </div>
   <% end %>
-  <div><%= raw @news.body %></div>
+  <div class="news_body"><%= raw @news.body %></div>
   <div>Джерело:&nbsp; <%= raw @news.source %></div>
   <div class="buttons">
     <% if current_user && current_user.role.name == "admin" %>

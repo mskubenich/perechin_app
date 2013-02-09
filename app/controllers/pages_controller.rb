@@ -8,12 +8,12 @@ class PagesController < ApplicationController
     @tags = ActiveRecord::Base.connection.select_all("SELECT tags.id, tags.title, (SELECT count(id) FROM news_tags WHERE tag_id = tags.id)+(SELECT count(id) FROM articles_tags WHERE tag_id = tags.id) AS totalcount
                             FROM tags
                             ORDER BY totalcount DESC LIMIT 20;")
-    max_size = 40
-    min_size = 20
+    max_size = 30
+    min_size = 15
     max_value = @tags.first['totalcount'].to_i
     min_value = @tags.last['totalcount'].to_i
     @tags.each do |tag|
-      tag['size'] = ((tag['totalcount'].to_i * (max_size-min_size))/(max_value-min_value))+min_size
+      tag['size'] = (((tag['totalcount'].to_i * (max_size-min_size))+min_value)/((max_value-min_value))+min_size)
       puts tag['totalcount']
     end
 

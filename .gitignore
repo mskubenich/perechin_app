@@ -15,6 +15,10 @@
 /tmp
 /app/assets/images/avatars/*
 /app/assets/images/news/*
+
+.idea/*
+
+
 /doc
 *.swp
 *~
@@ -23,8 +27,3 @@
 /config/database.yml
 .sass-cache/
 public/assets/
-/.idea/.generators
-/.idea/.rakeTasks
-/.idea/misc.xml
-/.idea/sample_app.iml
-/.idea/workspace.xml

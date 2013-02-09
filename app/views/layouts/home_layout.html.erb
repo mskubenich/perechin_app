@@ -20,7 +20,7 @@
           <% if signed_in? %>
               <li><%= link_to "Додати новину", new_news_path %></li>
               <li><%= link_to "Додати статті", new_article_path %></li>  .
-              <li><%= link_to "Адмін", admin_roles_path %></li>
+              <li><%= link_to "Адмінка", admin_roles_path %></li>
           <% end %>
           <% if signed_in? %>
               <li><%= link_to current_user.name, current_user %></li>
@@ -34,7 +34,9 @@
       <div class="clr"></div>
     </div>
   </div>
-  <div class="hbg" style="margin-top: 40px"></div>
+  <div class="hbg">
+    <div></div>
+  </div>
   </div>
   <% flash.each do |key, value| %>
     <div class="flash_message">

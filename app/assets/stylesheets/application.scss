@@ -86,23 +86,62 @@ a.rm, a.com {
     position: relative;
     height: 70px;
 }
-.hbg {
-    background: url(logo.jpg) no-repeat center top;
-    background-size: 970px 262px;
-    height: 262px;
-    border: 0;
-    position: relative;
-    margin-top: 30px;
+
+@-webkit-keyframes movement {
+    from {
+	left: 0px;
+    }
+    to {
+	left: -1500px;
+    }
 }
-.hbg .qwerty{
-    position: absolute;
-    font-family: "Courier New";
-    font: times new roman;
-    color: red;
-    font-size: 25px;
-    top: 50px;
-    left: 18%;
+@keyframes movement {
+    from {
+	left: 0px;
+    }
+    to {
+	left: -1500px;
+    }
 }
+@-o-keyframes movement {
+    0% {
+	left: 0px;
+    }
+    100% {
+	left: -1500px;
+    }
+}
+
+.hbg{
+  width:970px;
+  height: 150px;
+  margin: 0 auto;
+  margin-top: 40px;
+  overflow: hidden;
+  & div{
+    position:relative;
+    left: 0px;
+    -webkit-animation-name: movement;
+    -webkit-animation-duration: 70s;
+    -webkit-animation-iteration-count: infinite;
+    animation-name: movement;
+    animation-duration: 70s;
+    animation-iteration-count: infinite;
+    -o-animation-name: movement;
+    -o-animation-duration: 70s;
+    -o-animation-iteration-count: infinite;
+    -moz-animation-name: movement;
+    -moz-animation-duration: 70s;
+    -moz-animation-iteration-count: infinite;
+
+    width: 3000px;
+    background-image: asset-url("logo.jpg", image);
+    background-repeat: repeat;
+    background-size: 1500px 150px;
+    height: 150px;
+  }
+}
+
 .menu_nav {
     margin:0;
     padding:30px 0 0;
@@ -140,7 +179,7 @@ a.rm, a.com {
     padding-right: 10px;
     float:left;
     width:655px;
-    border: 1px solid #dedede;
+    border: 1px solid #f7f7f7;
 }
 .content .mainbar img.fl {
     margin:4px 16px 4px 0;
@@ -170,7 +209,7 @@ a.rm, a.com {
     padding:0;
     float:right;
     width:300px;
-    border: 1px solid #dedede;
+    border: 1px solid #f7f7f7;
 }
 .content .sidebar .gadget {
     margin:0;
@@ -415,7 +454,7 @@ ol li .send {
   left: 2px;
   font-family: Verdana;
   font-size: 15px;
-  width: 60px;
+  min-width: 60px;
   height: 30px;
   background-color: #00cc2b;
   margin: 0 auto;
@@ -531,7 +570,7 @@ ul.menu  > li{
 }
 
 .read_more{
-  background-color: rgba(0, 125, 255, 0.74);
+  background-color: rgba(0, 125, 255, 0.60);
   width: 100%;
   text-align: center;
     text-decoration: none;

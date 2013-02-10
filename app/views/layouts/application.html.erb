@@ -17,9 +17,9 @@
       </div>
       <div class="menu_nav">
         <ul>
-          <% if signed_in? %>
+          <% if current_user && current_user.role.name == "admin" %>
               <li><%= link_to "Додати новину", new_news_path %></li>
-              <li><%= link_to "Додати статті", new_article_path %></li>  .
+              <li><%= link_to "Додати статті", new_article_path %></li>
               <li><%= link_to "Адмінка", admin_roles_path %></li>
           <% end %>
           <% if signed_in? %>
@@ -47,7 +47,7 @@
   <div class="content_resize">
     <ul class="menu">
       <li>
-        <%= link_to "Додому", root_path %>
+        <%= link_to raw("&nbsp;Додому"), root_path %>
       </li>
       <li>
         <%= link_to "Новини", news_index_path %>

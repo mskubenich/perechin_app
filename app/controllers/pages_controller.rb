@@ -19,8 +19,6 @@ class PagesController < ApplicationController
       puts tag['totalcount']
     end
     @tags = @tags.sort_by{ |tag| tag['id'] }
-
-      render :layout => 'home_layout'
   end
 
   def contact

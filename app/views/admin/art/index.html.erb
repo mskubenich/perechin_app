@@ -1,0 +1,7 @@
+<%= link_to "New art category", new_admin_art_path %>
+<hr/>
+Art Categories List<br/><br/>
+<% for cat in @art_categories %>
+    <%= cat.title %> => <%= link_to "Edit", edit_admin_art_path(cat) %>::<%= link_to "Delete", admin_art_path(cat), :confirm => "Are you sure?", :method => :delete %>
+    <hr/>
+<% end %>

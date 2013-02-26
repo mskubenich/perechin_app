@@ -21,6 +21,12 @@
         <li>
           <%= link_to "Користувачі", admin_users_path %>
         </li>
+        <li>
+          <hr>
+        </li>
+        <li>
+          <%= link_to "Розділи мистецтва", admin_art_index_path %>
+        </li>
       </ul>
     </div>
 <% end %>
@@ -35,4 +41,7 @@
       <div class="clr"></div>
       <%= render :partial => 'layouts/exchange_rate' %>
     </div>
+<% end %>
+<% if(params[:controller] == "art" )%>
+9999
 <% end %>

@@ -1,0 +1,2 @@
+module Admin::ArtHelper
+end

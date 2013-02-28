@@ -1,6 +1,6 @@
 <% if (defined? tags) && tags %>
 <div class="gadget">
-  <h2 class="star"><span>Хмаринка тегів:</span></h2>
+  <h2 class="block-header star"><span>Хмаринка тегів:</span></h2>
   <div class="clr"></div>
   <% tags.each do |tag|%>
     <%= link_to tag['title'], news_index_path(:tag => tag['id']), :style=>"font-size: #{tag['size']}px;"%>
@@ -9,7 +9,7 @@
 <% end %>
 <% if params[:controller] =~ /admin\/[A-Za-z]*/ %>
     <div class="gadget">
-      <h2 class="star"><span>Адмінка:</span></h2>
+      <h2 class="block-header star"><span>Адмінка:</span></h2>
       <div class="clr"></div>
       <ul class="sb_menu">
         <li>
@@ -32,12 +32,12 @@
 <% end %>
 <% if(params[:controller] == "pages" || params[:controller] == "news")%>
     <div class="gadget">
-      <h2 class="star"><span>Погода:</span></h2>
+      <h2 class="block-header star"><span>Погода:</span></h2>
       <div class="clr"></div>
       <%= render :partial => 'layouts/weather' %>
     </div>
     <div class="gadget">
-      <h2 class="star"><span>Курс валют:</span></h2>
+      <h2 class="block-header star"><span>Курс валют:</span></h2>
       <div class="clr"></div>
       <%= render :partial => 'layouts/exchange_rate' %>
     </div>

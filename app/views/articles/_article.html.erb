@@ -1,6 +1,6 @@
 <div class="article">
   <p class="date"><%= article.created_at.year %><span><%= article.created_at.day%>/<%= article.created_at.month %></span></p>
-  <h2><span><%= link_to article.title.to_s, article_path(article) %></span></h2>
+  <h2 class="block-header"><span><%= link_to article.title.to_s, article_path(article) %></span></h2>
   <div class="clr"></div>
   <p><% if current_user && current_user.role.name == "admin" %><%= "Розмістив:"+article.user.name %>&nbsp;|&nbsp; <% end  %> Теги:
     <% article.tags.each do |tag| %>

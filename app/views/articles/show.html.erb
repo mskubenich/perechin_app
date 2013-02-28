@@ -1,6 +1,6 @@
 <div class="article">
   <p class="date"><%= @article.created_at.year %><span><%= @article.created_at.day%>/<%= @article.created_at.month %></span></p>
-  <h2><span><%= @article.title %></span></h2>
+  <h2 class="block-header"><span><%= @article.title %></span></h2>
   <div class="clr"></div>
   <p>Розмістив: <%= @article.user.name %> &nbsp;|&nbsp; Теги:
     <% @article.tags.each do |tag| %>

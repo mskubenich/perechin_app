@@ -52,7 +52,7 @@ h1 small {
     color:#b7b7b7;
     letter-spacing:normal;
 }
-h2 {
+h2.block-header {
     font:normal 24px Arial, Helvetica, sans-serif;
     padding:8px 0;
     margin:8px 0;
@@ -66,10 +66,11 @@ p {
 p.spec {
     text-align:left;
 }
-a {
-    color:#00b3ea;
-    text-decoration:underline;
-}
+
+a{font-size: 16px; text-decoration: none;}
+a:hover{font-size: 16px;}
+a:visited{color: white;}
+
 a.rm, a.com {
     text-decoration:none;
 }

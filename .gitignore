@@ -16,7 +16,7 @@
 /app/assets/images/avatars/*
 /app/assets/images/news/*
 
-.idea/*
+.idea/workspace.xml
 
 
 /doc

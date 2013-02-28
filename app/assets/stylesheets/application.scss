@@ -66,11 +66,10 @@ p {
 p.spec {
     text-align:left;
 }
-
-a{font-size: 16px; text-decoration: none;}
-a:hover{font-size: 16px;}
-a:visited{color: white;}
-
+a {
+    color:#00b3ea;
+    text-decoration:underline;
+}
 a.rm, a.com {
     text-decoration:none;
 }

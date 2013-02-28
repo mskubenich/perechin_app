@@ -1,26 +1,19 @@
-<%= form_for(@user) do |f| %>
+<%= stylesheet_link_tag 'sessions' %>
+<br/>
+<%= form_for(@user, :html => {:class => "form-container"}) do |f| %>
+    <div class="form-title"><h2 class="form-h2">Регістрація</h2></div>
     <%= render 'shared/error_messages' %>
-    <div class="field">
-      <%= f.label :name %><br />
-      <%= f.text_field :name %>
-    </div>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.text_field :email %>
-    </div>
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password %>
-    </div>
-    <div class="field">
-      <%= f.label :password_confirmation, "Confirmation" %><br />
-      <%= f.password_field :password_confirmation %>
-    </div>
-    <div class="field">
-      <%= f.label :avatar, "Avatar" %><br />
-      <%= f.file_field :avatar %>
-    </div>
-    <div class="actions">
-      <%= f.submit "Sign up" %>
-    </div>
+    <div class="form-title">Ім'я</div>
+    <%= f.text_field :name, :class => "form-field" %><br />
+    <div class="form-title">E-mail (поштова скринька)</div>
+    <%= f.text_field :email, :class => "form-field" %><br />
+    <div class="form-title">Пароль</div>
+    <%= f.text_field :password, :class => "form-field" %><br />
+    <div class="form-title">Підтвердіть пароль</div>
+    <%= f.text_field :password_confirmation, :class => "form-field" %><br />
+    <div class="form-title">Аватар</div>
+    <%= f.file_field :avatar, :class => "form-field" %><br />
+
+
+    <%= f.submit "Зарегіструватися", :class => "submit-button" %>
 <% end %>

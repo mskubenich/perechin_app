@@ -1,0 +1,16 @@
+in development ...
+
+
+<%= content_for :art_categories do %>
+    <div class="gadget">
+      <h2 class="star"><span>Напрямки мистецтва:</span></h2>
+      <div class="clr"></div>
+      <% @art_categories.each do |cat| %>
+        <ul class="sb_menu">
+        <li>
+          <%= cat.title %>
+        </li>
+        </ul>
+      <% end %>
+    </div>
+<% end %>

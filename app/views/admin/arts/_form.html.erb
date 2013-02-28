@@ -1,4 +1,4 @@
-<%= form_for [:admin, art_category] do |f| %>
+<%= form_for [:admin, art_category], :url => art_category.id ? admin_art_path : admin_arts_path do |f| %>
     <% if art_category.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(art_category.errors.count, "error") %>

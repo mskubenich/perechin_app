@@ -1,4 +1,4 @@
-class Admin::ArtController < ApplicationController
+class Admin::ArtsController < ApplicationController
   def index
     @art_categories = ArtCategory.all
   end
@@ -11,23 +11,23 @@ class Admin::ArtController < ApplicationController
   def create
     @art_category = ArtCategory.new(params[:art_category])
     if @art_category.save
-      flash[:success] = "Succesfully created art category: " + @art_category.title
-      redirect_to admin_art_index_path
+      flash[:success] = "Succesfully created arts category: " + @art_category.title
+      redirect_to admin_arts_path
     else
-      flash[:success] = "Error created art category"
+      flash[:success] = "Error created arts category"
       render 'new'
     end
   end
 
   def edit
-    @title = "Edit art category"
+    @title = "Edit arts category"
     @art_category = ArtCategory.find params[:id]
   end
 
   def update
     @art_category = ArtCategory.find params[:id]
-    if @art_category.update_attributes params[:tag]
-      redirect_to admin_art_index_path, notice: 'Art category was successfully updated.'
+    if @art_category.update_attributes params[:art_category]
+      redirect_to admin_arts_path, notice: 'Art category was successfully updated.'
     else
       render "edit"
     end
@@ -35,7 +35,7 @@ class Admin::ArtController < ApplicationController
 
   def destroy
     ArtCategory.find(params[:id]).destroy
-    redirect_to admin_art_index_path
+    redirect_to admin_arts_path
   end
 
 end

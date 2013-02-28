@@ -1,3 +1,4 @@
+<h2><%= @category.title if @category%></h2>
 in development ...
 
 
@@ -5,12 +6,13 @@ in development ...
     <div class="gadget">
       <h2 class="block-header star"><span>Напрямки мистецтва:</span></h2>
       <div class="clr"></div>
-      <% @art_categories.each do |cat| %>
-        <ul class="sb_menu">
-        <li>
-          <%= cat.title %>
-        </li>
-        </ul>
-      <% end %>
+
+      <ul class="sb_menu">
+        <% @art_categories.each do |cat| %>
+            <li <%= (cat.id == params[:art_category].to_i)?"style='background-color: lightblue'":""%>>
+              <%= link_to cat.title, arts_path(:art_category => cat.id) %>
+            </li>
+        <% end %>
+      </ul>
     </div>
 <% end %>

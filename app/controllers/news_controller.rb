@@ -32,12 +32,14 @@ class NewsController < ApplicationController
       @news.body = page.css("body:first").inner_html
       #save tags
       tags = []
-      params[:tags].each do |key, value|
-        tag = Tag.find_by_title key
-        unless tag
-          tag = Tag.create(:title => key)
+      if params[:tags]
+        params[:tags].each do |key, value|
+          tag = Tag.find_by_title key
+          unless tag
+            tag = Tag.create(:title => key)
+          end
+          tags << tag
         end
-        tags << tag
       end
       @news.tags = tags
 

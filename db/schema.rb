@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130227103259) do
+ActiveRecord::Schema.define(:version => 20130301072948) do
 
   create_table "actions", :force => true do |t|
     t.string "controller"
@@ -23,6 +23,12 @@ ActiveRecord::Schema.define(:version => 20130227103259) do
     t.string   "title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "art_subcategories", :force => true do |t|
+    t.string  "title"
+    t.integer "category_id"
+    t.boolean "is_moderated"
   end
 
   create_table "articles", :force => true do |t|

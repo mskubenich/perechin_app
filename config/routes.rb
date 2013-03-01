@@ -26,6 +26,7 @@ SampleApp::Application.routes.draw do
     match "tags_search", :to => "tags#tags_for_autocomplete"
     resources :users, :only => :index
     resources :arts
+    resources :art_subcategories
   end
 
   resources :arts, :only=> :index

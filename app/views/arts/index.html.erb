@@ -1,4 +1,4 @@
-<h2><%= @category.title if @category%></h2>
+<h2><%= @category.title if @category%><%= " > " + @art_subcategory.title if @art_subcategory%></h2>
 in development ...
 
 
@@ -7,12 +7,26 @@ in development ...
       <h2 class="block-header star"><span>Напрямки мистецтва:</span></h2>
       <div class="clr"></div>
 
-      <ul class="sb_menu">
+      <ul>
         <% @art_categories.each do |cat| %>
-            <li <%= (cat.id == params[:art_category].to_i)?"style='background-color: lightblue'":""%>>
+            <li <%= (cat.id == params[:art_category].to_i)?"class='selected_item'":""%>>
               <%= link_to cat.title, arts_path(:art_category => cat.id) %>
             </li>
         <% end %>
       </ul>
     </div>
+    <% if @category%>
+        <div class="gadget">
+          <h2 class="block-header star"><span>Мітки:</span></h2>
+          <div class="clr"></div>
+
+          <ul>
+            <% @category.art_subcategories.each do |subcat| %>
+                <li <%= (subcat.id == params[:art_subcategory].to_i)?"class='selected_item'":""%>>
+                  <%= link_to subcat.title, arts_path(:art_category => @category.id, :art_subcategory => subcat.id) %>
+                </li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
 <% end %>

@@ -1,0 +1,25 @@
+<%= form_for [:admin, art_subcategory], :url => art_subcategory.id ? admin_art_subcategory_path : admin_art_subcategories_path do |f| %>
+    <% if art_subcategory.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(art_subcategory.errors.count, "error") %>
+            prohibited this news from being saved:</h2>
+          <p>There were problems with the following fields:</p>
+          <ul>
+            <% art_subcategory.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <div class="field">
+      <%= f.label :title %><br />
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :art_category_id %><br />
+      <%= f.select :art_category_id, art_categories.map {|cat| [cat.title,cat.id]} %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Save", :class => "submit_button" %>
+    </div>
+<% end %>

@@ -595,3 +595,13 @@ ul.menu{
 .gray_span{
   color: #a1a1a1;
 }
+
+/*sidebar menu*/
+
+.selected_item{
+  background: rgba(0, 125, 255, 0.600);
+}
+
+.selected_item a{
+  color: white;
+}

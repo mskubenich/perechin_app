@@ -1,3 +1,14 @@
-// Place all the styles related to the admin/users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+table.data-list{
+  width: 100%;
+  & tr:nth-child(odd){
+    background-color: #add8e6;
+  }
+  & tr{
+    vertical-align: top;
+  } 
+  & img{
+    margin: 3px;
+    max-height: 80px;
+    max-width: 50px;
+  }
+}

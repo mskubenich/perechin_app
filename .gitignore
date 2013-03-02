@@ -16,7 +16,7 @@
 /app/assets/images/avatars/*
 /app/assets/images/news/*
 
-.idea/workspace.xml
+/.idea/workspace.xml
 
 
 /doc
@@ -27,3 +27,4 @@
 /config/database.yml
 .sass-cache/
 public/assets/
+/.idea/workspace.xml

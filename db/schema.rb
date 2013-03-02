@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(:version => 20130301072948) do
 
   create_table "art_subcategories", :force => true do |t|
     t.string  "title"
-    t.integer "category_id"
+    t.integer "art_category_id"
     t.boolean "is_moderated"
   end
 

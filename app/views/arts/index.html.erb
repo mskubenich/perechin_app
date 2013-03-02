@@ -8,6 +8,9 @@ in development ...
       <div class="clr"></div>
 
       <ul>
+        <li <%= (!params[:art_category])?"class='selected_item'":""%>>
+          <%= link_to "Всі", arts_path %>
+        </li>
         <% @art_categories.each do |cat| %>
             <li <%= (cat.id == params[:art_category].to_i)?"class='selected_item'":""%>>
               <%= link_to cat.title, arts_path(:art_category => cat.id) %>
@@ -19,8 +22,10 @@ in development ...
         <div class="gadget">
           <h2 class="block-header star"><span>Мітки:</span></h2>
           <div class="clr"></div>
-
           <ul>
+            <li <%= (!params[:art_subcategory])?"class='selected_item'":""%>>
+              <%= link_to "Всі", arts_path(:art_category => @category.id) %>
+            </li>
             <% @category.art_subcategories.each do |subcat| %>
                 <li <%= (subcat.id == params[:art_subcategory].to_i)?"class='selected_item'":""%>>
                   <%= link_to subcat.title, arts_path(:art_category => @category.id, :art_subcategory => subcat.id) %>

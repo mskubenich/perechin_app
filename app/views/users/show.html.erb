@@ -1,14 +1,82 @@
-<table class="profile" summary="Profile information">
-  <tr>
-    <td class="main">
-      <h1>
+<h2 class="block-header star">Ваша сторінка</h2>
+
+<div>
+    <div class="avatar">
         <%= image_tag @user.avatar.url(:original) %>
-        <%= @user.name %>
-      </h1>
+    </div>
+
+    <table class="user-info">
+      <tr>
+        <td>
+          Ім'я:
+        </td>
+        <td>
+          <%= @user.name %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          E-mail:
+        </td>
+        <td>
+          <%= @user.email %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Дата реєстрації:
+        </td>
+        <td>
+          <%= @user.created_at %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Роль:
+        </td>
+        <td>
+          <%= @user.role.name %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Про мене:
+        </td>
+        <td>
+          <%= @user.about_me %>
+        </td>
+      </tr>
+    </table>
+    <div class="clr"></div>
+</div>
+<h2 class="block-header star">Ваша активність</h2>
+<table class="user-activity">
+  <tr>
+    <td>
+      Кількість коментарів:
     </td>
-    <td class="sidebar round">
-      <strong>Name</strong> <%= @user.name %><br />
-      <strong>URL</strong>  <%= link_to user_path(@user), @user %>
+    <td>
+      <%= @user.comments.count %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Останні коментарі:
+    </td>
+    <td>
+      <% @last_comments.each do |comment|%>
+        <% if comment.news %>
+          <%= link_to comment.news.title, news_path(comment.news)%>
+          <%= comment.text %>
+          <br/>
+        <% elsif comment.article %>
+          <%= link_to comment.article.title, news_path(comment.article)%>
+          <%= comment.text %>
+          <br/>
+        <% end %>
+      <% end %>
     </td>
   </tr>
 </table>
+
+

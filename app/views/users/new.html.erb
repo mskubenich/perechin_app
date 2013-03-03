@@ -1,19 +1,19 @@
 <%= stylesheet_link_tag 'sessions' %>
 <br/>
 <%= form_for(@user, :html => {:class => "form-container"}) do |f| %>
-    <div class="form-title"><h2 class="form-h2">Регістрація</h2></div>
+    <div class="form-title"><h2 class="form-h2">Реєстрація</h2></div>
     <%= render 'shared/error_messages' %>
     <div class="form-title">Ім'я</div>
     <%= f.text_field :name, :class => "form-field" %><br />
     <div class="form-title">E-mail (поштова скринька)</div>
     <%= f.text_field :email, :class => "form-field" %><br />
     <div class="form-title">Пароль</div>
-    <%= f.text_field :password, :class => "form-field" %><br />
+    <%= f.password_field :password, :class => "form-field" %><br />
     <div class="form-title">Підтвердіть пароль</div>
-    <%= f.text_field :password_confirmation, :class => "form-field" %><br />
+    <%= f.password_field :password_confirmation, :class => "form-field" %><br />
     <div class="form-title">Аватар</div>
     <%= f.file_field :avatar, :class => "form-field" %><br />
 
 
-    <%= f.submit "Зарегіструватися", :class => "submit-button" %>
+    <%= f.submit "Зареєструватися", :class => "submit-button" %>
 <% end %>

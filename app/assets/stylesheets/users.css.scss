@@ -1,0 +1,22 @@
+.avatar{
+  width: 250px;
+  float: left;
+  margin: 5px;
+  & img{
+    width: 100%
+  }
+}
+
+table.user-info{
+  width: 350px;
+  & td{
+    vertical-align: top;
+  }
+}
+
+table.user-activity{
+  width: 100%;
+  & td{
+    vertical-align: top;
+  }
+}

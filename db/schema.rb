@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130301072948) do
+ActiveRecord::Schema.define(:version => 20130303084557) do
 
   create_table "actions", :force => true do |t|
     t.string "controller"
@@ -20,9 +20,7 @@ ActiveRecord::Schema.define(:version => 20130301072948) do
   end
 
   create_table "art_categories", :force => true do |t|
-    t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string "title"
   end
 
   create_table "art_subcategories", :force => true do |t|
@@ -118,6 +116,7 @@ ActiveRecord::Schema.define(:version => 20130301072948) do
     t.datetime "avatar_updated_at"
     t.integer  "role_id"
     t.integer  "article_id"
+    t.text     "about_me"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

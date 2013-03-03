@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :articles
 
   attr_accessor :password
-  attr_accessible :name, :email, :password, :password_confirmation, :avatar
+  attr_accessible :name, :email, :password, :password_confirmation, :avatar, :about_me
 
   has_attached_file :avatar, :styles => { :original => "400x400>" },
                     :url  => "/assets/avatars/users/:id/:style/:basename.:extension",

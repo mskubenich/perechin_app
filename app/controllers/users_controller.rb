@@ -22,4 +22,24 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+
+  end
+
+  def change_name
+
+  end
+
+  def change_password
+
+  end
+
+  def change_avatar
+
+  end
+
+  def change_about_me
+
+  end
+
 end

@@ -1,4 +1,10 @@
-<h2 class="block-header star">Ваша сторінка</h2>
+<h2 class="block-header star">
+  <% if current_user && current_user.id == @user.id %>
+    Ваша сторінка
+  <% else %>
+    Сторінка користувача <%= @user.name %>
+  <% end %>
+</h2>
 
 <div>
     <div class="avatar">
@@ -14,6 +20,7 @@
           <%= @user.name %>
         </td>
       </tr>
+      <% if current_user && current_user.id == @user.id %>
       <tr>
         <td>
           E-mail:
@@ -22,6 +29,7 @@
           <%= @user.email %>
         </td>
       </tr>
+      <% end %>
       <tr>
         <td>
           Дата реєстрації:
@@ -49,7 +57,7 @@
     </table>
     <div class="clr"></div>
 </div>
-<h2 class="block-header star">Ваша активність</h2>
+<h2 class="block-header star">Активність</h2>
 <table class="user-activity">
   <tr>
     <td>

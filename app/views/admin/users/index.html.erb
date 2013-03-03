@@ -5,7 +5,7 @@
           <%= image_tag user.avatar.url(:original) %>
       </td>
       <td>
-        <%= user.name %>
+        <%= link_to user.name, user_path(user) %>
       </td>
       <td>
         <%= user.email %>

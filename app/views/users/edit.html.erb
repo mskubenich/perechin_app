@@ -1,0 +1,14 @@
+<h2 class="block-header star">Налаштування аккаунту</h2>
+<br/>
+
+    <div class="form-title">Ім'я</div>
+    <%= f.text_field :name, :class => "form-field" %><br />
+    <div class="form-title">E-mail (поштова скринька)</div>
+    <%= f.text_field :email, :class => "form-field" %><br />
+    <div class="form-title">Пароль</div>
+    <%= f.password_field :password, :class => "form-field" %><br />
+    <div class="form-title">Підтвердіть пароль</div>
+    <%= f.password_field :password_confirmation, :class => "form-field" %><br />
+    <div class="form-title">Аватар</div>
+    <%= f.file_field :avatar, :class => "form-field" %><br />
+

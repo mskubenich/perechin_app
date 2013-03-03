@@ -80,7 +80,7 @@
           <%= comment.article.created_at.year %>&nbsp;
           <%= comment.article.created_at.hour%>:
           <%= comment.article.created_at.min %>&nbsp;
-          <%= link_to comment.article.title, news_path(comment.article)%>
+          <%= link_to comment.article.title, article_path(comment.article)%>
           <%= comment.text %>
           <br/>
         <% end %>

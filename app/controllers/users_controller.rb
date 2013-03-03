@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @title = @user.name
-    @last_comments = @user.comments.all(:limit => 10)
+    @last_comments = @user.comments.all(:limit => 10, :order =>"created_at desc")
   end
 
   def create

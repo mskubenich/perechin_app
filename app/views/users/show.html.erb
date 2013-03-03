@@ -66,10 +66,20 @@
     <td>
       <% @last_comments.each do |comment|%>
         <% if comment.news %>
+          <%= comment.news.created_at.day%>/
+          <%= comment.news.created_at.month %>/
+          <%= comment.news.created_at.year %>&nbsp;
+          <%= comment.news.created_at.hour%>:
+          <%= comment.news.created_at.min %>&nbsp;
           <%= link_to comment.news.title, news_path(comment.news)%>
           <%= comment.text %>
           <br/>
         <% elsif comment.article %>
+          <%= comment.article.created_at.day%>/
+          <%= comment.article.created_at.month %>/
+          <%= comment.article.created_at.year %>&nbsp;
+          <%= comment.article.created_at.hour%>:
+          <%= comment.article.created_at.min %>&nbsp;
           <%= link_to comment.article.title, news_path(comment.article)%>
           <%= comment.text %>
           <br/>

@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :name, :presence => true,
-                   :length   => { :maximum => 30 }
+                   :length   => { :within => 6..20 }
   validates :email, :presence => true,
             :format   => { :with => email_regex },
             :uniqueness => {:case_sensitive => false}
@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
             :confirmation => true,
             :length       => { :within => 6..20 }
 
-  before_save :encrypt_password
+  before_validation :encrypt_password
   after_create :send_registration_email
 
   # Return true if the user's password matches the submitted password.

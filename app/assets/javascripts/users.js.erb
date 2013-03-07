@@ -1,0 +1,37 @@
+function edit_about_me(){
+    j.ajax({
+        url: '<%= Rails.application.routes.url_helpers.users_change_about_me_path %>',
+        data: {about_me: j("#about_me").val()},
+        type: 'POST',
+        beforeSend: function () {
+        },
+        complete: function(){
+        },
+        error: function(err){
+            alert("error");
+        },
+        success: function(data){
+            if(data == "ok"){
+            alert(data);
+            }
+        }
+    });
+}
+
+function edit_name(){
+    j.ajax({
+        url: '<%= Rails.application.routes.url_helpers.users_change_name_path %>',
+        data: {name: j("#name").val()},
+        type: 'POST',
+        beforeSend: function () {
+        },
+        complete: function(){
+        },
+        error: function(err){
+            alert("error");
+        },
+        success: function(data){
+                alert(data);
+        }
+    });
+}

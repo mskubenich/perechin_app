@@ -1,14 +1,70 @@
-<h2 class="block-header star">Налаштування аккаунту</h2>
+<h2 class="block-header star"><%= link_to @user.name, user_path(@user)%>/Налаштування</h2>
 <br/>
+<div>
 
-    <div class="form-title">Ім'я</div>
-    <%= f.text_field :name, :class => "form-field" %><br />
-    <div class="form-title">E-mail (поштова скринька)</div>
-    <%= f.text_field :email, :class => "form-field" %><br />
-    <div class="form-title">Пароль</div>
-    <%= f.password_field :password, :class => "form-field" %><br />
-    <div class="form-title">Підтвердіть пароль</div>
-    <%= f.password_field :password_confirmation, :class => "form-field" %><br />
-    <div class="form-title">Аватар</div>
-    <%= f.file_field :avatar, :class => "form-field" %><br />
+  <table class="user-info edit-user-info" style="">
+    <col>
+    <col>
+    <col>
+    <tr>
+      <td>
+        E-mail:
+      </td>
+      <td>
+        <%= @user.email %>
+      </td>
+      <td>
+        <%= image_tag 'private-26.png', :class => :icon, :style => "display: block"%>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Роль:
+      </td>
+      <td>
+        <%= @user.role.name %>
+      </td>
+      <td>
+        <%= image_tag 'private-26.png', :class => :icon, :style => "display: block"%>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Ім'я:
+      </td>
+      <td>
+        <input type="text" value="<%= @user.name %>" id="name"/>
+      </td>
+      <td>
+        <%= image_tag 'checkmark.png', :class => :icon, :onclick => "edit_name();"%>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Про мене:
+      </td>
+      <td>
+        <textarea rows="10" cols="5" id="about_me"><%= @user.about_me %></textarea>
+      </td>
+      <td>
+        <%= image_tag 'checkmark.png', :class => :icon, :onclick => "edit_about_me();"%>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Аватар:
+      </td>
+      <td>
+        <input type="file">
+        <div class="avatar">
+          <%= image_tag @user.avatar.url(:original) %>
+        </div>
+      </td>
+      <td>
+        <%= image_tag 'checkmark.png', :class => :icon -%>
+      </td>
+    </tr>
+  </table>
+  <div class="clr"></div>
+</div>
 

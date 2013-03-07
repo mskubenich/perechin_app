@@ -8,15 +8,55 @@
 }
 
 table.user-info{
+  color: black;
   width: 350px;
+  border-collapse: collapse;
   & td{
     vertical-align: top;
   }
+  & tr:nth-child(odd){
+    background-color: rgba(0, 125, 255, 0.14)
+  }
+
 }
 
 table.user-activity{
   width: 100%;
   & td{
     vertical-align: top;
+  }
+}
+
+table.edit-user-info{
+  width: 100%;
+  & td:nth-child(2n+1){
+    text-align: right;
+  }
+  & td:nth-child(2n+3){
+    padding-left: 10px;
+  }
+  & input{
+    background-color: transparent;
+    width: 100%;
+  }
+  & textarea{
+    width: 100%;
+    resize: none;
+  }
+  & img.icon{
+    display: none;
+    width: 20px;
+    height: 20px;
+    margin: 0px;
+    padding: 0px;
+  }
+  & tr:hover img.icon{
+    display: block;
+  }
+  & col:nth-child(1){
+    width: 80px;
+  }
+  & col:nth-child(3){
+    width: 30px;
   }
 }

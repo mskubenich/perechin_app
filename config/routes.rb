@@ -3,6 +3,10 @@ SampleApp::Application.routes.draw do
 
   resources :users
   match '/sign_up',  :to => 'users#new'
+  post '/users/change_name', :to => "users#change_name"
+  post '/users/change_password', :to => "users#change_password"
+  post '/users/change_avatar', :to => "users#change_avatar"
+  post '/users/change_about_me', :to => "users#change_about_me"
 
   #resources :sessions, :only => [:new, :create, :destroy]
   match '/signin',  :to => 'sessions#new'

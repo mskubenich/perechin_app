@@ -97,4 +97,8 @@
   </tr>
 </table>
 
+<% if current_user && current_user.id == @user.id %>
+<%= button_to "Редагувати", edit_user_path(@user), :method => :get, :class => "submit_button"%>
+<% end %>
+
 

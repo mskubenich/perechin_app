@@ -76,13 +76,13 @@
         Аватар:
       </td>
       <td>
-        <input type="file">
+        <input type="file" onchange ="edit_avatar(this);" id="avatar_field">
         <div class="avatar">
-          <%= image_tag @user.avatar.url(:original) %>
+          <%= image_tag @user.avatar.url(:original), :id => :avatar%>
         </div>
       </td>
       <td>
-        <%= image_tag 'checkmark.png', :class => :icon -%>
+        <%= image_tag 'checkmark.png', :class => :icon, :onclick => "edit_field('avatar_field');"%>
       </td>
     </tr>
   </table>

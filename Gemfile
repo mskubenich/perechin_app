@@ -12,6 +12,7 @@ gem 'coffee-rails', '~> 3.2.1'
 gem 'nokogiri'
 gem 'will_paginate'
 
+gem 'rmagick'
 
 group :development do
   gem 'rspec-rails', '2.11.0'

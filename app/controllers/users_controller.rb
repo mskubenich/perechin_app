@@ -67,7 +67,30 @@ class UsersController < ApplicationController
   end
 
   def change_avatar
+    if params[:base64avatar]
+      user = User.find(current_user.id)
+      decoded_file = Base64.decode64(params[:base64avatar].split(',').pop)
+      file = Tempfile.new(['avatar', '.'+params[:base64avatar].split(',')[0][/.*data:.*\/(.*);.*/, 1]])
+      file.binmode
+      file.write decoded_file
+      #user.update_attribute(:avatar,  file)
 
+      new_user = User.new(:avatar => file)
+      new_user.valid?
+      if !new_user.errors.has_key? :avatar
+        user.update_attribute(:avatar, file)
+        render :text => "ok"
+      else
+        message = "<ul>"
+        new_user.errors[:avatar].each do |mess|
+          message += "<li>Avatar: "+mess+"</li>"
+        end
+        message += "</ul>"
+        render :text => message
+      end
+      file.close
+      file.unlink
+    end
   end
 
   def change_about_me

@@ -15,6 +15,10 @@ function edit_field(field_id){
             url = "<%= Rails.application.routes.url_helpers.users_change_password_path %>";
             data = {password: field.val(), password_confirmation: j('#pass_confirm').val()};
             break;
+        case "avatar_field":
+            url = "<%= Rails.application.routes.url_helpers.users_change_avatar_path %>";
+            data = { base64avatar: j('#avatar').attr('src')};
+            break;
         default:
     }
     j.ajax({
@@ -45,4 +49,21 @@ function edit_field(field_id){
 
 function field_become_change(field){
     j(field).css('color', 'red');
+}
+
+function edit_avatar(field){
+    var reader = new FileReader();
+    reader.onload = function(event){
+        j('#avatar').attr('src', event.target.result);
+    };
+    reader.onerror = function(event) {
+        alert( 'error' );
+    };
+    if(jQuery.browser.msie || jQuery.browser.safari){
+        j("#avatar").attr('src', field.value);
+    }else{
+        if(field.files && field.files[0]){
+            reader.readAsDataURL(field.files[0]);
+        }
+    }
 }

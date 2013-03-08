@@ -12,18 +12,6 @@ gem 'coffee-rails', '~> 3.2.1'
 gem 'nokogiri'
 gem 'will_paginate'
 
-gem 'rmagick'
-
-group :development do
-  gem 'rspec-rails', '2.11.0'
-  gem 'annotate', '~> 2.4.1.beta'
-end
-
-group :test do
-  gem 'rspec-rails', '2.11.0'
-  gem 'webrat'
-end
-
 group :production do
   gem 'uglifier'
 end

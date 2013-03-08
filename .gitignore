@@ -13,10 +13,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+/.idea
 /app/assets/images/avatars/*
 /app/assets/images/news/*
-
-/.idea/workspace.xml
 
 
 /doc
@@ -27,5 +26,4 @@
 /config/database.yml
 .sass-cache/
 public/assets/
-/.idea/workspace.xml
-/.idea/sample_app.iml
+/.idea

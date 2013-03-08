@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   def change_name
@@ -36,17 +36,34 @@ class UsersController < ApplicationController
         user.update_attribute(:name, params[:name])
         render :text => "ok"
       else
-        message = "name "
+        message = "<ul>"
         new_user.errors[:name].each do |mess|
-          message += mess
+          message += "<li>Name: "+mess+"</li>"
         end
+        message += "</ul>"
         render :text => message
       end
     end
   end
 
   def change_password
-
+    if params[:password] && params[:password_confirmation]
+      user = current_user
+      new_user = User.new(:password => params[:password], :password_confirmation => params[:password_confirmation])
+      new_user.valid?
+      if !new_user.errors.has_key? :password
+        user.attributes = {:password => params[:password], :password_confirmation => params[:password_confirmation]}
+        user.save(:validate => "false")
+        render :text => "ok"
+      else
+        message = "<ul>"
+        new_user.errors[:password].each do |mess|
+          message += "<li>Password: "+mess+"</li>"
+        end
+        message += "</ul>"
+        render :text => message
+      end
+    end
   end
 
   def change_avatar
@@ -62,10 +79,11 @@ class UsersController < ApplicationController
         user.update_attribute(:about_me, params[:about_me])
         render :text => "ok"
       else
-        message = "about_me "
-        new_user.errors[:about_me].each do |mess|
-          message += mess
+        message = "<ul>"
+        new_user.errors[:password].each do |mess|
+          message += "<li>About me: "+mess+"</li>"
         end
+        message += "</ul>"
         render :text => message
       end
     end

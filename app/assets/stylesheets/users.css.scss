@@ -15,9 +15,13 @@ table.user-info{
     vertical-align: top;
   }
   & tr:nth-child(odd){
-    background-color: rgba(0, 125, 255, 0.14)
+    /*background-color: rgba(0, 125, 255, 0.14)*/
   }
 
+} 
+
+tr.highlighted{
+  background-color: rgba(0, 137, 255, 0.29)
 }
 
 table.user-activity{
@@ -37,10 +41,11 @@ table.edit-user-info{
   }
   & input{
     background-color: transparent;
+    border: 1px solid gray;
     width: 100%;
   }
   & textarea{
-    width: 100%;
+    width: 99.4%;
     resize: none;
   }
   & img.icon{
@@ -49,6 +54,7 @@ table.edit-user-info{
     height: 20px;
     margin: 0px;
     padding: 0px;
+    cursor: pointer;
   }
   & tr:hover img.icon{
     display: block;
@@ -59,4 +65,15 @@ table.edit-user-info{
   & col:nth-child(3){
     width: 30px;
   }
+}
+
+.error{
+  background-color: red;
+  color: white;
+  display: none;
+}
+.success{
+  background-color: green;
+  color: white;
+  display: none;
 }

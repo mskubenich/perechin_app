@@ -6,7 +6,7 @@
     <col>
     <col>
     <col>
-    <tr>
+    <tr class="highlighted">
       <td>
         E-mail:
       </td>
@@ -28,26 +28,47 @@
         <%= image_tag 'private-26.png', :class => :icon, :style => "display: block"%>
       </td>
     </tr>
-    <tr>
+    <tr class="highlighted">
       <td>
         Ім'я:
       </td>
       <td>
-        <input type="text" value="<%= @user.name %>" id="name"/>
+        <input type="text" value="<%= @user.name %>" id="name" onkeyup="field_become_change(this);"/>
       </td>
       <td>
-        <%= image_tag 'checkmark.png', :class => :icon, :onclick => "edit_name();"%>
+        <%= image_tag 'checkmark.png', :class => :icon, :onclick => "edit_field('name');"%>
       </td>
     </tr>
     <tr>
       <td>
+        Пароль:
+      </td>
+      <td>
+        <input type="text" value="" id="pass" onkeyup="field_become_change(this);"/>
+      </td>
+      <td>
+        <%= image_tag 'checkmark.png', :class => :icon, :onclick => "edit_field('pass');"%>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Підтвердження:
+      </td>
+      <td>
+        <input type="text" value="" id="pass_confirm" onkeyup="field_become_change(this);"/>
+      </td>
+      <td>
+      </td>
+    </tr>
+    <tr class="highlighted">
+      <td>
         Про мене:
       </td>
       <td>
-        <textarea rows="10" cols="5" id="about_me"><%= @user.about_me %></textarea>
+        <textarea rows="10" cols="5" id="about_me"  onkeyup="field_become_change(this);"><%= @user.about_me %></textarea>
       </td>
       <td>
-        <%= image_tag 'checkmark.png', :class => :icon, :onclick => "edit_about_me();"%>
+        <%= image_tag 'checkmark.png', :class => :icon, :onclick => "edit_field('about_me');"%>
       </td>
     </tr>
     <tr>

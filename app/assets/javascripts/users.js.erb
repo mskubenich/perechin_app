@@ -1,7 +1,25 @@
-function edit_about_me(){
+function edit_field(field_id){
+    var field = j("#"+field_id);
+    var url = "";
+    var data = {};
+    switch(field_id){
+        case "about_me":
+            url = "<%= Rails.application.routes.url_helpers.users_change_about_me_path %>";
+            data = {about_me: field.val()};
+        break;
+        case "name":
+            url = "<%= Rails.application.routes.url_helpers.users_change_name_path %>";
+            data = {name: field.val()};
+            break;
+        case "pass":
+            url = "<%= Rails.application.routes.url_helpers.users_change_password_path %>";
+            data = {password: field.val(), password_confirmation: j('#pass_confirm').val()};
+            break;
+        default:
+    }
     j.ajax({
-        url: '<%= Rails.application.routes.url_helpers.users_change_about_me_path %>',
-        data: {about_me: j("#about_me").val()},
+        url: url,
+        data: data,
         type: 'POST',
         beforeSend: function () {
         },
@@ -12,26 +30,19 @@ function edit_about_me(){
         },
         success: function(data){
             if(data == "ok"){
-            alert(data);
+                field.css('color', 'black');
+                field.parents('tr').before('<tr class="success"><td colspan="3">data successfully changed</td></tr>')
+                j(".success").show("slow");
+                setTimeout("j('.success:first').hide('slow', function(){ j('.success:first').remove(); });", 10000);
+            }else{
+                field.parents('tr').before('<tr class="error"><td colspan="3">'+data+'</td></tr>');
+                j(".error").show("slow");
+                setTimeout("j('.error:first').hide('slow', function(){ j('.error:first').remove(); });", 10000);
             }
         }
     });
 }
 
-function edit_name(){
-    j.ajax({
-        url: '<%= Rails.application.routes.url_helpers.users_change_name_path %>',
-        data: {name: j("#name").val()},
-        type: 'POST',
-        beforeSend: function () {
-        },
-        complete: function(){
-        },
-        error: function(err){
-            alert("error");
-        },
-        success: function(data){
-                alert(data);
-        }
-    });
+function field_become_change(field){
+    j(field).css('color', 'red');
 }

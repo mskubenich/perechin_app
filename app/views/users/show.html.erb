@@ -54,9 +54,17 @@
           <%= @user.about_me %>
         </td>
       </tr>
+      <tr>
+        <td colspan="2">
+          <% if current_user && current_user.id == @user.id %>
+              <%= button_to "Редагувати", edit_user_path(@user), :method => :get, :class => "submit_button"%>
+          <% end %>
+        </td>
+      </tr>
     </table>
     <div class="clr"></div>
 </div>
+
 <h2 class="block-header star">Активність</h2>
 <table class="user-activity">
   <tr>
@@ -96,9 +104,5 @@
     </td>
   </tr>
 </table>
-
-<% if current_user && current_user.id == @user.id %>
-<%= button_to "Редагувати", edit_user_path(@user), :method => :get, :class => "submit_button"%>
-<% end %>
 
 

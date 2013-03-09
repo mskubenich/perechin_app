@@ -1,0 +1,22 @@
+.authors{
+  width: 150px;
+  color: white;
+  float: left;
+  & table{
+    width: 100%;
+    & tr:nth-child(2n){
+      background-color: rgba(0, 125, 255, 0.6);
+    }
+    & img{
+      width: 100%;
+    }
+    & a{
+      color: white;
+    }
+  }
+}
+
+.art_content{
+  float: right;
+  width: 480px;
+}

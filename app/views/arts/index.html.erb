@@ -1,6 +1,27 @@
 <h2><%= @category.title if @category%><%= " > " + @art_subcategory.title if @art_subcategory%></h2>
-in development ...
 
+<div class="authors">
+  <table class="atohrs_table">
+      <% @authors.each do |author| %>
+        <tr>
+          <td>
+            <%= image_tag author.avatar.url(:original) %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= link_to author.name, user_path(author) %>
+          </td>
+        </tr>
+      <% end %>
+  </table>
+</div>
+
+<div class="art_content">
+  in development ...
+</div>
+
+<div class="clr"></div>
 
 <%= content_for :art_categories do %>
     <div class="gadget">

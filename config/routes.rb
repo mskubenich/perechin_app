@@ -29,6 +29,7 @@ SampleApp::Application.routes.draw do
     resources :tags
     match "tags_search", :to => "tags#tags_for_autocomplete"
     resources :users, :only => :index
+    post '/users/change_user_role', :to => "users#change_user_role"
     resources :arts
     resources :art_subcategories
   end

@@ -14,7 +14,12 @@
         <%= user.created_at %>
       </td>
       <td>
-        <%= user.role.name %>
+        <% if user.role.name != "admin"%>
+            <%= select_tag :role, options_for_select(@roles.collect{ |u| [u.name, u.id] }, user.role.id),
+                           :user_id => user.id, :onchange => "change_user_role(this);"%>
+        <% else %>
+            <%= user.role.name %>
+        <% end %>
       </td>
       <td>
         <%= user.join_confirmation ? "not activated" : "" %>

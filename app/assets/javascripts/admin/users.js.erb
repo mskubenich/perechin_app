@@ -1,0 +1,20 @@
+function change_user_role(sender){
+    if(!confirm("Ви справді хочете змінити роль користувача?")){
+        return;
+    }
+    j.ajax({
+        url: "<%= Rails.application.routes.url_helpers.admin_users_change_user_role_path %>",
+        data: { user_id: j(sender).attr('user_id'), new_role_id: j(sender).val()},
+        type: 'POST',
+        beforeSend: function () {
+        },
+        complete: function(){
+        },
+        error: function(err){
+            alert("error");
+        },
+        success: function(data){
+            alert(data);
+        }
+    });
+}

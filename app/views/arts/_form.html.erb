@@ -1,0 +1,25 @@
+<%= form_for work, :url => work.id ? edit_art_path : new_art_path do |f| %>
+    <% if work.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(work.errors.count, "error") %>
+            prohibited this news from being saved:</h2>
+          <p>There were problems with the following fields:</p>
+          <ul>
+            <% work.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <div class="field">
+      <%= f.label :title %><br />
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :body %><br />
+      <%= f.text_area :body %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Save", :class => "submit_button" %>
+    </div>
+<% end %>

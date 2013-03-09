@@ -18,12 +18,26 @@
 </div>
 
 <div class="art_content">
-  in development ...
+  <% @works.each do |work| %>
+      <%= work.title %>
+      <%= work.author.name %>
+      <%= work.created_at %>
+      <%= work.art_subcategory.art_category.title %>
+      <%= work.art_subcategory.title %>
+      <br/>
+      <%= work.text %>
+      <hr/>
+  <% end %>
 </div>
 
 <div class="clr"></div>
 
 <%= content_for :art_categories do %>
+    <% if current_user.role.name == "admin" || current_user.role.name == "author" %>
+        <div class="gadget">
+           <%= button_to "Додати твір", new_art_path, :method => :get %>
+        </div>
+    <% end %>
     <div class="gadget">
       <h2 class="block-header star"><span>Напрямки мистецтва:</span></h2>
       <div class="clr"></div>

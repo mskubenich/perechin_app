@@ -34,7 +34,7 @@ SampleApp::Application.routes.draw do
     resources :art_subcategories
   end
 
-  resources :arts, :only=> :index
+  resources :arts
 
   match '/join_confirm', :to => 'sessions#join_confirm'
 end

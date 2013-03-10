@@ -1,0 +1,21 @@
+function select_art_category(field){
+    j.ajax({
+        url: "<%= Rails.application.routes.url_helpers.arts_subcategories_for_category_path %>",
+        data: { art_category: j(field).val() },
+        type: 'POST',
+        beforeSend: function () {
+        },
+        complete: function(){
+        },
+        error: function(err){
+            alert("error");
+        },
+        success: function(data){
+            j('#work_art_subcategory_id').html(data);
+        }
+    });
+}
+
+j(document).ready(function(){
+    j("#art_category").change();
+});

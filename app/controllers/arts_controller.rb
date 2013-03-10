@@ -16,38 +16,66 @@ class ArtsController < ApplicationController
   def new
     @title = "Create Work"
     @work = Work.new
+    @art_categories = ArtCategory.all
   end
 
   def create
-    redirect_to admin_roles_path
-    #@role = Role.new(params[:role])
-    #if @role.save
-    #  flash[:success] = "Succesfully created role: " + @role.name
-    #  redirect_to admin_roles_path
-    #else
-    #  flash[:success] = "Error created news"
-    #  render 'new'
-    #end
+    @work = current_user.works.build(params[:work])
+    if @work.save
+      flash[:success] = "Succesfully created work: " + @work.title
+      redirect_to arts_path
+    else
+      flash[:success] = "Error created work"
+      @art_categories = ArtCategory.all
+      render 'new'
+    end
   end
 
   def edit
-    @title = "Edit role"
-    @role = Role.find params[:id]
+    unless current_user.role.name == "admin" || current_user == @work.author
+      flash[:success] = "You dont have permissions to access this action"
+      redirect_to 'index'
+    end
+    @title = "Edit Work"
+    @work = Work.find(params[:id])
+    @art_categories = ArtCategory.all
   end
 
   def update
-    redirect_to admin_roles_path
-    #@role = Role.find params[:id]
-    #if @role.update_attributes params[:role]
-    #  redirect_to admin_roles_path, notice: 'Role was successfully updated.'
-    #else
-    #  render "edit"
-    #end
+    unless current_user.role.name == "admin" || current_user == @work.author
+      flash[:success] = "You dont have permissions to access this action"
+      render 'index'
+    end
+    @work = Work.find(params[:id])
+    if @work.update_attributes params[:work]
+      flash[:success] = "Succesfully changed work: " + @work.title
+      redirect_to arts_path
+    else
+      flash[:success] = "Error created work"
+      @art_categories = ArtCategory.all
+      render 'edit'
+    end
   end
 
   def destroy
-    redirect_to admin_roles_path
-    #Role.find(params[:id]).destroy
-    #redirect_to admin_roles_path
+    unless current_user.role.name == "admin" || current_user == @work.author
+      flash[:success] = "You dont have permissions to access this action"
+      render 'index'
+    end
+    Work.find(params[:id]).destroy
+    redirect_to arts_path
+  end
+
+  def subcategories_for_category
+    if params[:art_category]
+      cat = ArtCategory.find(params[:art_category])
+      options = ""
+      cat.art_subcategories.each do |subcat|
+        options += "<option value='"+subcat.id.to_s+"'>"+subcat.title+"</option>"
+      end
+      render :text => options
+    else
+      render :text => "<option>error</option>"
+    end
   end
 end

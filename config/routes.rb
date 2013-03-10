@@ -12,6 +12,7 @@ SampleApp::Application.routes.draw do
   match '/signin',  :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
   match '/sessions', :to => 'sessions#create'
+  match '/join_confirm', :to => 'sessions#join_confirm'
 
   resources :news do
     match 'new_comment', :to => 'news#create_comment'
@@ -35,6 +36,6 @@ SampleApp::Application.routes.draw do
   end
 
   resources :arts
+  post '/arts/subcategories_for_category', :to => "arts#subcategories_for_category"
 
-  match '/join_confirm', :to => 'sessions#join_confirm'
 end

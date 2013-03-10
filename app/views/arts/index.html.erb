@@ -19,13 +19,17 @@
 
 <div class="art_content">
   <% @works.each do |work| %>
-      <%= work.title %>
-      <%= work.author.name %>
-      <%= work.created_at %>
-      <%= work.art_subcategory.art_category.title %>
-      <%= work.art_subcategory.title %>
+      Title:<%= link_to work.title, art_path(work) %><br/>
+      Author:<%= work.author.name %><br/>
+      Created_at:<%= work.created_at %><br/>
+      Category:<%= work.art_subcategory.art_category.title %><br/>
+      Subcategory:<%= work.art_subcategory.title %><br/>
+      <% if current_user.role.name == "admin" || current_user == work.author %>
+        <%= button_to "Change", edit_art_path(work), :method => :get, :class => "edit_button" -%>
+        <%= button_to "Delete", art_path(work), :method => :delete, :class => "remove_button", :confirm => "Are you sure you wont to delete art ?" %>
+      <% end %>
       <br/>
-      <%= work.text %>
+      Body:<%= work.body %>
       <hr/>
   <% end %>
 </div>
@@ -35,7 +39,7 @@
 <%= content_for :art_categories do %>
     <% if current_user.role.name == "admin" || current_user.role.name == "author" %>
         <div class="gadget">
-           <%= button_to "Додати твір", new_art_path, :method => :get %>
+           <%= link_to raw("<div class='read_more'>Додати твір</div>"), new_art_path %>
         </div>
     <% end %>
     <div class="gadget">

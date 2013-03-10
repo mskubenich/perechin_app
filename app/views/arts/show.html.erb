@@ -1,0 +1,11 @@
+Title:<%= @work.title %><br/>
+Author:<%= @work.author.name %><br/>
+Created_at:<%= @work.created_at %><br/>
+Category:<%= @work.art_subcategory.art_category.title %><br/>
+Subcategory:<%= @work.art_subcategory.title %><br/>
+<% if current_user.role.name == "admin" || current_user == @work.author %>
+    <%= button_to "Change", edit_art_path(@work), :method => :get, :class => "edit_button" -%>
+    <%= button_to "Delete", art_path(@work), :method => :delete, :class => "remove_button", :confirm => "Are you sure you wont to delete art ?" %>
+<% end %>
+<br/>
+Body:<%= @work.body %>

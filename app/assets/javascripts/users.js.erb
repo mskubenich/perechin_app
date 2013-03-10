@@ -35,7 +35,7 @@ function edit_field(field_id){
         success: function(data){
             if(data == "ok"){
                 field.css('color', 'black');
-                field.parents('tr').before('<tr class="success"><td colspan="3">data successfully changed</td></tr>')
+                field.parents('tr').before('<tr class="success"><td colspan="3">data successfully changed</td></tr>');
                 j(".success").show("slow");
                 setTimeout("j('.success:first').hide('slow', function(){ j('.success:first').remove(); });", 10000);
             }else{

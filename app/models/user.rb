@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :news
   has_many :articles
+  has_many :works
 
   attr_accessor :password
   attr_accessible :name, :email, :password, :password_confirmation, :avatar, :about_me

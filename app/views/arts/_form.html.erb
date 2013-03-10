@@ -1,4 +1,4 @@
-<%= form_for work, :url => work.id ? edit_art_path : new_art_path do |f| %>
+<%= form_for work, :url => work.id ? art_path(work) : arts_path do |f| %>
     <% if work.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(work.errors.count, "error") %>
@@ -14,6 +14,15 @@
     <div class="field">
       <%= f.label :title %><br />
       <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      Art Category
+      <%= select_tag :art_category, options_for_select(art_categories.collect{ |cat| [cat.title, cat.id] }, art_categories.first.id),
+                     :onchange => "select_art_category(this);"%>
+    </div>
+    <div class="field">
+      Art SubCategory
+      <%= f.select :art_subcategory_id, [].map {}  %>
     </div>
     <div class="field">
       <%= f.label :body %><br />

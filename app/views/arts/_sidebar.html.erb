@@ -1,0 +1,41 @@
+<% if current_user && (current_user.role.name == "admin" || current_user.role.name == "author") %>
+    <div class="gadget">
+      <%= link_to raw("<div class='read_more'>Додати твір</div>"), new_art_path %>
+    </div>
+<% end %>
+<div class="gadget">
+  <ul class="sidebar-menu">
+    <li>
+      Напрямки мистецтва
+    </li>
+    <li <%= (!params[:art_category])?"class='selected_item'":""%>>
+      <%= link_to "Всі", arts_path %>
+      <div class="arrow-right-icon"></div>
+    </li>
+    <% art_categories.each do |cat| %>
+        <li <%= (cat.id == params[:art_category].to_i)?"class='selected_item'":""%>>
+          <%= link_to cat.title, arts_path(:art_category => cat.id) %>
+          <div class="arrow-right-icon"></div>
+        </li>
+    <% end %>
+  </ul>
+</div>
+<% if category%>
+    <div class="gadget">
+      <ul class="sidebar-menu">
+        <li>
+          Мітки
+        </li>
+        <li <%= (!params[:art_subcategory])?"class='selected_item'":""%>>
+          <%= link_to "Всі", arts_path(:art_category => category.id) %>
+          <div class="arrow-right-icon"></div>
+        </li>
+        <% category.art_subcategories.each do |subcat| %>
+            <li <%= (subcat.id == params[:art_subcategory].to_i)?"class='selected_item'":""%>>
+              <%= link_to subcat.title, arts_path(:art_category => category.id, :art_subcategory => subcat.id) %>
+              <div class="arrow-right-icon"></div>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>

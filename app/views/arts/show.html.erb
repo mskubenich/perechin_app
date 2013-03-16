@@ -9,3 +9,8 @@ Subcategory:<%= @work.art_subcategory.title %><br/>
 <% end %>
 <br/>
 Body:<%= @work.body %>
+
+
+<%= content_for :art_categories do %>
+    <%= render :partial => 'sidebar', :locals => {:art_categories => @art_categories, :category => @category}%>
+<% end %>

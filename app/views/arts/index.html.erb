@@ -1,21 +1,6 @@
 <h2><%= @category.title if @category%><%= " > " + @art_subcategory.title if @art_subcategory%></h2>
 
-<div class="authors">
-  <table class="atohrs_table">
-      <% @authors.each do |author| %>
-        <tr>
-          <td>
-            <%= image_tag author.avatar.url(:original) %>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <%= link_to author.name, user_path(author) %>
-          </td>
-        </tr>
-      <% end %>
-  </table>
-</div>
+<%= render :partial => 'authors_list', :locals => {:authors => @authors}%>
 
 <div class="art_content">
   <% @works.each do |work| %>

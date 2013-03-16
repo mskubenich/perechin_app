@@ -1,0 +1,16 @@
+<div class="authors">
+  <table class="atohrs_table">
+    <% authors.each do |author| %>
+        <tr>
+          <td>
+            <%= image_tag author.avatar.url(:original) %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= link_to author.name, user_path(author) %>
+          </td>
+        </tr>
+    <% end %>
+  </table>
+</div>

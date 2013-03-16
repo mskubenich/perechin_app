@@ -16,8 +16,8 @@
   <p class="spec"><%= link_to "Читати більше...", article_path(article), :class => "rm"%>&nbsp;|&nbsp;<%= link_to "Коментарі("+article.comments.count.to_s+")", article_path(article), :class => "com" %> </p>
   <div class="buttons">
   <% if current_user && current_user.role.name == "admin" %>
-      <%= button_to "Видалити", article_path(article), :method => :delete, :class => "remove_button", :confirm => "Are you sure you wont to delete article ?" %>
-      <%= button_to "Змінити", edit_article_path(article), :method => :get, :class => "edit_button" %>
+      <%= button_to "Видалити", article_path(article), :method => :delete, :class => "button remove_button", :confirm => "Are you sure you wont to delete article ?" %>
+      <%= button_to "Змінити", edit_article_path(article), :method => :get, :class => "button edit_button" %>
   <% end %>
   </div>
 

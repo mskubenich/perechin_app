@@ -11,6 +11,11 @@
             <%= link_to author.name, user_path(author) %>
           </td>
         </tr>
+        <tr>
+          <td>
+            <%= link_to 'Твори автора', arts_path(:art_category => params[:art_category], :art_subcategory => params[:art_subcategory], :author_id => author.id) %>
+          </td>
+        </tr>
     <% end %>
   </table>
 </div>

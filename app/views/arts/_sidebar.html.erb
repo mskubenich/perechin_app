@@ -32,7 +32,7 @@
         </li>
         <% category.art_subcategories.each do |subcat| %>
             <li <%= (subcat.id == params[:art_subcategory].to_i)?"class='selected_item'":""%>>
-              <%= link_to subcat.title, arts_path(:art_category => category.id, :art_subcategory => subcat.id) %>
+              <%= link_to subcat.title, arts_path(:art_category => category.id, :art_subcategory => subcat.id, :author_id => params[:author_id]) %>
               <div class="arrow-right-icon"></div>
             </li>
         <% end %>

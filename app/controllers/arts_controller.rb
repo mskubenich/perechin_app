@@ -2,11 +2,13 @@ class ArtsController < ApplicationController
   def index
     @title = "Art"
     @art_categories = ArtCategory.all
-    @category = ArtCategory.find(params[:art_category]) if params[:art_category]
-    @art_subcategory = ArtSubcategory.find(params[:art_subcategory]) if params[:art_subcategory]
     role_author = Role.find_by_name("author")
     @authors = User.where(:role_id => role_author.id)
-    @works = Work.all
+
+    @works = Work.search(params[:page], params[:art_category].to_s, params[:art_subcategory].to_s, params[:author_id].to_s)
+    @category = ArtCategory.find(params[:art_category]) if params[:art_category]
+    @art_subcategory = ArtSubcategory.find(params[:art_subcategory]) if params[:art_subcategory]
+    @author = User.find(params[:author_id]) if params[:author_id]
   end
 
   def show

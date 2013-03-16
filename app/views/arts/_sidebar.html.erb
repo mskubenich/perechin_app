@@ -9,12 +9,12 @@
       Напрямки мистецтва
     </li>
     <li <%= (!params[:art_category])?"class='selected_item'":""%>>
-      <%= link_to "Всі", arts_path %>
+      <%= link_to "Всі", arts_path(:author_id => params[:author_id]) %>
       <div class="arrow-right-icon"></div>
     </li>
     <% art_categories.each do |cat| %>
         <li <%= (cat.id == params[:art_category].to_i)?"class='selected_item'":""%>>
-          <%= link_to cat.title, arts_path(:art_category => cat.id) %>
+          <%= link_to cat.title, arts_path(:art_category => cat.id, :author_id => params[:author_id]) %>
           <div class="arrow-right-icon"></div>
         </li>
     <% end %>
@@ -27,7 +27,7 @@
           Мітки
         </li>
         <li <%= (!params[:art_subcategory])?"class='selected_item'":""%>>
-          <%= link_to "Всі", arts_path(:art_category => category.id) %>
+          <%= link_to "Всі", arts_path(:art_category => category.id, :author_id => params[:author_id]) %>
           <div class="arrow-right-icon"></div>
         </li>
         <% category.art_subcategories.each do |subcat| %>

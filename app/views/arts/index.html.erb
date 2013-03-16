@@ -1,8 +1,13 @@
-<h2><%= @category.title if @category%><%= " > " + @art_subcategory.title if @art_subcategory%></h2>
+<h2><%= @category.title if @category%>
+<%= " > " + @art_subcategory.title if @art_subcategory%>
+<%= " > " + @author.name if @author%></h2>
 
 <%= render :partial => 'authors_list', :locals => {:authors => @authors}%>
 
 <div class="art_content">
+
+  <%= will_paginate @works, :previous_label => 'Попередня', :next_label => 'Наступна'  %>
+
   <% @works.each do |work| %>
       Title:<%= link_to work.title, art_path(work) %><br/>
       Author:<%= work.author.name %><br/>
@@ -17,6 +22,9 @@
       Body: <%= work.body %>
       <hr/>
   <% end %>
+
+  <%= will_paginate @works, :previous_label => 'Попередня', :next_label => 'Наступна'  %>
+
 </div>
 
 <div class="clr"></div>

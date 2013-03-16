@@ -1,6 +1,6 @@
 <% if current_user && (current_user.role.name == "admin" || current_user.role.name == "author") %>
     <div class="gadget">
-      <%= link_to raw("<div class='read_more'>Додати твір</div>"), new_art_path %>
+      <%= link_to "Додати твір", new_art_path, :class => "submit_button big_button" %>
     </div>
 <% end %>
 <div class="gadget">

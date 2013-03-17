@@ -1,26 +1,36 @@
 
 <% if params[:controller] =~ /admin\/[A-Za-z]*/ %>
     <div class="gadget">
-      <h2 class="block-header star"><span>Адмінка:</span></h2>
-      <div class="clr"></div>
-      <ul class="sb_menu">
+      <ul class="sidebar-block sidebar-menu">
         <li>
+          Навігація
+        </li>
+        <li class="<%= current_page?(admin_index_path)?"selected_item":""%>">
+          <%= link_to "Сторінка адміністратора", admin_index_path %>
+          <div class="arrow-right-icon"></div>
+        </li>
+        <li class="<%= current_page?(admin_roles_path)?"selected_item":""%>">
           <%= link_to "Ролі", admin_roles_path %>
+          <div class="arrow-right-icon"></div>
         </li>
-        <li>
+        <li class="<%= current_page?(admin_tags_path)?"selected_item":""%>">
           <%= link_to "Категорії/теги", admin_tags_path %>
+          <div class="arrow-right-icon"></div>
         </li>
-        <li>
+        <li class="<%= current_page?(admin_users_path)?"selected_item":""%>">
           <%= link_to "Користувачі", admin_users_path %>
+          <div class="arrow-right-icon"></div>
         </li>
         <li>
           <hr>
         </li>
-        <li>
+        <li class="<%= current_page?(admin_arts_path)?"selected_item":""%>">
           <%= link_to "Розділи мистецтва", admin_arts_path %>
+          <div class="arrow-right-icon"></div>
         </li>
-        <li>
+        <li class="<%= current_page?(admin_art_subcategories_path)?"selected_item":""%>">
           <%= link_to "Підрозділи мистецтва", admin_art_subcategories_path %>
+          <div class="arrow-right-icon"></div>
         </li>
       </ul>
     </div>

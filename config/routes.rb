@@ -1,4 +1,6 @@
 SampleApp::Application.routes.draw do
+  get "pages/index"
+
   root :to => 'pages#home'
 
   resources :users
@@ -26,6 +28,7 @@ SampleApp::Application.routes.draw do
   match '/help',    :to => 'pages#help'
 
   namespace :admin do
+    get '/index', :to => 'pages#index'
     resources :roles
     resources :tags
     match "tags_search", :to => "tags#tags_for_autocomplete"

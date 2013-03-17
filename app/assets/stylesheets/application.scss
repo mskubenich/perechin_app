@@ -643,7 +643,6 @@ ul.sidebar-block{
   list-style: none;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
-  line-height: 40px;
   color: black;
   & > li{
     border-top: 1px solid #e5e5e5;
@@ -672,6 +671,7 @@ ul.sidebar-block{
 }
 
 ul.sidebar-menu{
+  line-height: 40px;
   & > li{
     & .arrow-right-icon{
       width: 24px;

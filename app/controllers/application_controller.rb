@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   before_filter :has_access?
+  before_filter :admin_messages
 
   private
 
@@ -16,5 +17,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
+  def admin_messages
+    if current_user && current_user.role.name == "admin"
+      @admin_message = (JoinConfirmation.count + Work.where(:moderate => false).count).to_s
+    end
+  end
 end

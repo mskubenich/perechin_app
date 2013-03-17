@@ -28,6 +28,7 @@ class ArtsController < ApplicationController
   end
 
   def create
+    params[:work][:moderate] = false
     @work = current_user.works.build(params[:work])
     if @work.save
       flash[:success] = "Succesfully created work: " + @work.title

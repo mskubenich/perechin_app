@@ -1,2 +1,48 @@
-<h1>Admin::Pages#index</h1>
-<p>Find me in app/views/admin/pages/index.html.erb</p>
+<br/>
+
+<% if @confirmations.length > 0 %>
+    Користувачі що не підтвердили регістрацію<span class="message_counter"><%= @confirmations.count %></span>:
+    <br/><table class="data-list" cellpadding="0" cellspacing="0">
+  <% @confirmations.each do |confirm|%>
+      <tr>
+        <td>
+          <%= image_tag confirm.user.avatar.url(:original) %>
+        </td>
+        <td>
+          <%= link_to confirm.user.name, user_path(confirm.user) %>
+        </td>
+        <td>
+          <%= confirm.user.email %>
+        </td>
+        <td>
+          <%= confirm.user.created_at %>
+        </td>
+        <td>
+          <%= confirm.user.role.name %>
+        </td>
+      </tr>
+  <% end %>
+</table>
+<% end %>
+
+<% if @not_moderated_works.length > 0 %>
+    Статті мистецтва що потребують модерації<span class="message_counter"><%= @not_moderated_works.count %></span>:
+    <br/><table class="data-list" cellpadding="0" cellspacing="0">
+  <% @not_moderated_works.each do |work|%>
+      <tr>
+        <td>
+          <%= work.title %>
+        </td>
+        <td>
+          <%= link_to work.author.name, user_path(work.author) %>
+        </td>
+        <td>
+          <%= work.created_at %>
+        </td>
+        <td>
+          <%= link_to "Перейти до модерації", art_path(work), :class => "button submit_button" %>
+        </td>
+      </tr>
+  <% end %>
+</table>
+<% end %>

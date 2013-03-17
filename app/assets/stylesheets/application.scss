@@ -717,3 +717,16 @@ ul.sidebar-menu{
     }
   }
 }
+
+
+span.message_counter{
+  background-color: red;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  color: white;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  text-align: center;
+}

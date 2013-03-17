@@ -22,7 +22,8 @@
     <div class="menu_nav">
       <ul>
         <% if current_user && current_user.role.name == "admin" %>
-            <li><%= link_to "Сторінка адміністратора", admin_index_path %></li>
+            <li><%= if @admin_message then raw("<span class='message_counter'>" + @admin_message + "</span>") end%>
+                <%= link_to "Сторінка адміністратора", admin_index_path %></li>
         <% end %>
         <% if signed_in? %>
             <li><%= link_to current_user.name, current_user %></li>

@@ -22,8 +22,6 @@
     <div class="menu_nav">
       <ul>
         <% if current_user && current_user.role.name == "admin" %>
-            <li><%= link_to "Додати новину", new_news_path %></li>
-            <li><%= link_to "Додати статті", new_article_path %></li>
             <li><%= link_to "Адмінка", admin_roles_path %></li>
         <% end %>
         <% if signed_in? %>
@@ -63,7 +61,10 @@
       <%= yield %>
     </div>
     <div class="sidebar">
+
+      <%= yield :sidebar %>
       <%=  render :partial => 'layouts/sidebar', :locals => {:tags => @tags} %>
+
     </div>
     <div class="clr"></div>
   </div>

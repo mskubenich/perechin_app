@@ -1,0 +1,42 @@
+<div class="gadget">
+  <ul class="sidebar-block">
+    <li>
+      Новини за мітками
+    </li>
+    <li>
+      <div class="tags">
+        <% tags.each do |tag|%>
+            <%= link_to tag['title'], news_index_path(:tag => tag['id']), :style=>"font-size: #{tag['size']}px; opacity: #{tag['opacity']};"%>
+        <% end %>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+<div class="gadget">
+  <ul class="sidebar-block">
+    <li>
+      Погода
+    </li>
+    <li>
+      <div class="sidebar-block-content">
+        <%= render :partial => 'layouts/weather' %>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+<div class="gadget">
+  <ul class="sidebar-block">
+    <li>
+      Курс валют
+    </li>
+    <li>
+      <div class="sidebar-block-content">
+        <%= render :partial => 'layouts/exchange_rate' %>
+      </div>
+    </li>
+  </ul>
+</div>

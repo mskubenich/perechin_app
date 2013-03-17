@@ -7,3 +7,9 @@
 <% end %>
 <%= will_paginate @news %>
 
+
+
+<%= content_for :sidebar do %>
+    <%= render :partial => 'sidebar', :locals => {:tags => @tags}%>
+<% end %>
+

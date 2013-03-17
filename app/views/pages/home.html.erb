@@ -1,7 +1,7 @@
 <div id="galleria">
 </div>
 <div class="news_list">
-  Останні новини:<br/><br/>
+  <br/>Останні новини:<br/>
   <% @last_news.each do |news|%>
     <span class="gray_span">
       <%= news.created_at.day%>/<%= news.created_at.month %>/<%= news.created_at.year %>&nbsp;<%= news.created_at.hour%>:<%= news.created_at.min %>&nbsp;
@@ -11,11 +11,11 @@
       <%= image_tag 'vico-comments.png', :style => "display: inline" %>&nbsp;<%= news.comments.count %>
       <br/>
   <% end %>
-  <%= link_to raw("<div class='read_more'>Більше новин...</div>"), news_index_path %>
+  <%= link_to 'Більше новин', news_index_path, :class => "button link_button big_button" %>
 </div>
 
 <div class="news_list">
-Останні статті:<br/><br/>
+<br/>Останні статті:<br/>
 <% @last_articles.each do |article|%>
     <span class="gray_span">
       <%= article.created_at.day%>/<%= article.created_at.month %>/<%= article.created_at.year %>&nbsp;<%= article.created_at.hour%>:<%= article.created_at.min %>&nbsp;
@@ -25,7 +25,7 @@
     <%= image_tag 'vico-comments.png', :style => "display: inline" %>&nbsp;<%= article.comments.count %>
     <br/>
 <% end %>
-<%= link_to raw("<div class='read_more'>Більше статей...</div>"), articles_path %>
+<%= link_to 'Більше статей', articles_path, :class => "button link_button big_button" %>
 </div>
 
 
@@ -55,3 +55,8 @@
         }
     });
 </script>
+
+
+<%= content_for :sidebar do %>
+    <%= render :partial => 'sidebar', :locals => {:tags => @tags}%>
+<% end %>

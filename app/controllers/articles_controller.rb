@@ -115,6 +115,7 @@ class ArticlesController < ApplicationController
       @article = Article.find(params[:id])
       sql = ActiveRecord::Base.connection()
       sql.execute("UPDATE articles SET view_count = #{(@article.view_count + 1).to_s} WHERE id = #{(@article.id).to_s}")
+      @tags = Article.tags
     end
 
     def create_comment
@@ -132,6 +133,7 @@ class ArticlesController < ApplicationController
     def index
       @articles = Article.search(params[:page], params[:tag])
       @tag = Tag.find(params[:tag]) if params[:tag]
+      @tags = Article.tags
     end
 
 end

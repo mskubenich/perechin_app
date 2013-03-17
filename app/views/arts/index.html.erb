@@ -31,6 +31,6 @@
 
 <div class="clr"></div>
 
-<%= content_for :art_categories do %>
+<%= content_for :sidebar do %>
   <%= render :partial => 'sidebar', :locals => {:art_categories => @art_categories, :category => @category}%>
 <% end %>

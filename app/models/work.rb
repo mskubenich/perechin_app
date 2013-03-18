@@ -6,7 +6,7 @@ class Work < ActiveRecord::Base
   validates :body, :presence => true
   validates :art_subcategory_id, :presence => true
 
-  def self.search(page = 1, art_category_id, art_subcategory_id, author_id)
+  def self.search(page = 1, art_category_id, art_subcategory_id, author_id, for_admin)
     items_per_page = 10
 
     conditions = ""
@@ -19,6 +19,10 @@ class Work < ActiveRecord::Base
       conditions += " AND " if conditions != ""
       author_id = author_id.gsub /\D/, ""
       conditions += "user_id = " + author_id
+    end
+    unless for_admin
+      conditions += " AND " if conditions != ""
+      conditions += "moderate = 1"
     end
     unless art_category_id.blank?
       conditions += " AND " if conditions != ""

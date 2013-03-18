@@ -35,6 +35,7 @@ SampleApp::Application.routes.draw do
     resources :users, :only => :index
     post '/users/change_user_role', :to => "users#change_user_role"
     resources :arts
+    post '/arts/approve_work', :to => "arts#approve_work"
     resources :art_subcategories
   end
 

@@ -12,6 +12,7 @@ gem 'coffee-rails', '~> 3.2.1'
 gem 'nokogiri'
 gem 'will_paginate'
 
+
 group :production do
   gem 'uglifier'
 end

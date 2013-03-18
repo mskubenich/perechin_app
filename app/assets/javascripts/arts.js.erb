@@ -19,3 +19,21 @@ function select_art_category(field){
 j(document).ready(function(){
     j("#art_category").change();
 });
+
+function approve_work(work_id){
+    j.ajax({
+        url: "<%= Rails.application.routes.url_helpers.admin_arts_approve_work_path %>",
+        data: { id: work_id },
+        type: 'POST',
+        beforeSend: function () {
+        },
+        complete: function(){
+        },
+        error: function(err){
+            alert("error");
+        },
+        success: function(data){
+            alert('Успішно. Обновіть сторінку щоб побачити зміни');
+        }
+    });
+}

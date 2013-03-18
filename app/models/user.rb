@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   validates :password, :presence     => true,
             :confirmation => true,
             :length       => { :within => 6..20 }
-  validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/png', 'image/gif']
+  validates_attachment_content_type :avatar, :content_type => /^image\/(jpg|jpeg|pjpeg|png|x-png|gif)$/, :message => 'file type is not allowed (only jpeg/png/gif images)'
 
   before_validation :encrypt_password
   after_create :send_registration_email

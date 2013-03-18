@@ -38,4 +38,10 @@ class Admin::ArtsController < ApplicationController
     redirect_to admin_arts_path
   end
 
+  def approve_work
+    work = Work.find(params[:id])
+    work.update_attribute(:moderate, true)
+    render :text => :success
+  end
+
 end

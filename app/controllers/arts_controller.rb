@@ -5,7 +5,7 @@ class ArtsController < ApplicationController
     role_author = Role.find_by_name("author")
     @authors = User.where(:role_id => role_author.id)
 
-    @works = Work.search(params[:page], params[:art_category].to_s, params[:art_subcategory].to_s, params[:author_id].to_s)
+    @works = Work.search(params[:page], params[:art_category].to_s, params[:art_subcategory].to_s, params[:author_id].to_s, (current_user && (current_user.role.name == "admin" || current_user.role.name == "author" )))
     @category = ArtCategory.find(params[:art_category]) if params[:art_category]
     @art_subcategory = ArtSubcategory.find(params[:art_subcategory]) if params[:art_subcategory]
     @author = User.find(params[:author_id]) if params[:author_id]

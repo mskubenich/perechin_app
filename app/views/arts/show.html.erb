@@ -2,6 +2,10 @@
 
 <div class="art_content">
   Title:<%= @work.title %><br/>
+
+  <% unless @work.moderate %>
+      <span style="color:red;">Not moderated</span>
+  <% end %>
   Author:<%= @work.author.name %><br/>
   Created_at:<%= @work.created_at %><br/>
   Category:<%= @work.art_subcategory.art_category.title %><br/>
@@ -9,6 +13,7 @@
   <% if current_user.role.name == "admin" || current_user == @work.author %>
       <%= button_to "Change", edit_art_path(@work), :method => :get, :class => "button edit_button" -%>
       <%= button_to "Delete", art_path(@work), :method => :delete, :class => "button remove_button", :confirm => "Are you sure you wont to delete art ?" %>
+      <%= link_to "Затвердити", "#", :class => "button remove_button", :onclick => "approve_work(#{@work.id}); return nil;"  if current_user.role.name == "admin" && !@work.moderate%>
   <% end %>
   <br/>
   Body:<%= @work.body %>

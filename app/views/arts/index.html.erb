@@ -10,15 +10,19 @@
 
   <% @works.each do |work| %>
       Title:<%= link_to work.title, art_path(work) %><br/>
+      <% unless work.moderate %>
+        <span style="color:red;">Not moderated</span>
+      <% end %>
       Author:<%= work.author.name %><br/>
       Created_at:<%= work.created_at %><br/>
       Category:<%= work.art_subcategory.art_category.title %><br/>
       Subcategory:<%= work.art_subcategory.title %><br/>
       <% if current_user && (current_user.role.name == "admin" || current_user == work.author) %>
-          <%= link_to "Change", edit_art_path(work), :class => "button submit_button" -%>
-          <%= link_to "Change", edit_art_path(work), :class => "button edit_button" -%>
-          <%= link_to "Change", edit_art_path(work), :class => "button link_button" -%>
+        <%= link_to "Change", edit_art_path(work), :class => "button submit_button" -%>
         <%= button_to "Delete", art_path(work), :method => :delete, :class => "button remove_button", :confirm => "Are you sure you wont to delete art ?" %>
+          <% unless work.moderate %>
+              <%= link_to "Перейти до модерації", art_path(work), :class => "button submit_button" %>
+          <% end %>
       <% end %>
       <br/>
       Body: <%= work.body %>

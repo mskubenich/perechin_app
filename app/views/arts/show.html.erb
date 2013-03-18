@@ -17,9 +17,7 @@
   <% end %>
   <br/>
   Body:<%= @work.body %>
-</div>
 
-<div class="clr"></div>
 
 
 <div id="comments">
@@ -49,3 +47,7 @@
 <%= content_for :sidebar do %>
     <%= render :partial => 'sidebar', :locals => {:art_categories => @art_categories, :category => @category}%>
 <% end %>
+
+</div>
+
+<div class="clr"></div>

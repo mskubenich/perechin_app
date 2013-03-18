@@ -721,7 +721,6 @@ ul.sidebar-menu{
   }
 }
 
-
 span.message_counter{
   background-color: red;
   -webkit-border-radius: 10px;
@@ -732,4 +731,10 @@ span.message_counter{
   height: 20px;
   display: inline-block;
   text-align: center;
+}
+
+/* comments */
+
+.comment_holder{
+  border: 1px solid red;
 }

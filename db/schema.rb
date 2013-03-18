@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130318073842) do
+ActiveRecord::Schema.define(:version => 20130318114225) do
 
   create_table "actions", :force => true do |t|
     t.string "controller"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20130318073842) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "article_id"
+    t.integer  "work_id"
   end
 
   create_table "controller_role_permissions", :force => true do |t|

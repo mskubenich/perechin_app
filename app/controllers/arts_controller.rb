@@ -87,4 +87,12 @@ class ArtsController < ApplicationController
       render :text => "<option>error</option>"
     end
   end
+
+  def create_comment
+    @comment = Comment.create(:user_id => current_user.id, :work_id => params[:art_id], :text => params[:text])
+    if @comment.save
+      render :partial => 'layouts/comment', :locals => {:comment => @comment}
+    end
+  end
+
 end

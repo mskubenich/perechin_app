@@ -22,6 +22,10 @@ SampleApp::Application.routes.draw do
   resources :articles do
     match 'new_comment', :to => 'articles#create_comment'
   end
+  resources :arts do
+    post 'new_comment', :to => 'arts#create_comment'
+  end
+  post '/arts/subcategories_for_category', :to => "arts#subcategories_for_category"
 
   match '/contact', :to => 'pages#contact'
   match '/about',   :to => 'pages#about'
@@ -39,7 +43,5 @@ SampleApp::Application.routes.draw do
     resources :art_subcategories
   end
 
-  resources :arts
-  post '/arts/subcategories_for_category', :to => "arts#subcategories_for_category"
 
 end

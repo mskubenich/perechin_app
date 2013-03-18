@@ -1,21 +1,13 @@
-<div class="authors">
-  <table class="atohrs_table">
-    <% authors.each do |author| %>
-        <tr>
-          <td>
+
+<% authors.each do |author| %>
+  <div class="authors">
+
+    <%= link_to 'Твори автора', arts_path(:art_category => params[:art_category], :art_subcategory => params[:art_subcategory], :author_id => author.id) %>
             <%= image_tag author.avatar.url(:original) %>
-          </td>
-        </tr>
-        <tr>
-          <td>
+
             <%= link_to author.name, user_path(author) %>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <%= link_to 'Твори автора', arts_path(:art_category => params[:art_category], :art_subcategory => params[:art_subcategory], :author_id => author.id) %>
-          </td>
-        </tr>
-    <% end %>
-  </table>
+
+
 </div>
+
+<% end %>

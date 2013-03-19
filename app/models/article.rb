@@ -36,7 +36,7 @@ class Article < ActiveRecord::Base
     min_size = 15
     max_value = tags.first['totalcount'].to_i
     min_value = tags.last['totalcount'].to_i
-    if min_value == 0
+    if max_value == 0
       return tags
     end
     tags.each do |tag|

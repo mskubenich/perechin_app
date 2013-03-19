@@ -30,21 +30,24 @@ class News < ActiveRecord::Base
                             (SELECT count(id) FROM news_tags WHERE tag_id = tags.id) AS totalcount
                             FROM tags
                             ORDER BY totalcount DESC LIMIT 20;")
-    return tags if tags.blank?
+    if tags.blank?
+      return tags
+    end
     max_size = 30
     min_size = 15
     max_value = tags.first['totalcount'].to_i
     min_value = tags.last['totalcount'].to_i
+    if min_value == 0
+      return tags
+    end
     tags.each do |tag|
       tag['size'] = (((tag['totalcount'].to_i * (max_size-min_size))+min_value)/((max_value-min_value))+min_size)
     end
 
     max_opacity = 1.0
     min_opacity = 0.4
-    max_value = tags.first['totalcount'].to_i
-    min_value = tags.last['totalcount'].to_i
     tags.each do |tag|
-      tag['opacity'] = (((tag['totalcount'].to_i * (max_opacity-min_opacity))+min_value)/((max_value-min_value))+min_opacity)
+      tag['opacity'] = (((tag['totalcount'].to_i * (max_opacity-min_opacity))+min_value)/((max_value-min_value))+min_opacity+1)
     end
 
     tags = tags.sort_by{ |tag| tag['id'] }

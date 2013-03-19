@@ -1,3 +1,6 @@
+<% if art_categories.blank? %>
+    You must create some art category before
+<% else %>
 <%= form_for work, :url => work.id ? art_path(work) : arts_path do |f| %>
     <% if work.errors.any? %>
         <div id="error_explanation">
@@ -31,4 +34,6 @@
     <div class="actions">
       <%= f.submit "Save", :class => "button submit_button" %>
     </div>
+<% end %>
+
 <% end %>

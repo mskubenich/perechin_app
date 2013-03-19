@@ -30,6 +30,7 @@ class News < ActiveRecord::Base
                             (SELECT count(id) FROM news_tags WHERE tag_id = tags.id) AS totalcount
                             FROM tags
                             ORDER BY totalcount DESC LIMIT 20;")
+    return tags if tags.blank?
     max_size = 30
     min_size = 15
     max_value = tags.first['totalcount'].to_i

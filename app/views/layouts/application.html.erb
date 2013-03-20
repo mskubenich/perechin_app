@@ -45,16 +45,16 @@
 <div class="content">
   <div class="content_resize">
     <ul class="menu">
-      <li>
+      <li <%= (current_page?(root_path))?"class='active'":""%>>
         <%= link_to raw("&nbsp;Додому"), root_path %>
       </li>
-      <li>
+      <li <%= (current_page?(news_index_path))?"class='active'":""%>>
         <%= link_to "Новини", news_index_path %>
       </li>
-      <li>
+      <li <%= (current_page?(articles_path))?"class='active'":""%>>
         <%= link_to "Статті", articles_path %>
       </li>
-      <li>
+      <li <%= (current_page?(arts_path))?"class='active'":""%>>
         <%= link_to "Мистецтво", arts_path %>
       </li>
     </ul>

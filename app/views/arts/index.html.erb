@@ -1,32 +1,32 @@
-<h2><%= @category.title if @category%>
-<%= " > " + @art_subcategory.title if @art_subcategory%>
-<%= " > " + @author.name if @author%></h2>
 
 <%= render :partial => 'authors_list', :locals => {:authors => @authors}%>
 
 <div class="art_content">
+  <h2><%= @category.title if @category%>
+    <%= " > " + @art_subcategory.title if @art_subcategory%>
+    <%= " > " + @author.name if @author%></h2>
 
   <%= will_paginate @works, :previous_label => 'Попередня', :next_label => 'Наступна'  %>
 
   <% @works.each do |work| %>
-      Title:<%= link_to work.title, art_path(work) %><br/>
+      <div class="one"><div class="zagolovok"><%= link_to work.title, art_path(work) %></div>
       <% unless work.moderate %>
         <span style="color:red;">Not moderated</span>
       <% end %>
-      Author:<%= work.author.name %><br/>
-      Created_at:<%= work.created_at %><br/>
-      Category:<%= work.art_subcategory.art_category.title %><br/>
-      Subcategory:<%= work.art_subcategory.title %><br/>
+      <i><b>Автор:</b></i> <%= link_to work.author.name, user_path(work.author) %><br/>
+        <i><b>Категорія:</b></i> <%= link_to work.art_subcategory.art_category.title, arts_path(:art_category => work.art_subcategory.art_category.id, :author_id => params[:author_id]) %> / <%= link_to work.art_subcategory.title, arts_path(:art_category => work.art_subcategory.art_category.id, :art_subcategory => work.art_subcategory.id, :author_id => params[:author_id]) %><br/>
+          <i><b>Додано:</b></i> <%= work.created_at.day %>-<%= work.created_at.month %>-<%= work.created_at.year %>&nbsp;<%= work.created_at.hour %>:<%= work.created_at.min %><br/><hr/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= work.body %>   <br/>
+
       <% if current_user && (current_user.role.name == "admin" || current_user == work.author) %>
-        <%= link_to "Change", edit_art_path(work), :class => "button submit_button" -%>
-        <%= button_to "Delete", art_path(work), :method => :delete, :class => "button remove_button", :confirm => "Are you sure you wont to delete art ?" %>
+          <%= link_to "Змінити", edit_art_path(work), :class => "button submit_button" -%>
+          <%= button_to "Видалити", art_path(work), :method => :delete, :class => "button remove_button", :confirm => "Are you sure you wont to delete art ?" %>
           <% unless work.moderate %>
               <%= link_to "Перейти до модерації", art_path(work), :class => "button submit_button" %>
-          <% end %>
-      <% end %>
-      <br/>
-      Body: <%= work.body %>
-      <hr/>
+              <% end %>
+            <div class="right"><%= link_to "Читати детально...", art_path(work) %>    </div>
+              <% end %>
+  </div> <br>
   <% end %>
 
   <%= will_paginate @works, :previous_label => 'Попередня', :next_label => 'Наступна'  %>

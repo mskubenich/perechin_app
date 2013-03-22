@@ -40,13 +40,13 @@ class Article < ActiveRecord::Base
       return tags
     end
     tags.each do |tag|
-      tag['size'] = (((tag['totalcount'].to_i * (max_size-min_size))+min_value)/((max_value-min_value))+min_size)
+      tag['size'] = (((tag['totalcount'].to_i * (max_size-min_size)+min_value))/((max_value-min_value)+min_size))
     end
 
     max_opacity = 1.0
     min_opacity = 0.4
     tags.each do |tag|
-      tag['opacity'] = (((tag['totalcount'].to_i * (max_opacity-min_opacity))+min_value)/((max_value-min_value))+min_opacity)
+      tag['opacity'] = (((tag['totalcount'].to_i * (max_opacity-min_opacity)+min_value))/((max_value-min_value)+min_opacity))
     end
 
     tags = tags.sort_by{ |tag| tag['id'] }

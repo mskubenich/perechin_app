@@ -35,7 +35,7 @@ class Article < ActiveRecord::Base
       return tags
     end
     max_size = 30
-    min_size = 15
+    min_size = 8
     max_value = tags.first['totalcount'].to_i
     min_value = tags.last['totalcount'].to_i
     if max_value == 0 || max_value == min_value
@@ -46,7 +46,7 @@ class Article < ActiveRecord::Base
     end
 
     max_opacity = 1.0
-    min_opacity = 0.4
+    min_opacity = 0.2
     tags.each do |tag|
       tag['opacity'] = (((tag['totalcount'].to_i - min_value)*(max_opacity - min_opacity))/(max_value - min_value))+min_opacity
     end

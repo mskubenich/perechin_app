@@ -782,7 +782,10 @@ span.message_counter{
 /* list item */
 
 .list_item_holder{
-  margin-top: 20px;
+  margin-top: 40px;
+  &:first-child{
+    margin-top: 10px;
+  }
   & a{
     color: #030407;
   }

@@ -1,7 +1,7 @@
 
 class User < ActiveRecord::Base
   belongs_to :role
-  has_one :join_confirmation
+  has_one :join_confirmation, :dependent => :destroy
   has_many :comments
   has_many :news
   has_many :articles
@@ -72,6 +72,14 @@ class User < ActiveRecord::Base
   def send_registration_email
     self.join_confirmation = JoinConfirmation.create(:activation_code => Array.new(45){(97 + rand(26)).chr}.join)
     RegistrationMailer.registration_email(self).deliver
+  end
+
+  def self.remove_not_activated
+    JoinConfirmation.all.each do |activation|
+      if activation.user.created_at < Time.now - 1.day
+        activation.user.destroy
+      end
+    end
   end
 end
 

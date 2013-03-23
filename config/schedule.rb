@@ -25,5 +25,5 @@ set :output, 'log/whenever.log'
 
 #remove not activated users
 every 1.minutes do
-  Comment.create(:text => "whenever2", :user_id => 4, :article_id => 2)
+  runner 'User.remove_not_activated'
 end

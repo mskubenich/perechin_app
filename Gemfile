@@ -16,3 +16,4 @@ gem 'whenever'
 group :production do
   gem 'uglifier'
 end
+

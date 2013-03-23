@@ -19,9 +19,11 @@
 
 # Learn more: http://github.com/javan/whenever
 
+
 set :environment, :production
 set :output, 'log/whenever.log'
 
+#remove not activated users
 every 1.minutes do
-  runner 'Comment.create(:text => "whenever", :user_id => 4, :article_id => 2)'
+  Comment.create(:text => "whenever2", :user_id => 4, :article_id => 2)
 end

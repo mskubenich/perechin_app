@@ -27,3 +27,5 @@
 .sass-cache/
 public/assets/
 /.idea
+
+/script/rails

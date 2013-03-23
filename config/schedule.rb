@@ -22,6 +22,6 @@
 set :environment, :production
 set :output, 'log/whenever.log'
 
-every 5.seconds do
+every 1.minutes do
   runner 'Comment.create(:text => "whenever", :user_id => 4, :article_id => 2)'
 end

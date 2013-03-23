@@ -20,3 +20,11 @@ role :db,  "your slave db-server here"
 #     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
 #   end
 # end
+
+
+namespace :deploy do
+  desc "Update the crontab file"
+  task :update_crontab, :roles => :app, :except => { :no_release => true } do
+    run "cd #{release_path} && bundle exec whenever --update-crontab #{application}"
+  end
+end

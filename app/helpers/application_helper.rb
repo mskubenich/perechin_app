@@ -1,3 +1,5 @@
+# coding: utf-8
+
 module ApplicationHelper
 
   def title
@@ -9,7 +11,9 @@ module ApplicationHelper
     end
   end
 
-  def logo
-    image_tag("logo.png", :alt => "Sample App", :class => "round")
+  def month(month_number)
+    %w'січня лютого березня'[month_number - 1]
   end
+
+
 end

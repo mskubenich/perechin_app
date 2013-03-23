@@ -1,24 +1,44 @@
 <%= render :partial => 'authors_list', :locals => {:authors => @authors}%>
-
 <div class="art_content">
-  Title:<%= @work.title %><br/>
 
-  <% unless @work.moderate %>
-      <span style="color:red;">Not moderated</span>
+  <% work = @work %>
+  <div class="list_item_holder">
+    <div class="item_title">
+      <div class="item_author">
+        <%= link_to image_tag(work.author.avatar.url(:original)), user_path(work.author) %>
+      </div>
+      <div class="item_meta">
+        Автор:<%= link_to work.author.name, user_path(work.author) %>&nbsp;
+        <%= work.created_at.day %>&nbsp;<%= month work.created_at.month %>&nbsp;<%= work.created_at.year %>&nbsp;<%= work.created_at.hour %>:<%= work.created_at.min %>
+        <br/>
+        <%= link_to work.title, art_path(work), :class => "item_title_text" %>
+        <% unless work.moderate %>
+            <br/><span style="color:red;">Not moderated</span>
+        <% end %>
+      </div>
+      <div class="clr"></div>
+    </div>
+    <div class="divider">
+      <div class="divider_text">
+            <span>
+                <%= link_to work.art_subcategory.art_category.title, arts_path(:art_category => work.art_subcategory.art_category.id, :author_id => params[:author_id]) %>
+              >
+              <%= link_to work.art_subcategory.title, arts_path(:art_category => work.art_subcategory.art_category.id, :art_subcategory => work.art_subcategory.id, :author_id => params[:author_id]) %>
+              &nbsp;
+            </span>
+      </div>
+    </div>
+    <%= work.body %>&nbsp;<%= link_to "Читати детально...", art_path(work) %><br/>
+
+    <div class="comments_icon"></div><%= link_to work.comments.count.to_s+" коментарів", art_path(work)%>
+    <% if current_user && (current_user.role.name == "admin" || current_user == work.author) %>
+        <div class="change_icon"></div><%= link_to "Змінити", edit_art_path(work)%>
+        <div class="delete_icon"></div><%= link_to "Видалити", art_path(work), :method => :delete, :confirm => "Are you sure you wont to delete art ?" %>
+        <% unless work.moderate %>
+            <div class="moderate_icon"></div><%= link_to "Затвердити", "#", :onclick => "approve_work(#{@work.id}); return nil;"  if current_user.role.name == "admin" && !@work.moderate%>
   <% end %>
-  Author:<%= @work.author.name %><br/>
-  Created_at:<%= @work.created_at %><br/>
-  Category:<%= @work.art_subcategory.art_category.title %><br/>
-  Subcategory:<%= @work.art_subcategory.title %><br/>
-  <% if current_user && (current_user.role.name == "admin" || current_user == @work.author) %>
-      <%= button_to "Change", edit_art_path(@work), :method => :get, :class => "button edit_button" -%>
-      <%= button_to "Delete", art_path(@work), :method => :delete, :class => "button remove_button", :confirm => "Are you sure you wont to delete art ?" %>
-      <%= link_to "Затвердити", "#", :class => "button remove_button", :onclick => "approve_work(#{@work.id}); return nil;"  if current_user.role.name == "admin" && !@work.moderate%>
-  <% end %>
-  <br/>
-  Body:<%= @work.body %>
-
-
+    <% end %>
+  </div>
 
 <div id="comments">
   <div class="news_title">Discussion: <%= @work.comments.count.to_s %> comments:</div>

@@ -23,33 +23,5 @@
 .art_content{
   padding: 0px;
   float: right;
-  width: 470px;
-  }
-hr{
-  border:none; /* Убираем границу для браузера Firefox */
-  color: #0088cc; /* Цвет линии для остальных браузеров */
-  background-color: #0089ff; /* Цвет линии для браузера Firefox и Opera */
-  height: 1px; /* Толщина линии */
-}
-
-.zagolovok a{
-    font-size: 20px;
-    text-decoration: none;
-    color: white;
-  }
-.zagolovok{
-  text-align: center;
-  margin: -10px -10px 0 -10px;
-  border-radius: 4px 4px 0 0;
-  border: 1px solid #006dcc;
-  background:#0089ff;
- }
-.one{
-  border: 1px solid #add8e6;
-  padding: 4px 10px 10px 10px;
-  border-radius: 4px;
-}
-.right{
-  float: right;
-  font-size: 16px;
+  width: 490px;
 }

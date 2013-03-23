@@ -778,3 +778,79 @@ span.message_counter{
 .comment_holder{
   border: 1px solid red;
 }
+
+/* list item */
+
+.list_item_holder{
+  margin-top: 20px;
+  & a{
+    color: #030407;
+  }
+  & .item_title{
+    .item_author{
+      width: 70px;
+      img{
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+        border: 1px solid gray;
+        width: 68px;
+      }
+      float: right;
+    }
+    .item_meta{
+      color: gray;
+    }
+    &  a.item_title_text{
+      font-size: 27px;
+      font-style: italic;
+      color: #030407;
+      vertical-align: middle;
+      font-family: Arial;
+      text-decoration: none;
+    }
+  }
+  .divider{
+    border-top: 1px solid gray;
+    .divider_text{
+      margin-top: -1em;
+      span{
+        background-color: white;
+      }
+    }
+  }
+}
+
+/* icons */
+.change_icon{
+  width: 28px;
+  height: 40px;
+  display: inline-block;
+  background-image: url(icons/icons.jpg);
+  background-position: -220px -187px;
+  background-size: 300px; vertical-align: middle;
+}
+.comments_icon{
+  width: 28px;
+  height: 40px;
+  display: inline-block;
+  background-image: url(icons/icons.jpg);
+  background-position: -137px -142px;
+  background-size: 300px; vertical-align: middle;
+}
+.moderate_icon{
+  width: 28px;
+  height: 40px;
+  display: inline-block;
+  background-image: url(icons/icons.jpg);
+  background-position: -175px -184px;
+  background-size: 300px; vertical-align: middle;
+}
+.delete_icon{
+  width: 28px;
+  height: 40px;
+  display: inline-block;
+  background-image: url(icons/icons.jpg);
+  background-position: -95px -53px;
+  background-size: 300px; vertical-align: middle;
+}

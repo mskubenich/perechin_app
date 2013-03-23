@@ -33,8 +33,8 @@ class News < ActiveRecord::Base
     if tags.blank?
       return tags
     end
-    max_size = 30
-    min_size = 10
+    max_size = 35
+    min_size = 15
     max_value = tags.first['totalcount'].to_i
     min_value = tags.last['totalcount'].to_i
     if max_value == 0 || max_value == min_value

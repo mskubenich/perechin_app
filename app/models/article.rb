@@ -30,12 +30,12 @@ class Article < ActiveRecord::Base
     tags = ActiveRecord::Base.connection.select_all("SELECT tags.id, tags.title,
                             (SELECT count(id) FROM articles_tags WHERE tag_id = tags.id) AS totalcount
                             FROM tags HAVING totalcount > 0
-                            ORDER BY totalcount DESC LIMIT 20;")
+                            ORDER BY totalcount DESC LIMIT 30;")
     if tags.blank?
       return tags
     end
     max_size = 30
-    min_size = 8
+    min_size = 10
     max_value = tags.first['totalcount'].to_i
     min_value = tags.last['totalcount'].to_i
     if max_value == 0 || max_value == min_value
@@ -46,7 +46,7 @@ class Article < ActiveRecord::Base
     end
 
     max_opacity = 1.0
-    min_opacity = 0.2
+    min_opacity = 0.3
     tags.each do |tag|
       tag['opacity'] = (((tag['totalcount'].to_i - min_value)*(max_opacity - min_opacity))/(max_value - min_value))+min_opacity
     end

@@ -2,11 +2,11 @@
 <%= render :partial => 'authors_list', :locals => {:authors => @authors}%>
 
 <div class="art_content">
-  <%= "<h2>" if @category || @author %>
+  <%= raw"<h2>" if @category || @author %>
     <%= @category.title if @category%>
     <%= " > " + @art_subcategory.title if @art_subcategory%>
     <%= " > " + @author.name if @author%>
-  <%= "</h2>" if @category || @author %>
+  <%= raw"</h2>" if @category || @author %>
 
   <%= will_paginate @works, :previous_label => 'Попередня', :next_label => 'Наступна'  %>
 

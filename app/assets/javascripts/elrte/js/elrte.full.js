@@ -4188,9 +4188,9 @@ elRTE.prototype.ui.prototype.update = function(cleanCache) {
 			if (n.hasClass('elrte-media')) {
 				name = 'media';
 			} else if (n.hasClass('elrte-google-maps')) {
-				name = 'google map';
+				name = 'google maps';
 			} else if (n.hasClass('elrte-yandex-maps')) {
-				name = 'yandex map';
+				name = 'yandex maps';
 			} else if (n.hasClass('elrte-pagebreak')) {
 				name = 'pagebreak';
 			}
@@ -4314,7 +4314,7 @@ elRTE.prototype.utils = function(rte) {
 	this.baseURL = '';
 	this.path    = '';
 	/**
-	 * entities map
+	 * entities maps
 	 **/
 	this.entities = {'&' : '&amp;', '"' : '&quot;', '<' : '&lt;', '>' : '&gt;'};
 	/**
@@ -4464,7 +4464,7 @@ elRTE.prototype.utils = function(rte) {
 
 
 	/**
-	 * Create object (map) from array
+	 * Create object (maps) from array
 	 *
 	 * @param   Array
 	 * @return  Object
@@ -4595,7 +4595,7 @@ elRTE.prototype.utils = function(rte) {
 	/**
 	 * Serialize style object into string
 	 *
-	 * @param   Object  style map
+	 * @param   Object  style maps
 	 * @param   Boolean flag - compact style?
 	 * @return  String
 	 **/

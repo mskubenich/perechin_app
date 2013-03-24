@@ -57,6 +57,11 @@
       <li <%= (current_page?(arts_path))?"class='active'":""%>>
         <%= link_to "Мистецтво", arts_path %>
       </li>
+      <% if current_user && current_user.role.name == "admin" %>
+      <li <%= (current_page?(maps_path))?"class='active'":""%>>
+        <%= link_to "Мапа", maps_path %>
+      </li>
+      <% end %>
     </ul>
     <div class="mainbar">
       <%= yield %>

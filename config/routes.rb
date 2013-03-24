@@ -1,6 +1,4 @@
 SampleApp::Application.routes.draw do
-  get "pages/index"
-
   root :to => 'pages#home'
 
   resources :users
@@ -42,6 +40,8 @@ SampleApp::Application.routes.draw do
     post '/arts/approve_work', :to => "arts#approve_work"
     resources :art_subcategories
   end
+
+  resources :maps, :only => :index
 
 
 end

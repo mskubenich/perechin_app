@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130318114225) do
+ActiveRecord::Schema.define(:version => 20130324100159) do
 
   create_table "actions", :force => true do |t|
     t.string "controller"
@@ -98,6 +98,13 @@ ActiveRecord::Schema.define(:version => 20130318114225) do
     t.text   "description"
   end
 
+  create_table "showplaces", :force => true do |t|
+    t.string  "name"
+    t.float   "latitude"
+    t.float   "longitude"
+    t.boolean "gmaps"
+  end
+
   create_table "tags", :force => true do |t|
     t.string   "title"
     t.datetime "created_at", :null => false
@@ -118,6 +125,9 @@ ActiveRecord::Schema.define(:version => 20130318114225) do
     t.integer  "role_id"
     t.integer  "article_id"
     t.text     "about_me"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "gmaps"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

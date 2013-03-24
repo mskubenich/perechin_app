@@ -341,7 +341,7 @@ var undef,
                     return false;
                 }(( doc.body || doc.documentElement).style ));
 
-                // map transitionend event
+                // maps transitionend event
                 var endEvent = {
                     MozTransition: 'transitionend',
                     OTransition: 'oTransitionEnd',
@@ -349,7 +349,7 @@ var undef,
                     transition: 'transitionend'
                 }[ transition ];
 
-                // map bezier easing conversions
+                // maps bezier easing conversions
                 var easings = {
                     _default: [0.25, 0.1, 0.25, 1],
                     galleria: [0.645, 0.045, 0.355, 1],
@@ -4014,7 +4014,7 @@ $(document).mousemove(function(e) {
     /**
         Attach keyboard events to Galleria
 
-        @param {Object} map The map object of events.
+        @param {Object} map The maps object of events.
         Possible keys are 'UP', 'DOWN', 'LEFT', 'RIGHT', 'RETURN', 'ESCAPE', 'BACKSPACE', and 'SPACE'.
 
         @example

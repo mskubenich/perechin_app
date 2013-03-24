@@ -12,6 +12,8 @@ gem 'coffee-rails', '~> 3.2.1'
 gem 'nokogiri'
 gem 'will_paginate'
 gem 'whenever'
+gem 'gmaps4rails'
+gem 'geokit-rails3'
 
 group :production do
   gem 'uglifier'

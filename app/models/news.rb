@@ -53,5 +53,12 @@ class News < ActiveRecord::Base
     tags.sort_by{ |tag| tag['id'] }
   end
 
+  def self.remove_old
+    News.all(:select => 'created_at').each do |news|
+      if news.created_at < Time.now - 1.year
+        news.destroy
+      end
+    end
+  end
 
 end

@@ -24,6 +24,11 @@ set :environment, :production
 set :output, 'log/whenever.log'
 
 #remove not activated users
-every 1.minutes do
+every 1.day, :at => "12:01am" do
   runner 'User.remove_not_activated'
+end
+
+#remove not activated users
+every 7.days, :at => "12:10am" do
+  runner 'News.remove_old'
 end

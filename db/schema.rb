@@ -125,9 +125,6 @@ ActiveRecord::Schema.define(:version => 20130324100159) do
     t.integer  "role_id"
     t.integer  "article_id"
     t.text     "about_me"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.boolean  "gmaps"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

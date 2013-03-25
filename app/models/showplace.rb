@@ -7,4 +7,9 @@ class Showplace < ActiveRecord::Base
    # "#{self.street}, #{self.city}, #{self.country}"
     "just desc"
   end
+
+
+  def gmaps4rails_infowindow
+    "<h4>#{name}</h4>"
+  end
 end

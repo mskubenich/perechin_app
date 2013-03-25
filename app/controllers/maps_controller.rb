@@ -3,12 +3,11 @@ class MapsController < ApplicationController
     @json = Showplace.all.to_gmaps4rails
 
     @options = {
-      :map_options => { :auto_adjust => true,
+      :map_options => { :auto_adjust => false,
                         :type => "HYBRID",
                         :center_latitude => 48.735588,
                         :center_longitude => 22.475967,
-                        :auto_adjust => false,
-                        :zoom => 10 },
+                        :zoom => 12 },
       :markers     => { :data => @json, :options => {:do_clustering => true} }
     }
   end

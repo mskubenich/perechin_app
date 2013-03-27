@@ -23,11 +23,6 @@ class ArticlesController < ApplicationController
             img.replace ""
           end
         end
-        if params[:images]
-          params[:images].each do |key, value|                                                      f
-          AttachedAsset.create(:asset_id => @asset.id, :asset => value)
-          end
-        end
         @article.body = page.css("body:first").inner_html
         #save tags
         tags = []

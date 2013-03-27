@@ -1,7 +1,7 @@
 <% if art_categories.blank? %>
     You must create some art category before
 <% else %>
-<%= form_for work, :url => work.id ? art_path(work) : arts_path do |f| %>
+<%= form_for work, :url => work.id ? art_path(work) : arts_path, :html => {:multipart => true, :id => 'work_form' } do |f| %>
     <% if work.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(work.errors.count, "error") %>

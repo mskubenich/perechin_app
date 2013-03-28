@@ -37,12 +37,14 @@
             </span>
           </div>
         </div>
-        <div class="preview_image"><div>
-          <% if work.attached_assets.count > 0 %>
+
+        <% if work.attached_assets.count > 0 %>
+          <div class="preview_image"><div>
             <%= image_tag work.attached_assets[0].asset.url(:original)%>
-          <% end %>
-        </div></div>
-        <%= work.body %>&nbsp;<%= link_to "Читати детально...", art_path(work) %><br/>
+          </div></div>
+        <% end %>
+
+        <%= raw work.body %>&nbsp;<%= link_to "Читати детально...", art_path(work) %><br/>
 
         <div class="comments_icon"></div><%= link_to work.comments.count.to_s+" коментарів", art_path(work)%>
         <% if current_user && (current_user.role.name == "admin" || current_user == work.author) %>

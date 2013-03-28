@@ -6,15 +6,6 @@ class ArtsController < ApplicationController
     @authors = User.where(:role_id => role_author.id)
 
     @works = Work.search(params[:page], params[:art_category].to_s, params[:art_subcategory].to_s, params[:author_id].to_s, (current_user && (current_user.role.name == "admin" || current_user.role.name == "author" )))
-    @works.each do |work|
-      require 'nokogiri'
-      page =  Nokogiri::HTML(work.body)
-      page.css("img").each do |img|
-        img.remove
-      end
-      page =  Nokogiri::HTML(page.css("body:first").inner_html[0..20])
-      work.body = page.css("body:first").inner_html
-    end
 
     @category = ArtCategory.find(params[:art_category]) if params[:art_category]
     @art_subcategory = ArtSubcategory.find(params[:art_subcategory]) if params[:art_subcategory]

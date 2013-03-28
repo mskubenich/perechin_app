@@ -21,9 +21,9 @@ module ApplicationHelper
     page.css("img").each do |img|
       img.remove
     end
-    page =  Nokogiri::HTML(page.css("body:first").inner_html[0..20])
+    page =  Nokogiri::HTML(page.css("body:first").inner_html[0..300])
     body = page.css("body:first").inner_html
-    return body
+    return "|" + body + "|"
   end
 
 

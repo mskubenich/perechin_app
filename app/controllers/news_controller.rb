@@ -13,20 +13,13 @@ class NewsController < ApplicationController
       require 'nokogiri'
       page =  Nokogiri::HTML(params[:news][:body])
       page.xpath("//img[@asset]").each do |img|
-        if params[:images]['asset'+img['assetnum']]
+        if params[:images] && params[:images]['asset'+img['assetnum']]
           image = AttachedAsset.create(:news_id => @news.id, :asset => params[:images]['asset'+img['assetnum']])
           img.attribute('src').value = image.asset.url(:original)
           img['asset_id'] = image.id.to_s
           params[:images].delete('asset'+img['assetnum'])
           img.remove_attribute 'assetnum'
           img.remove_attribute 'asset'
-        else
-          img.replace ""
-        end
-      end
-      if params[:images]
-        params[:images].each do |key, value|
-          AttachedAsset.create(:news_id => @news.id, :asset => value)
         end
       end
       @news.body = page.css("body:first").inner_html
@@ -76,20 +69,13 @@ class NewsController < ApplicationController
       end
 
       page.xpath("//img[@asset]").each do |img|
-        if params[:images]['asset'+img['assetnum']]
+        if params[:images] && params[:images]['asset'+img['assetnum']]
           image = AttachedAsset.create(:news_id => @news.id, :asset => params[:images]['asset'+img['assetnum']])
           img.attribute('src').value = image.asset.url(:original)
           img['asset_id'] = image.id.to_s
           params[:images].delete('asset'+img['assetnum'])
           img.remove_attribute 'assetnum'
           img.remove_attribute 'asset'
-        else
-          img.replace ""
-        end
-      end
-      if params[:images]
-        params[:images].each do |key, value|
-          AttachedAsset.create(:news_id => @news.id, :asset => value)
         end
       end
       @news.body = page.css("body:first").inner_html

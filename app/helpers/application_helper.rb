@@ -23,7 +23,7 @@ module ApplicationHelper
     end
     page =  Nokogiri::HTML(page.css("body:first").inner_html[0..300])
     body = page.css("body:first").inner_html
-    return "|" + body + "|"
+    return "here" + body + "here"
   end
 
 

@@ -28,7 +28,7 @@
             </span>
       </div>
     </div>
-    <%= work.body %>&nbsp;<%= link_to "Читати детально...", art_path(work) %><br/>
+    <%= raw work.body %><br/>
 
     <div class="comments_icon"></div><%= link_to work.comments.count.to_s+" коментарів", art_path(work)%>
     <% if current_user && (current_user.role.name == "admin" || current_user == work.author) %>

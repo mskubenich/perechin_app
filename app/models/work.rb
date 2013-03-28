@@ -2,6 +2,7 @@ class Work < ActiveRecord::Base
   belongs_to :author, :class_name => "User" , :foreign_key => "user_id"
   belongs_to :art_subcategory
   has_many :comments
+  has_many :attached_assets, :dependent => :destroy
   attr_accessible :art_subcategory_id, :body, :title, :author, :user_id, :moderate
   validates :title, :presence => true
   validates :body, :presence => true

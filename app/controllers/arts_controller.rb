@@ -31,6 +31,24 @@ class ArtsController < ApplicationController
     params[:work][:moderate] = false
     @work = current_user.works.build(params[:work])
     if @work.save
+      require 'nokogiri'
+      page =  Nokogiri::HTML(params[:work][:body])
+      page.xpath("//img[@asset]").each do |img|
+        if params[:images]['asset'+img['assetnum']]
+          image = AttachedAsset.create(:work_id => @work.id, :asset => params[:images]['asset'+img['assetnum']])
+          img.attribute('src').value = image.asset.url(:original)
+          img['asset_id'] = image.id.to_s
+          params[:images].delete('asset'+img['assetnum'])
+          img.remove_attribute 'assetnum'
+          img.remove_attribute 'asset'
+        else
+          img.replace ""
+        end
+      end
+
+      #@work.view_count = 0
+
+      @work.update_attribute(:body, page.css("body:first").inner_html)
       flash[:success] = "Succesfully created work: " + @work.title
       redirect_to arts_path
     else
@@ -57,6 +75,22 @@ class ArtsController < ApplicationController
     end
     @work = Work.find(params[:id])
     if @work.update_attributes params[:work]
+      require 'nokogiri'
+      page =  Nokogiri::HTML(params[:work][:body])
+      page.xpath("//img[@asset]").each do |img|
+        if params[:images]['asset'+img['assetnum']]
+          image = AttachedAsset.create(:work_id => @work.id, :asset => params[:images]['asset'+img['assetnum']])
+          img.attribute('src').value = image.asset.url(:original)
+          img['asset_id'] = image.id.to_s
+          params[:images].delete('asset'+img['assetnum'])
+          img.remove_attribute 'assetnum'
+          img.remove_attribute 'asset'
+        else
+          img.replace ""
+        end
+      end
+
+      @work.update_attribute(:body, page.css("body:first").inner_html)
       flash[:success] = "Succesfully changed work: " + @work.title
       redirect_to arts_path
     else

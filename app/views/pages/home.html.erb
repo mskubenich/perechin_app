@@ -38,7 +38,7 @@
                 {
                     image: '<%= news.attached_assets[0].asset.url(:original) if news.attached_assets.count > 0 %>',
                     title: '<%= news.title %>',
-                    description: '<%= raw preview_from_body(news.body).gsub("'", "&quot;").gsub("\"", "&quot;").gsub("\r\n", " ")[0..150] + "..." %>',
+                    description: '<%= raw preview_from_body(news.body.gsub("'", "&quot;").gsub("\"", "&quot;").gsub("\r", " ").gsub("\n", " ")[0..150]) %>',
                     link: '<%= news_path(news)%>'
                 }
                 <% if news != @galleria_news.last %>

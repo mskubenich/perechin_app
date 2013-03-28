@@ -7,6 +7,7 @@ class PagesController < ApplicationController
     if @galleria_news.blank?
       @galleria_news = News.find_by_sql("SELECT * FROM news ORDER BY created_at DESC LIMIT 10")
     end
+    @galleria_news = @galleria_news
     #@galleria_news = News.all(:conditions => ["DATE(created_at) > DATE(?)", Time.now - 3.days], :order => 'view_count DESC', :limit => 5)
     @last_news = News.all(:limit => 7, :order => 'created_at DESC', :select => "title, created_at, view_count, id")
     @last_articles = Article.all(:limit => 4, :order => 'created_at DESC', :select => "title, created_at, view_count, id")

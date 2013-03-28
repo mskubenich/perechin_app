@@ -4,12 +4,11 @@ class News < ActiveRecord::Base
   belongs_to :user
   has_and_belongs_to_many :tags
 
-  attr_accessible :body, :title, :attached_assets, :source, :preview
+  attr_accessible :body, :title, :attached_assets, :source
 
   validates :title, :presence => true
   validates :body, :presence => true
   validates :source, :presence => true
-  validates :preview, :presence => true
 
   def self.search(page = 1, tag)
     items_per_page = 10

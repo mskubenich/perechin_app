@@ -17,7 +17,7 @@
     <div><%= image_tag  news.attached_assets[0].asset.url(:original) %></div>
   </div>
   <% end %>
-  <p><%= news.preview || news.body.to_s[0..500] + "..." %></p>
+  <p><%= raw preview_from_body(news.body + "...") %></p>
   <p class="spec"><%= link_to "Читати більше...", news_path(news), :class => "rm"%></p>
   <div class="buttons">
   <% if current_user && current_user.role.name == "admin" %>

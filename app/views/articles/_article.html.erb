@@ -12,7 +12,7 @@
     <div><%= image_tag  article.attached_assets[0].asset.url(:original) %></div>
   </div>
   <% end %>
-  <p><%= article.preview || article.body.to_s[0..500] + "..." %></p>
+  <p><%= raw preview_from_body(article.body + "...") %></p>
   <p class="spec"><%= link_to "Читати більше...", article_path(article), :class => "rm"%>&nbsp;|&nbsp;<%= link_to "Коментарі("+article.comments.count.to_s+")", article_path(article), :class => "com" %> </p>
   <div class="buttons">
   <% if current_user && current_user.role.name == "admin" %>

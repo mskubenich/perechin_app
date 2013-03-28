@@ -15,5 +15,16 @@ module ApplicationHelper
     %w'січня лютого березня'[month_number - 1]
   end
 
+  def preview_from_body(body)
+    require 'nokogiri'
+    page =  Nokogiri::HTML(body)
+    page.css("img").each do |img|
+      img.remove
+    end
+    page =  Nokogiri::HTML(page.css("body:first").inner_html[0..20])
+    body = page.css("body:first").inner_html
+    return body
+  end
+
 
 end

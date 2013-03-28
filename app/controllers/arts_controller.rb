@@ -20,6 +20,8 @@ class ArtsController < ApplicationController
     @authors = User.where(:role_id => role_author.id)
     @work = Work.find params[:id]
     @title = @work.title
+    sql = ActiveRecord::Base.connection()
+    sql.execute("UPDATE works SET view_count = #{(@work.view_count + 1).to_s} WHERE id = #{(@work.id).to_s}")
   end
 
   def new
@@ -30,6 +32,7 @@ class ArtsController < ApplicationController
 
   def create
     params[:work][:moderate] = false
+    params[:work][:view_count] = 0
     @work = current_user.works.build(params[:work])
     if @work.save
       require 'nokogiri'
@@ -44,9 +47,6 @@ class ArtsController < ApplicationController
           img.remove_attribute 'asset'
         end
       end
-
-      #@work.view_count = 0
-
       @work.update_attribute(:body, page.css("body:first").inner_html)
       flash[:success] = "Succesfully created work: " + @work.title
       redirect_to arts_path

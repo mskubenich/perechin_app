@@ -824,6 +824,23 @@ span.message_counter{
       }
     }
   }
+  .preview_image{
+    height: 340px;
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid gray;
+    text-align: center;
+    div{
+      height: 320px;
+      margin: 10px;
+      background-color: gray;
+      img{
+        margin: 10px;
+        max-width: 100%;
+        max-height: 300px;
+      }
+    }
+  }
 }
 
 /* icons */

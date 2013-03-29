@@ -22,7 +22,7 @@ module ApplicationHelper
       img.remove
     end
     page =  Nokogiri::HTML(page.css("body:first").inner_html[0..300])
-    body = page.css("body:first").inner_html
+    page.css("body:first").inner_html
   end
 
 

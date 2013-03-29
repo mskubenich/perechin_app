@@ -16,7 +16,6 @@
             <br/><span style="color:red;">Not moderated</span>
         <% end %>
         <br/>
-        <br/>
         <div class="comments_icon"></div><%= link_to work.comments.count.to_s+" коментарів", art_path(work)%>
         <div class="review_icon"></div><%= link_to work.view_count.to_s+" переглядів", art_path(work)%>
         <% if current_user && (current_user.role.name == "admin" || current_user == work.author) %>

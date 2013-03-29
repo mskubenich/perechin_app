@@ -1,21 +1,35 @@
-<div class="article">
-  <p class="date"><%= @article.created_at.year %><span><%= @article.created_at.day%>/<%= @article.created_at.month %></span></p>
-  <h2 class="block-header"><span><%= @article.title %></span></h2>
-  <div class="clr"></div>
-  <p>Розмістив: <%= @article.user.name %> &nbsp;|&nbsp; Теги:
-    <% @article.tags.each do |tag| %>
-        <%= link_to tag.title, articles_path(:tag => tag.id)%>,
-    <% end %>
-  </p>
-  <div><%= raw @article.body %></div>
-  <div>Джерело:&nbsp; <%= raw @article.source %></div>
-  <div class="buttons">
-    <% if current_user && current_user.role.name == "admin" %>
-        <%= button_to "Видалити", article_path(@article), :method => :delete, :class => "button remove_button", :confirm => "Are you sure you wont to delete article ?" %>
-        <%= button_to "Змінити", edit_article_path(@article), :method => :get, :class => "button edit_button" %>
-    <% end %>
+<div class="list_item_holder">
+  <div class="item_title">
+    <div class="item_meta">
+      Автор:<%= link_to @article.user.name, user_path(@article.user) %>&nbsp;
+      <%= @article.created_at.day %>&nbsp;<%= month @article.created_at.month %>&nbsp;<%= @article.created_at.year %>&nbsp;<%= @article.created_at.hour %>:<%= @article.created_at.min %>
+      <br/>
+      <span class="item_title_text"><%= @article.title %></span>
+      <br/>
+      <div class="comments_icon"></div><%= @article.comments.count.to_s+" коментарів"%>
+      <div class="review_icon"></div><%= @article.view_count.to_s+" переглядів"%>
+      <% if current_user && (current_user.role.name == "admin") %>
+          <div class="change_icon"></div><%= link_to "Змінити", edit_article_path(@article)%>
+          <div class="delete_icon"></div><%= link_to "Видалити", article_path(@article), :method => :delete, :confirm => "Are you sure you wont to delete art ?" %>
+      <% end %>
+    </div>
+    <div class="clr"></div>
   </div>
+  <div class="divider">
+    <div class="divider_text">
+            <span>
+                <% @article.tags.each do |tag| %>
+                    <%= link_to tag.title, articles_path(:tag => tag.id)%>
+                    >
+                <% end %>
+            </span>
+    </div>
+  </div>
+  <%= raw @article.body %><br/>
+  <div>Джерело:&nbsp; <%= raw @article.source %></div>
 </div>
+
+
 
 <div id="comments">
   <div class="article_title">Discussion: <%= @article.comments.count.to_s %> comments:</div>

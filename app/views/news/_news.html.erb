@@ -1,32 +1,42 @@
-<div class="article">
-  <p class="date"><%= news.created_at.year %><span><%= news.created_at.day%>/<%= news.created_at.month %></span></p>
-  <h2 class="block-header" ><span><%= link_to news.title.to_s, news_path(news) %></span></h2>
-  <div class="clr"></div>
-  <p><% if current_user && current_user.role.name == "admin" %>
-        <%= "Розмістив:"+news.user.name %>&nbsp;|&nbsp;
-  <% end  %>
-    <%= image_tag 'vico-views.png', :style => "display: inline" %>&nbsp;<%= news.view_count %>&nbsp;|&nbsp;
-    <%= image_tag 'vico-comments.png', :style => "display: inline" %>&nbsp;<%= news.comments.count %>&nbsp;|&nbsp;
-    Теги:
-    <% news.tags.each do |tag| %>
-        <%= link_to tag.title, news_index_path(:tag => tag.id)%>,
-    <% end %>
-  </p>
+<div class="list_item_holder">
+  <div class="item_title">
+    <div class="item_meta">
+      Розмістив:<%= link_to news.user.name, user_path(news.user) %>&nbsp;
+      <%= news.created_at.day %>&nbsp;<%= month news.created_at.month %>&nbsp;<%= news.created_at.year %>&nbsp;<%= news.created_at.hour %>:<%= news.created_at.min %>
+      <br/>
+      <%= link_to news.title, news_path(news), :class => "item_title_text" %>
+      <br/>
+      <div class="comments_icon"></div><%= link_to news.comments.count.to_s+" коментарів", news_path(news)%>
+      <div class="review_icon"></div><%= link_to news.view_count.to_s+" переглядів", news_path(news)%>
+      <% if current_user && (current_user.role.name == "admin") %>
+          <div class="change_icon"></div><%= link_to "Змінити", edit_news_path(news)%>
+          <div class="delete_icon"></div><%= link_to "Видалити", news_path(news), :method => :delete, :confirm => "Are you sure you wont to delete art ?" %>
+      <% end %>
+    </div>
+    <div class="clr"></div>
+  </div>
+  <div class="divider">
+    <div class="divider_text">
+            <span>
+                <% news.tags.each do |tag| %>
+                    <%= link_to tag.title, news_index_path(:tag => tag.id)%>
+                  >
+                <% end %>
+            </span>
+    </div>
+  </div>
   <% if news.attached_assets.count > 0 %>
-  <div class="img">
-    <div><%= image_tag  news.attached_assets[0].asset.url(:original) %></div>
-  </div>
+      <div class="preview_image"><div>
+        <%= image_tag news.attached_assets[0].asset.url(:original)%>
+      </div></div>
   <% end %>
-  <p><%= raw preview_from_body(news.body + "...") %></p>
-  <p class="spec"><%= link_to "Читати більше...", news_path(news), :class => "rm"%></p>
-  <div class="buttons">
-  <% if current_user && current_user.role.name == "admin" %>
-      <%= button_to "Видалити", news_path(news), :method => :delete, :class => "button remove_button", :confirm => "Are you sure you wont to delete news ?" %>
-      <%= button_to "Змінити", edit_news_path(news), :method => :get, :class => "button edit_button" %>
-  <% end %>
-  </div>
 
+  <%= raw preview_from_body(news.body) %>&nbsp;<%= link_to "Читати детально...", news_path(news) %><br/>
+
+  <div>Джерело:&nbsp; <%= raw news.source %></div>
 </div>
+
+
 
 
 

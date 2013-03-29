@@ -1,28 +1,34 @@
-<div class="article">
-  <p class="date"><%= @news.created_at.year %><span><%= @news.created_at.day%>/<%= @news.created_at.month %></span></p>
-  <h2 class="block-header"><span><%= @news.title %></span></h2>
-  <div class="clr"></div>
-  <p>Розмістив: <%= @news.user.name %> &nbsp;|&nbsp; Теги:
-    <% @news.tags.each do |tag| %>
-        <%= link_to tag.title, news_index_path(:tag => tag.id)%>,
-    <% end %>
-  </p>
-  <% if @news.id <= 25 && @news.attached_assets.count > 0 %>
-  <div id="galleria">
-    <% @news.attached_assets.each do |asset| %>
-        <%= image_tag asset.asset.url(:original) %>
-    <% end %>
+<div class="list_item_holder">
+  <div class="item_title">
+    <div class="item_meta">
+      Автор:<%= link_to @news.user.name, user_path(@news.user) %>&nbsp;
+      <%= @news.created_at.day %>&nbsp;<%= month @news.created_at.month %>&nbsp;<%= @news.created_at.year %>&nbsp;<%= @news.created_at.hour %>:<%= @news.created_at.min %>
+      <br/>
+      <span class="item_title_text"><%= @news.title %></span>
+      <br/>
+      <div class="comments_icon"></div><%= @news.comments.count.to_s+" коментарів"%>
+      <div class="review_icon"></div><%= @news.view_count.to_s+" переглядів"%>
+      <% if current_user && (current_user.role.name == "admin") %>
+          <div class="change_icon"></div><%= link_to "Змінити", edit_news_path(@news)%>
+          <div class="delete_icon"></div><%= link_to "Видалити", news_path(@news), :method => :delete, :confirm => "Are you sure you wont to delete art ?" %>
+      <% end %>
+    </div>
+    <div class="clr"></div>
   </div>
-  <% end %>
-  <div class="news_body"><%= raw @news.body %></div>
+  <div class="divider">
+    <div class="divider_text">
+            <span>
+                <% @news.tags.each do |tag| %>
+                    <%= link_to tag.title, news_index_path(:tag => tag.id)%>
+                  >
+                <% end %>
+            </span>
+    </div>
+  </div>
+  <%= raw @news.body %><br/>
   <div>Джерело:&nbsp; <%= raw @news.source %></div>
-  <div class="buttons">
-    <% if current_user && current_user.role.name == "admin" %>
-        <%= button_to "Видалити", news_path(@news), :method => :delete, :class => " button remove_button", :confirm => "Are you sure you wont to delete news ?" %>
-        <%= button_to "Змінити", edit_news_path(@news), :method => :get, :class => "button edit_button" %>
-    <% end %>
-  </div>
 </div>
+
 
 <div id="comments">
   <div class="news_title">Discussion: <%= @news.comments.count.to_s %> comments:</div>

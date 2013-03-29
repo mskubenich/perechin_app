@@ -35,15 +35,17 @@
             Galleria.loadTheme('/assets/galleria/themes/classic/galleria.classic.min.js');
             var data = [
                 <% @galleria_news.each do |news|%>
-                {
-                    image: '<%= news.attached_assets[0].asset.url(:original) if news.attached_assets.count > 0 %>',
-                    title: '<%= news.title %>',
-                    description: '<%= raw preview_from_body(news.body.gsub("'", "&quot;").gsub("\"", "&quot;").gsub("\r", " ").gsub("\n", " ")[0..150]) %>',
-                    link: '<%= news_path(news)%>'
-                }
-                <% if news != @galleria_news.last %>
-                ,
-                <% end %>
+                    <% if news.attached_assets.count > 0 %>
+                        {
+                            image: '<%= news.attached_assets[0].asset.url(:original) if news.attached_assets.count > 0 %>',
+                            title: '<%= news.title.gsub("'", "\"").gsub("\r", " ").gsub("\n", " ") %>',
+                            description: '<%= raw preview_from_body(news.body.gsub("'", "\"").gsub("\r", " ").gsub("\n", " ")[0..150]) %>',
+                            link: '<%= news_path(news)%>'
+                        }
+                        <% if news != @galleria_news.last %>
+                        ,
+                        <% end %>
+                    <% end %>
                 <% end %>
             ];
             Galleria.configure({

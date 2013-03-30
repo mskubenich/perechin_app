@@ -1,0 +1,25 @@
+<% anecdote = days_anecdote %>
+<% if anecdote %>
+    <div class="gadget">
+      <ul class="sidebar-block">
+        <li>
+          Закарпатський гумор
+        </li>
+        <li>
+          <div class="sidebar-block-content">
+            <div class="list_item_holder">
+              <div class="item_title">
+                <div class="item_meta">
+                  <span class = "item_title_text"><%= anecdote.title %></span>
+                </div>
+                <div class="clr"></div>
+              </div>
+              <div class="divider">
+              </div>
+              <%= raw anecdote.body %>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+<% end %>

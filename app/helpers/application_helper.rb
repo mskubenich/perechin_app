@@ -25,5 +25,15 @@ module ApplicationHelper
     page.css("body:first").inner_html
   end
 
+  def days_anecdote
+    count = Anecdote.count
+    available = 20
+    if count < available
+       available = rand(count)
+    end
+
+    Anecdote.all(:order => 'created_at DESC', :limit => 1, :offset => available).first
+  end
+
 
 end

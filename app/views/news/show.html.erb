@@ -29,31 +29,45 @@
   <div>Джерело:&nbsp; <%= raw @news.source %></div>
 </div>
 
-
 <div id="comments">
-  <div class="news_title">Discussion: <%= @news.comments.count.to_s %> comments:</div>
+  <div class="just_title"><%= @news.comments.count.to_s %> коментарі:</div>
   <% @news.comments.each do |comment| %>
-      <%= render :partial => 'comment', :locals => { :comment => comment } %>
+      <%= render :partial => 'layouts/comment', :locals => { :comment => comment } %>
   <% end %>
 </div>
 
 <% if current_user %>
-<div>
-  <div class="news_title">Add comment:</div>
-  <textarea id="new_comment" cols="78" rows="10">
+    <br/>
+    <br/>
+    <div>
+      <div class="just_title">Додати коментар:</div>
 
-  </textarea>
-  <br/>
-  <input type="button" id="add_comment" value="Add comment"/>
-</div>
 
-<script type="text/javascript">
-    j(document).ready(function(){
-        add_comment_handler('<%= news_new_comment_url(@news) %>');
-    });
-</script>
+      <div class="comment_holder">
+        <img src='<%= current_user.avatar.url(:original)%>' />
+        <div class="comment_date">
+          <%= Time.now.day %>&nbsp;<%= month Time.now.month %>&nbsp;
+          <%= Time.now.year %>
+        </div>
+
+        <div class="comment_user">
+          <%= current_user.name %>&nbsp;
+          (<%= current_user.comments.count %>&nbsp;коментарів)
+        </div>
+        <div class="comment_content">
+          <textarea id="new_comment" placeholder="Введіть Ваш коментар тут"></textarea>
+          <input type="button" id="add_comment" value="Додати коментар" class="button submit_button"/>
+        </div>
+
+        <div class="clr"></div>
+      </div>
+    </div>
+    <script type="text/javascript">
+        j(document).ready(function(){
+            add_comment_handler('<%= news_new_comment_url(@news) %>');
+        });
+    </script>
 <% end %>
-
 
 <%= content_for :sidebar do %>
     <%= render :partial => 'sidebar', :locals => {:tags => @tags}%>

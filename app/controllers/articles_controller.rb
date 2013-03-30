@@ -108,7 +108,7 @@ class ArticlesController < ApplicationController
     def create_comment
       @comment = Comment.create(:user_id => current_user.id, :article_id => params[:article_id], :text => params[:text])
       if @comment.save
-        render :partial => 'comment', :locals => {:comment => @comment}
+        render :partial => 'layouts/comment', :locals => {:comment => @comment}
       end
     end
 

@@ -1,10 +1,17 @@
 <div class="comment_holder">
-  <div class="container_picture"><img src='<%= comment.user.avatar.url :original %>' height='70' width='70' /></div>
-  <div class="comment-info"><%= comment.user.name %>&nbsp;<%= comment.created_at %></div>
-  <div class="comment-content" comment_id="<%= comment.id%>"><%= comment.text  %></div>
-  <% if current_user!=nil && current_user.role.name == 'admin' %>
-      <div class="comment_remover">
-        <div id="comment_remove" comment_id="<%= comment.id%>">x</div>
-      </div>
-  <% end %>
+  <img src='<%= comment.user.avatar.url(:original) if comment.user %>' />
+  <div class="comment_date">
+    <%= comment.created_at.day %>&nbsp;<%= month comment.created_at.month %>&nbsp;
+    <%= comment.created_at.year %>&nbsp;<%= comment.created_at.hour %>:<%= comment.created_at.min %>
+  </div>
+
+  <div class="comment_user">
+    <%= comment.user.name if comment.user %>&nbsp;
+    (<%= comment.user.comments.count %>&nbsp;коментарів)
+  </div>
+  <div class="comment_content" comment_id="<%= comment.id %>">
+    <%= comment.text  %>
+  </div>
+
+  <div class="clr"></div>
 </div>

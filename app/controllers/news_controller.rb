@@ -110,7 +110,7 @@ class NewsController < ApplicationController
   def create_comment
     @comment = Comment.create(:user_id => current_user.id, :news_id => params[:news_id], :text => params[:text])
     if @comment.save
-      render :partial => 'comment', :locals => {:comment => @comment}
+      render :partial => 'layouts/comment', :locals => {:comment => @comment}
     end
   end
 

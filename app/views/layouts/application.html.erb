@@ -62,6 +62,9 @@
         <%= link_to "Мапа", maps_path %>
       </li>
       <% end %>
+      <li <%= (current_page?(anecdotes_path))?"class='active'":""%>>
+        <%= link_to "Закарпатські фіглі", anecdotes_path %>
+      </li>
     </ul>
     <div class="mainbar">
       <%= yield %>

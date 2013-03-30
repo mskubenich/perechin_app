@@ -43,5 +43,7 @@ SampleApp::Application.routes.draw do
 
   resources :maps, :only => :index
 
+  resources :anecdotes, :except => :show
+
 
 end

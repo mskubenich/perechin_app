@@ -1,0 +1,29 @@
+
+<%= will_paginate @anecdotes %>
+
+<% @anecdotes.each do |anecdote| %>
+    <div class="list_item_holder">
+      <div class="item_title">
+        <div class="item_meta">
+          <span class = "item_title_text"><%= anecdote.title %></span>
+          <br/>
+          <% if current_user && (current_user.role.name == "admin") %>
+              <div class="change_icon"></div><%= link_to "Змінити", edit_anecdote_path(anecdote)%>
+              <div class="delete_icon"></div><%= link_to "Видалити", anecdote_path(anecdote), :method => :delete, :confirm => "Are you sure you wont to delete anecdote ?" %>
+          <% end %>
+        </div>
+        <div class="clr"></div>
+      </div>
+      <div class="divider">
+      </div>
+
+      <%= raw anecdote.body %>
+    </div>
+<% end %>
+
+<%= will_paginate @anecdotes %>
+
+
+<%= content_for :sidebar do %>
+    <%= render :partial => 'sidebar'%>
+<% end %>

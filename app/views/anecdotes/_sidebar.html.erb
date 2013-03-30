@@ -1,0 +1,5 @@
+<% if current_user && current_user.role.name == "admin" %>
+    <div class="gadget">
+      <%= link_to "Додати анекдот", new_anecdote_path, :class => "button submit_button big_button" %>
+    </div>
+<% end %>

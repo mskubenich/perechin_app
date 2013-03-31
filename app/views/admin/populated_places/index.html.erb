@@ -1,0 +1,14 @@
+<br/><table class="data-list" cellpadding="0" cellspacing="0">
+  <% @places.each do |place|%>
+      <tr>
+        <td>
+          <%= link_to place.title, "#" %>
+        </td>
+      </tr>
+  <% end %>
+</table>
+
+
+<%= content_for :sidebar do %>
+    <%= render :partial => 'sidebar', :locals => {:art_categories => @art_categories, :category => @category}%>
+<% end %>

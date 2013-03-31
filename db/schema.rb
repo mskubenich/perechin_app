@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130330110048) do
+ActiveRecord::Schema.define(:version => 20130331174940) do
 
   create_table "actions", :force => true do |t|
     t.string "controller"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20130330110048) do
     t.integer  "article_id"
     t.integer  "work_id"
     t.integer  "anecdote_id"
+    t.integer  "populated_place_id"
   end
 
   create_table "comments", :force => true do |t|
@@ -98,6 +99,11 @@ ActiveRecord::Schema.define(:version => 20130330110048) do
   create_table "news_tags", :force => true do |t|
     t.integer "news_id"
     t.integer "tag_id"
+  end
+
+  create_table "populated_places", :force => true do |t|
+    t.string "title"
+    t.text   "description"
   end
 
   create_table "roles", :force => true do |t|

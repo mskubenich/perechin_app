@@ -1,0 +1,28 @@
+<%= form_for([:admin, populated_place], :html => {:multipart => true}) do |f| %>
+    <% if populated_place.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(populated_place.errors.count, "error") %>
+            prohibited this news from being saved:</h2>
+          <p>There were problems with the following fields:</p>
+          <ul>
+            <% populated_place.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <div class="field">
+      <%= f.label 'Назва:' %><br />
+      <%= f.text_field :title %>
+    </div>
+
+    <div class="field">
+      <%= f.label 'Вікі:' %><br />
+      <%= f.text_area :description, :id => 'place_body' %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Додати населений пункт", :class => 'button submit_button' %>
+    </div>
+<% end %>
+
+

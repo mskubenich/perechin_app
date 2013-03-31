@@ -4,3 +4,18 @@
 <%= javascript_include_tag 'gmaps4rails/gmaps4rails.googlemaps' %>
 <%= yield :scripts %>
 
+<div class="populated_places_list">
+         here
+</div>
+
+<div class="page_content">
+  page
+</div>
+
+<div class="clr"></div>
+
+
+<%= content_for :sidebar do %>
+    <%= render :partial => 'sidebar', :locals => {:places => @places}%>
+<% end %>
+

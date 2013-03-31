@@ -1,0 +1,19 @@
+<% if current_user && (current_user.role.name == "admin") %>
+    <div class="gadget">
+      <%= link_to "Додати місце", "#", :class => "button submit_button big_button" %>
+    </div>
+<% end %>
+
+<div class="gadget">
+  <ul class="sidebar-block sidebar-menu">
+    <li>
+      Населені пункти:
+    </li>
+    <% places.each do |place| %>
+        <li <%= (place.id == params[:place].to_i)?"class='selected_item'":""%>>
+          <%= link_to place.title, "#" %>
+          <div class="arrow-right-icon"></div>
+        </li>
+    <% end %>
+  </ul>
+</div>

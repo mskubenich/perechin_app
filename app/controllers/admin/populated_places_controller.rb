@@ -11,11 +11,14 @@ class Admin::PopulatedPlacesController < ApplicationController
   end
 
   def create
+    real_desc = params[:populated_place][:description]
+    params[:populated_place][:description] = "qwerty"
+
     @place = PopulatedPlace.create(params[:populated_place])
     if @place.save
       #save attached images
       require 'nokogiri'
-      page =  Nokogiri::HTML(params[:populated_place][:description])
+      page =  Nokogiri::HTML(real_desc)
       page.xpath("//img[@asset]").each do |img|
         if params[:images] && params[:images]['asset'+img['assetnum']]
           image = AttachedAsset.create(:populated_place_id => @place.id, :asset => params[:images]['asset'+img['assetnum']])
@@ -32,6 +35,7 @@ class Admin::PopulatedPlacesController < ApplicationController
       flash[:success] = "Succesfully created place: " + @place.title
       redirect_to admin_populated_places_path
     else
+      @place.description = real_desc
       flash[:success] = "Error created place"
       render 'new'
     end

@@ -12,7 +12,7 @@ module ApplicationHelper
   end
 
   def month(month_number)
-    %w'січня лютого березня'[month_number - 1]
+    %w'січня лютого березня квітня травня червня липня серпня вересня жовтня листопада грудня'[month_number - 1]
   end
 
   def preview_from_body(body)

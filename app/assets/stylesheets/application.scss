@@ -330,14 +330,15 @@ ol li .send {
 }
 
 .flash_message{
-    text-align: center;
-    height: 30px;
-    -moz-transition: all 1.8s 0.1s ease;
-    -o-transition: all 1.8s 0.1s ease;
-    -webkit-transition: all 1.8s 0.1s ease;
-}
-.flash_message h3{
-    color:red;
+  padding: 5px;
+  margin: 0 auto;
+  text-align: center;
+  -moz-transition: all 1.8s 0.1s ease;
+  -o-transition: all 1.8s 0.1s ease;
+  -webkit-transition: all 1.8s 0.1s ease;
+  color: transparent;
+  font-size: 25px;
+  -webkit-animation-duration: 200ms;
 }
 
 .field{

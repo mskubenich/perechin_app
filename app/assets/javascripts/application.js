@@ -18,6 +18,10 @@ j = jQuery.noConflict();
 
 
 j(document).ready(function(){
-    setTimeout('j(".flash_message").css("color", "white")', 5000);
-    setTimeout('j(".flash_message").css("height", "0px")', 6800);
+    j(".flash_message").css("height", j(".flash_message").css("height"));
+    j(".flash_message").css("color", "red");
+
+    setTimeout('j(".flash_message").css("color", "transparent")', 5000);
+    setTimeout('j(".flash_message").css("padding", "0px")', 6200);
+    setTimeout('j(".flash_message").css("height", "0px")', 6400);
 });

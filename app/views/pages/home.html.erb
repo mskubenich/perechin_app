@@ -7,8 +7,6 @@
       <%= news.created_at.day%>/<%= news.created_at.month %>/<%= news.created_at.year %>&nbsp;
     </span>
     <%= link_to news.title.to_s, news_path(news) %>
-      <div class="review_icon"></div>&nbsp;<%= news.view_count %>&nbsp;
-      <div class="comments_icon"></div>&nbsp;<%= news.comments.count %>
       <br/>
   <% end %>
   <%= link_to 'Більше новин', news_index_path, :class => "button link_button big_button" %>
@@ -21,8 +19,6 @@
       <%= article.created_at.day%>/<%= article.created_at.month %>/<%= article.created_at.year %>&nbsp;
     </span>
     <%= link_to article.title.to_s, articles_path(article) %>
-      <div class="review_icon"></div>&nbsp;<%= article.view_count %>&nbsp;
-      <div class="comments_icon"></div>&nbsp;<%= article.comments.count %>
     <br/>
 <% end %>
 <%= link_to 'Більше статей', articles_path, :class => "button link_button big_button" %>

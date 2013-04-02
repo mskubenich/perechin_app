@@ -27,7 +27,7 @@ module ApplicationHelper
 
   def days_anecdote
     count = Anecdote.count
-    available = 20
+    available = rand(20)
     if count < available
        available = rand(count)
     end

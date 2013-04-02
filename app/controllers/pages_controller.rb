@@ -9,8 +9,8 @@ class PagesController < ApplicationController
     end
     @galleria_news = @galleria_news
     #@galleria_news = News.all(:conditions => ["DATE(created_at) > DATE(?)", Time.now - 3.days], :order => 'view_count DESC', :limit => 5)
-    @last_news = News.all(:limit => 7, :order => 'created_at DESC', :select => "title, created_at, view_count, id")
-    @last_articles = Article.all(:limit => 4, :order => 'created_at DESC', :select => "title, created_at, view_count, id")
+    @last_news = News.all(:limit => 30, :order => 'created_at DESC', :select => "title, created_at, view_count, id")
+    @last_articles = Article.all(:limit => 10, :order => 'created_at DESC', :select => "title, created_at, view_count, id")
     @tags = News.tags
   end
 

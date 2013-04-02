@@ -42,22 +42,55 @@ class Admin::PopulatedPlacesController < ApplicationController
   end
 
   def edit
-    #@title = "Edit role"
-    #@tag = Tag.find params[:id]
+    @title = "Edit Populated Place"
+    @place = PopulatedPlace.find(params[:id])
   end
 
   def update
-    #@tag = Tag.find params[:id]
-    #if @tag.update_attributes params[:tag]
-    #  redirect_to admin_tags_path, notice: 'Tag was successfully updated.'
-    #else
-    #  render "edit"
-    #end
+    real_desc = params[:populated_place][:description]
+    params[:populated_place][:description] = "qwerty"
+
+    @place = PopulatedPlace.create(params[:populated_place])
+    if @place.save
+      #save attached images
+      require 'nokogiri'
+      page =  Nokogiri::HTML(real_desc)
+
+      @place.attached_assets.each do |image|
+        image_present = false
+        page.xpath("//img[@asset_id=#{image.id.to_s}]").each do |img|
+          image_present = true
+        end
+        unless image_present
+          image.destroy
+        end
+      end
+
+      page.xpath("//img[@asset]").each do |img|
+        if params[:images] && params[:images]['asset'+img['assetnum']]
+          image = AttachedAsset.create(:populated_place_id => @place.id, :asset => params[:images]['asset'+img['assetnum']])
+          img.attribute('src').value = image.asset.url(:original)
+          img['asset_id'] = image.id.to_s
+          params[:images].delete('asset'+img['assetnum'])
+          img.remove_attribute 'assetnum'
+          img.remove_attribute 'asset'
+        end
+      end
+      @place.description = page.css("body:first").inner_html
+
+      @place.save
+      flash[:success] = "Succesfully created place: " + @place.title
+      redirect_to admin_populated_places_path
+    else
+      @place.description = real_desc
+      flash[:success] = "Error created place"
+      render 'new'
+    end
   end
 
   def destroy
-    #Tag.find(params[:id]).destroy
-    #redirect_to admin_tags_path
+    PopulatedPlace.find(params[:id]).destroy
+    redirect_to admin_populated_places_path
   end
 
 end

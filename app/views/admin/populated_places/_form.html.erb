@@ -1,4 +1,4 @@
-<%= form_for([:admin, populated_place], :html => {:multipart => true}) do |f| %>
+<%= form_for([:admin, populated_place], :html => {:multipart => true, :id => "place_form"}) do |f| %>
     <% if populated_place.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(populated_place.errors.count, "error") %>

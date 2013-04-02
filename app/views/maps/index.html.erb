@@ -4,13 +4,10 @@
 <%= javascript_include_tag 'gmaps4rails/gmaps4rails.googlemaps' %>
 <%= yield :scripts %>
 
-<div class="populated_places_list">
-         here
-</div>
-
-<div class="page_content">
-  page
-</div>
+POI<br/>
+<% @poi.each do |poi| %>
+  <%=  poi.name %><br/>
+<% end %>
 
 <div class="clr"></div>
 

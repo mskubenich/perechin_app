@@ -1,1 +1,7 @@
-hello                     <%= params[:place_id]%>
+<h1><%= @place.title %></h1>
+<%= raw @place.description %>
+
+
+<%= content_for :sidebar do %>
+    <%= render :partial => 'sidebar', :locals => {:places => @places}%>
+<% end %>

@@ -11,9 +11,17 @@
     </li>
     <% places.each do |place| %>
         <li <%= (place.id == params[:place].to_i)?"class='selected_item'":""%>>
-          <%= link_to place.title, maps_populated_place_path(:place_id => place.id) %>
+          <%= link_to place.title, maps_populated_place_path(:id => place.id) %>
           <div class="arrow-right-icon"></div>
         </li>
     <% end %>
+  </ul>
+</div>
+
+<div class="gadget">
+  <ul class="sidebar-block sidebar-menu">
+    <li>
+      Категорії POI:
+    </li>
   </ul>
 </div>

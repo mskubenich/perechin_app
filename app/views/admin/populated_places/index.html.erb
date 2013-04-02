@@ -2,7 +2,13 @@
   <% @places.each do |place|%>
       <tr>
         <td>
-          <%= link_to place.title, "#" %>
+          <%= link_to place.title, maps_populated_place_path(:id => place.id) %>
+        </td>
+        <td>
+          <%= link_to "Edit", edit_admin_populated_place_path(place), :class => "button submit_button" %>
+        </td>
+        <td>
+          <%= link_to "Delete", admin_populated_place_path(place), :confirm => "Are you sure?", :method => :delete, :class => "button remove_button"  %>
         </td>
       </tr>
   <% end %>

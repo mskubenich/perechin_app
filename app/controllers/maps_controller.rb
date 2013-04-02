@@ -1,6 +1,7 @@
 class MapsController < ApplicationController
   def index
-    @json = Showplace.all.to_gmaps4rails
+    @poi = Showplace.all
+    @json = @poi.to_gmaps4rails
 
     @options = {
       :map_options => { :auto_adjust => true,
@@ -12,7 +13,8 @@ class MapsController < ApplicationController
   end
 
   def populated_place
-
+    @place = PopulatedPlace.find(params[:id])
+    @places = PopulatedPlace.all
   end
 
 end

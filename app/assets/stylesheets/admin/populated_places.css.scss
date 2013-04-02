@@ -1,3 +1,19 @@
 //= require jquery_ui/css/smoothness/jquery-ui-1.9.2.custom.min.css
 //= require elrte/css/elrte.min.css
 //= require elrte/css/elrte-inner.css
+
+table.data-list{
+  width: 100%;
+  & tr:nth-child(odd){
+    background-color: #add8e6;
+  }
+  & td{
+    vertical-align: top;
+    padding: 2px;
+  }
+  & img{
+    margin: 3px;
+    max-height: 80px;
+    max-width: 50px;
+  }
+}

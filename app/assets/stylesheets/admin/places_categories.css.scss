@@ -1,0 +1,20 @@
+table.data-list{
+  width: 100%;
+  & tr:nth-child(odd){
+    background-color: #add8e6;
+  }
+  & td{
+    padding: 2px;
+  }
+  & td:nth-child(2n){
+    text-align: right;
+  }
+  & tr{
+    vertical-align: top;
+  }
+  & img{
+    margin: 3px;
+    max-height: 80px;
+    max-width: 50px;
+  }
+}

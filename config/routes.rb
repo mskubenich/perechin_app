@@ -40,6 +40,7 @@ SampleApp::Application.routes.draw do
     post '/arts/approve_work', :to => "arts#approve_work"
     resources :art_subcategories
     resources :populated_places, :except => :show
+    resources :places_categories, :except => :show
   end
 
   resources :maps, :only => :index

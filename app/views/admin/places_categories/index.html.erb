@@ -1,0 +1,22 @@
+
+POI Categories List
+
+<table class="data-list">
+  <% for cat in @categories %>
+      <tr>
+        <td>
+          <%= cat.name %>
+        </td>
+        <td>
+          <%= link_to "Edit", edit_admin_places_category_path(cat), :class => "button submit_button" %>
+          <%= link_to "Delete", admin_places_category_path(cat), :confirm => "Are you sure?", :method => :delete, :class => "button remove_button" %>
+        </td>
+      </tr>
+  <% end %>
+
+</table>
+
+
+<%= content_for :sidebar do %>
+    <%= render :partial => 'sidebar', :locals => {:art_categories => @art_categories, :category => @category}%>
+<% end %>

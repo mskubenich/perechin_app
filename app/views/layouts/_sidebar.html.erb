@@ -39,6 +39,10 @@
           <%= link_to "Населені пункти", admin_populated_places_path %>
           <div class="arrow-right-icon"></div>
         </li>
+        <li class="<%= current_page?(admin_places_categories_path)?"selected_item":""%>">
+          <%= link_to "Категорії POI", admin_places_categories_path %>
+          <div class="arrow-right-icon"></div>
+        </li>
       </ul>
     </div>
 <% end %>

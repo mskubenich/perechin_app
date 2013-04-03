@@ -24,4 +24,5 @@ j(document).ready(function(){
     setTimeout('j(".flash_message").css("color", "transparent")', 5000);
     setTimeout('j(".flash_message").css("padding", "0px")', 6200);
     setTimeout('j(".flash_message").css("height", "0px")', 6400);
+    setTimeout('j(".flash_message").css("display", "none")', 7600);
 });

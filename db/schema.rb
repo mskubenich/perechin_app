@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130331174940) do
+ActiveRecord::Schema.define(:version => 20130403065149) do
 
   create_table "actions", :force => true do |t|
     t.string "controller"
@@ -99,6 +99,10 @@ ActiveRecord::Schema.define(:version => 20130331174940) do
   create_table "news_tags", :force => true do |t|
     t.integer "news_id"
     t.integer "tag_id"
+  end
+
+  create_table "places_categories", :force => true do |t|
+    t.string "name"
   end
 
   create_table "populated_places", :force => true do |t|

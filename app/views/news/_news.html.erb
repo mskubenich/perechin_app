@@ -1,29 +1,33 @@
 <div class="list_item_holder">
   <div class="item_title">
     <div class="item_meta">
-      Розмістив:<%= link_to news.user.name, user_path(news.user) %>&nbsp;
-      <%= news.created_at.day %>&nbsp;<%= month news.created_at.month %>&nbsp;<%= news.created_at.year %>&nbsp;<%= news.created_at.hour %>:<%= news.created_at.min %>
-      <br/>
       <%= link_to news.title, news_path(news), :class => "item_title_text" %>
-      <br/>
-      <div class="comments_icon"></div><%= link_to news.comments.count.to_s+" коментарів", news_path(news)%>
-      <div class="review_icon"></div><%= link_to news.view_count.to_s+" переглядів", news_path(news)%>
-      <% if current_user && (current_user.role.name == "admin") %>
-          <div class="change_icon"></div><%= link_to "Змінити", edit_news_path(news)%>
-          <div class="delete_icon"></div><%= link_to "Видалити", news_path(news), :method => :delete, :confirm => "Are you sure you wont to delete art ?" %>
-      <% end %>
-    </div>
-    <div class="clr"></div>
-  </div>
-  <div class="divider">
-    <div class="divider_text">
+      <br/><br/>
+      <div class="fleft"><div class="divider_text">
             <span>
                 <% news.tags.each do |tag| %>
                     <%= link_to tag.title, news_index_path(:tag => tag.id)%>
                   >
                 <% end %>
             </span>
+      </div>
+      <div class="add">Додав: <%= link_to news.user.name, user_path(news.user) %>&nbsp;
+      <%= news.created_at.day %>&nbsp;<%= month news.created_at.month %>&nbsp;<%= news.created_at.year %>&nbsp;<%= news.created_at.hour %>:<%= news.created_at.min %>
+      </div>
+      </div>
+      <div class="icons">
+      <% if current_user && (current_user.role.name == "admin") %>
+          <%= link_to raw("<div class='change_icon'></div>Змінити"), edit_news_path(news)%>
+          <%= link_to raw("<div class='delete_icon'></div>Видалити"), news_path(news), :method => :delete, :confirm => "Are you sure you wont to delete art ?" %>
+      <% end %>
+        <%= link_to raw("<div class='review_icon'></div>"+news.view_count.to_s), news_path(news)%>
+      <%= link_to raw("<div class='comments_icon'></div>"+news.comments.count.to_s), news_path(news)%>
     </div>
+    </div>
+    <div class="clr"></div>
+  </div>
+  <div class="divider">
+
   </div>
   <% if news.attached_assets.count > 0 %>
       <div class="preview_image"><div>
@@ -31,9 +35,7 @@
       </div></div>
   <% end %>
 
-  <%= raw preview_from_body(news.body) %>&nbsp;<%= link_to "Читати детально...", news_path(news) %><br/>
-
-  <div>Джерело:&nbsp; <%= raw news.source %></div>
+  <%= raw preview_from_body(news.body) %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Читати детально >>", news_path(news),:class=>"readmore" %><br/><br/><br/>
 </div>
 
 

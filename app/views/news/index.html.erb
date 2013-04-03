@@ -1,4 +1,4 @@
-<h2 class="block-header star"><%= link_to "Новини", news_index_path %>: &nbsp;<%= @tag.title if @tag %></h2>
+<% if @tag%><h2 class="block-header star"><%= @tag.title %></h2><%end%>
 
 
 <%= will_paginate @news %>

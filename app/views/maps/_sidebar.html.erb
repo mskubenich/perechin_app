@@ -10,7 +10,7 @@
       Населені пункти:
     </li>
     <% places.each do |place| %>
-        <li <%= (place.id == params[:place].to_i)?"class='selected_item'":""%>>
+        <li <%= (place.id == params[:id].to_i)?"class='selected_item'":""%>>
           <%= link_to place.title, maps_populated_place_path(:id => place.id) %>
           <div class="arrow-right-icon"></div>
         </li>
@@ -23,5 +23,11 @@
     <li>
       Категорії POI:
     </li>
+    <% categories.each do |category| %>
+        <li <%= (category.id == params[:category].to_i)?"class='selected_item'":""%>>
+          <%= link_to category.name, url_for(:id => params[:id], :category => category.id) %>
+          <div class="arrow-right-icon"></div>
+        </li>
+    <% end %>
   </ul>
 </div>

@@ -10,11 +10,13 @@ class MapsController < ApplicationController
       :markers     => { :data => @json, :options => {:do_clustering => true} }
     }
     @places = PopulatedPlace.all
+    @places_categories = PlacesCategory.all
   end
 
   def populated_place
     @place = PopulatedPlace.find(params[:id])
     @places = PopulatedPlace.all
+    @places_categories = PlacesCategory.all
   end
 
 end

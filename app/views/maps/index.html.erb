@@ -13,6 +13,6 @@ POI<br/>
 
 
 <%= content_for :sidebar do %>
-    <%= render :partial => 'sidebar', :locals => {:places => @places}%>
+    <%= render :partial => 'sidebar', :locals => {:places => @places, :categories => @places_categories}%>
 <% end %>
 

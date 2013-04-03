@@ -25,4 +25,26 @@ j(document).ready(function(){
     setTimeout('j(".flash_message").css("padding", "0px")', 6200);
     setTimeout('j(".flash_message").css("height", "0px")', 6400);
     setTimeout('j(".flash_message").css("display", "none")', 7600);
+
+    j(".sidebar-block").css("max-height", "700px");
+    j(".sidebar-block").css("height", j(".sidebar_block").css("height"));
+    j(".dropdown").click(function(){
+        hide_dropdown(j(this));
+    });
 });
+
+function hide_dropdown(el){
+    var list = el.parents(".sidebar-block");
+    list.css("max-height", "40px");
+    el.click(function(){
+        show_dropdown(el);
+    });
+}
+
+function show_dropdown(el){
+    var list = el.parents(".sidebar-block");
+    list.css("max-height", "700px");
+    el.click(function(){
+        hide_dropdown(el);
+    });
+}

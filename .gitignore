@@ -24,6 +24,7 @@
 .project
 .DC_Store
 /config/database.yml
+/app/config/database.yml
 .sass-cache/
 public/assets/
 /.idea

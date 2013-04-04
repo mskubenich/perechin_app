@@ -40,6 +40,7 @@ function hide_dropdown(el){
     var list = el.parents(".sidebar-block");
     list.css("max-height", "22px");
     list.find(".arrow-right-icon").removeClass("transformed_arrow");
+    el.unbind("click");
     el.click(function(){
         show_dropdown(el);
     });
@@ -49,6 +50,7 @@ function show_dropdown(el){
     var list = el.parents(".sidebar-block");
     list.css("max-height", list.attr("real-height").toString());
     list.find(".arrow-right-icon").addClass("transformed_arrow");
+    el.unbind("click");
     el.click(function(){
         hide_dropdown(el);
     });

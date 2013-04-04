@@ -9,6 +9,7 @@
   <%=  favicon_link_tag 'favicon.ico' %>
 </head>
 <body>
+
 <div class="main">
 
   <div class="hbg">
@@ -78,15 +79,26 @@
     <div class="clr"></div>
   </div>
 </div>
-<div class="fbg">
-</div>
+
+
+
 <div class="footer">
-  <div class="footer_resize">
-    <p class="lf">Copyright &copy; 2012-2013 <a href="#">Perechin.net</a> - All Rights Reserved</p>
-    <p class="rf"><a href="http://perechin.net/">Perechin.net Team</a></p>
-    <div class="clr"></div>
-  </div>
+
+    <div class="copyright">
+    <p>Copyright &copy; 2012-2013 <a href="#">Perechin.net</a> - All Rights Reserved</p><br/>
+    <p><a href="http://perechin.net/">Perechin.net Team</a></p>
+    </div>
+
+    <div class="aboutus">
+
+      <%= link_to raw("<div class='about'>Про нас</div>"), about_path%>
+      <%= link_to raw("<div class='contact'>Зв'язатися з нами</div>"), contact_path%>
+      <%= link_to raw("<div class='help'>Допомога</div>"), help_path%>
+    </div>
+
+
+<div class="clr"></div>
 </div>
-</div>
+
 </body>
 </html>

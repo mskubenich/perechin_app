@@ -17,35 +17,42 @@
             <%= link_to image_tag(work.author.avatar.url(:original)), user_path(work.author) %>
           </div>
           <div class="item_meta">
-            Автор:<%= link_to work.author.name, user_path(work.author) %>&nbsp;
+            <%= link_to work.title, art_path(work), :class => "item_title_text" %><br/><br/>
+
+            <div class="divider_text">
+            <span>
+                <%= link_to work.art_subcategory.art_category.title, arts_path(:art_category => work.art_subcategory.art_category.id, :author_id => params[:author_id]) %>
+              >
+              <%= link_to work.art_subcategory.title, arts_path(:art_category => work.art_subcategory.art_category.id, :art_subcategory => work.art_subcategory.id, :author_id => params[:author_id]) %>
+
+            </span>
+            </div>
+
+            <div class="author">Автор:<%= link_to work.author.name, user_path(work.author) %>&nbsp;
             <%= work.created_at.day %>&nbsp;<%= month work.created_at.month %>&nbsp;<%= work.created_at.year %>&nbsp;<%= work.created_at.hour %>:<%= work.created_at.min %>
             <br/>
-            <%= link_to work.title, art_path(work), :class => "item_title_text" %>
+            </div>
             <% unless work.moderate %>
                 <br/><span style="color:red;">Not moderated</span>
             <% end %>
-            <br/>
-            <div class="comments_icon"></div><%= link_to work.comments.count.to_s+" коментарів", art_path(work)%>
-            <div class="review_icon"></div><%= link_to work.view_count.to_s+" переглядів", art_path(work)%>
-            <% if current_user && (current_user.role.name == "admin" || current_user == work.author) %>
-                <div class="change_icon"></div><%= link_to "Змінити", edit_art_path(work)%>
+                <% if current_user && (current_user.role.name == "admin" || current_user == work.author) %>
                 <% unless work.moderate %>
                     <div class="moderate_icon"></div><%= link_to "Перейти до модерації", art_path(work)%>
                 <% end %>
+                <div class="linkbutton">
+                <div class="change_icon"></div><%= link_to "Змінити", edit_art_path(work)%>
                 <div class="delete_icon"></div><%= link_to "Видалити", art_path(work), :method => :delete, :confirm => "Are you sure you wont to delete art ?" %>
+                <div class="review_icon"></div><%= link_to work.view_count.to_s+" переглядів", art_path(work)%>
+                <div class="comments_icon"></div><%= link_to work.comments.count.to_s+" коментарів", art_path(work)%>
+
+
+                </div>
             <% end %>
           </div>
           <div class="clr"></div>
         </div>
         <div class="divider">
-          <div class="divider_text">
-            <span>
-                <%= link_to work.art_subcategory.art_category.title, arts_path(:art_category => work.art_subcategory.art_category.id, :author_id => params[:author_id]) %>
-                >
-                <%= link_to work.art_subcategory.title, arts_path(:art_category => work.art_subcategory.art_category.id, :art_subcategory => work.art_subcategory.id, :author_id => params[:author_id]) %>
-                &nbsp;
-            </span>
-          </div>
+
         </div>
 
         <% if work.attached_assets.count > 0 %>
@@ -54,7 +61,7 @@
           </div></div>
         <% end %>
 
-        <%= raw preview_from_body(work.body) %>&nbsp;<%= link_to "Читати детально...", art_path(work) %><br/>
+        <%= raw preview_from_body(work.body) %><%= link_to "Читати детально...", art_path(work),:class=>"readmore" %><br/><br/>
 
       </div>
   <% end %>

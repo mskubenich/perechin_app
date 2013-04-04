@@ -8,6 +8,7 @@
   <ul class="sidebar-block sidebar-menu">
     <li class="dropdown">
       Населені пункти:
+      <div class="arrow-right-icon transformed_arrow"></div>
     </li>
     <% places.each do |place| %>
         <li <%= (place.id == params[:id].to_i)?"class='selected_item'":""%>>
@@ -22,6 +23,7 @@
   <ul class="sidebar-block sidebar-menu">
     <li class="dropdown">
       Категорії POI:
+      <div class="arrow-right-icon transformed_arrow"></div>
     </li>
     <% categories.each do |category| %>
         <li <%= (category.id == params[:category].to_i)?"class='selected_item'":""%>>

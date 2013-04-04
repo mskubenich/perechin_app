@@ -639,9 +639,9 @@ ul.sidebar-block{
   -o-transition: max-height 0.8s 0.1s ease;
   -webkit-transition: max-height 0.8s 0.1s ease;
   background-color: #fff;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
   -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.065);
   -moz-box-shadow: 0 1px 4px rgba(0,0,0,.065);
   box-shadow: 0 1px 4px rgba(0,0,0,.065);
@@ -653,14 +653,15 @@ ul.sidebar-block{
   & > li{
     border-top: 1px solid #e5e5e5;
     position: relative;
+    overflow: hidden;
     &:first-child{
       border-top: 0;
-      border-top-left-radius: 2px;
-      border-top-right-radius: 2px;
-      -moz-border-top-left-radius: 2px;
-      -mox-border-top-right-radius:2px;
-      -webkit-border-top-left-radius: 2px;
-      -webkit-border-top-right-radius: 2px;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+      -moz-border-top-left-radius: 3px;
+      -mox-border-top-right-radius:3px;
+      -webkit-border-top-left-radius: 3px;
+      -webkit-border-top-right-radius: 3px;
       text-align: center;
       padding-right: 12px;
       font-size: 18px;
@@ -674,32 +675,72 @@ ul.sidebar-block{
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
 
       color: #333333;
-      line-height: 30px;
-      border: 1px solid transparent;
-      bo1rder: 1px solid #555555;
+      line-height: 22px;
+      .arrow-right-icon{
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 1px;
+        right: 10px;
+        background-image: url('icons/arrow_forward.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        -moz-transition: all 0.8s 0.1s ease;
+        -o-transition: all 0.8s 0.1s ease;
+        -webkit-transition: all 0.8s 0.1s ease;
+      }
+      .transformed_arrow{
+        -moz-transform:    rotate(90deg)
+        translateX(0px)
+        scale(1.5);
+        -o-transform:      rotate(90deg)
+        translateX(0px)
+        scale(1.5);
+        -webkit-transform: rotate(90deg)
+        translateX(0px)
+        scale(1.5);
+        transform:         rotate(90deg)
+        translateX(0px)
+        scale(1.5);
+
+        ///* для IE8+ */
+        //-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=1.060660171779821, M12=-1.0606601717798214, M21=1.0606601717798214, M22=1.060660171779821, SizingMethod='auto expand')";
+        //
+        ///* IE6 and 7 */
+        //filter: progid:DXImageTransform.Microsoft.Matrix(
+        //M11=1.060660171779821,
+        //M12=-1.0606601717798214,
+        //M21=1.0606601717798214,
+        //M22=1.060660171779821,
+        //SizingMethod='auto expand');
+        //margin-left: -15px; /* IE 6 and below */
+        //margin-top: -15px;  /* IE 6 and below */
+
+      }
     }
     &:first-child.dropdown{
       cursor: pointer;
     }
     &:last-child{
-      border-bottom-left-radius: 7px;
-      border-bottom-right-radius: 7px;
-      -moz-border-bottom-left-radius: 7px;
-      -mox-border-bottom-right-radius: 7px;
-      -webkit-border-bottom-left-radius: 7px;
-      -webkit-border-bottom-right-radius: 7px;
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+      -moz-border-bottom-left-radius: 3px;
+      -mox-border-bottom-right-radius: 3px;
+      -webkit-border-bottom-left-radius: 3px;
+      -webkit-border-bottom-right-radius: 3px;
     }
   }
 }
 
 ul.sidebar-menu{
-  line-height: 40px;
+  line-height: 30px;
   & > li{
-    & .arrow-right-icon{
-      width: 24px;
-      height: 24px;
+    &:not(:first-child) .arrow-right-icon{
+      width: 20px;
+      height: 20px;
       position: absolute;
-      top: 9px;
+      top: 5px;
       right: 10px;
       background-image: url('icons/arrow_forward.png');
       background-repeat: no-repeat;

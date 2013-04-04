@@ -26,8 +26,11 @@ j(document).ready(function(){
     setTimeout('j(".flash_message").css("height", "0px")', 6400);
     setTimeout('j(".flash_message").css("display", "none")', 7600);
 
-    j(".sidebar-block").css("max-height", "700px");
-    j(".sidebar-block").css("height", j(".sidebar_block").css("height"));
+    j(".sidebar-block").each(function(){
+        j(this).attr("real-height", j(this).css("height"));
+        j(this).css("max-height", j(this).css("height"));
+    });
+
     j(".dropdown").click(function(){
         hide_dropdown(j(this));
     });
@@ -35,7 +38,8 @@ j(document).ready(function(){
 
 function hide_dropdown(el){
     var list = el.parents(".sidebar-block");
-    list.css("max-height", "40px");
+    list.css("max-height", "22px");
+    list.find(".arrow-right-icon").removeClass("transformed_arrow");
     el.click(function(){
         show_dropdown(el);
     });
@@ -43,7 +47,8 @@ function hide_dropdown(el){
 
 function show_dropdown(el){
     var list = el.parents(".sidebar-block");
-    list.css("max-height", "700px");
+    list.css("max-height", list.attr("real-height").toString());
+    list.find(".arrow-right-icon").addClass("transformed_arrow");
     el.click(function(){
         hide_dropdown(el);
     });

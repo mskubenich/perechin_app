@@ -211,7 +211,7 @@ position:relative;
 .content div.pagination {
     font-size:11px;
     text-align:right;
-
+    margin: 12px 0px 4px 0px;
 }
 .content div.pagination em, .content div.pagination a:hover {
     padding:5px 10px;
@@ -992,6 +992,7 @@ span.message_counter{
   width: 950px;
   height: 100px;
   margin: 0 auto;
+  margin-top: 10px;
   margin-bottom: 0px;
 
   .about{

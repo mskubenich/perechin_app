@@ -1,5 +1,5 @@
 
-<%= will_paginate @anecdotes %>
+<%= will_paginate @anecdotes, :previous_label => 'Попередня', :next_label => 'Наступна' %>
 
 <% @anecdotes.each do |anecdote| %>
     <div class="list_item_holder">
@@ -21,7 +21,7 @@
     </div>
 <% end %>
 
-<%= will_paginate @anecdotes %>
+<%= will_paginate @anecdotes, :previous_label => 'Попередня', :next_label => 'Наступна'  %>
 
 <%= content_for :sidebar do %>
     <%= render :partial => 'sidebar'%>

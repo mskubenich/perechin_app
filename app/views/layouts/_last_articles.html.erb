@@ -1,0 +1,21 @@
+<% articles = last_articles_load %>
+<% unless articles.blank? %>
+    <div class="gadget">
+      <ul class="sidebar-block">
+        <li>
+          Останні статті
+        </li>
+        <li>
+          <div class="sidebar-block-content">
+            <% articles.each do |article|%>
+                <span class="gray_span">
+                  <%= article.created_at.day%>/<%= article.created_at.month %>/<%= article.created_at.year %>&nbsp;
+                </span>
+                <%= link_to article.title.to_s, article_path(article) %>
+                <br/>
+            <% end %>
+          </div>
+        </li>
+      </ul>
+    </div>
+<% end %>

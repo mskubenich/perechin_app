@@ -19,30 +19,8 @@
   </ul>
 </div>
 
+<%= render :partial => 'layouts/last_news' %>
 
-<div class="gadget">
-  <ul class="sidebar-block">
-    <li>
-      Погода
-    </li>
-    <li>
-      <div class="sidebar-block-content">
-        <%= render :partial => 'layouts/weather' %>
-      </div>
-    </li>
-  </ul>
-</div>
+<%= render :partial => 'layouts/last_articles' %>
 
-
-<div class="gadget">
-  <ul class="sidebar-block">
-    <li>
-      Курс валют
-    </li>
-    <li>
-      <div class="sidebar-block-content">
-        <%= render :partial => 'layouts/exchange_rate' %>
-      </div>
-    </li>
-  </ul>
-</div>
+<%= render :partial => 'layouts/anecdote' %>

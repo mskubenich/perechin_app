@@ -25,7 +25,7 @@ module ApplicationHelper
     page.css("body:first").inner_html
   end
 
-  def days_anecdote
+  def daily_anecdote
     count = Anecdote.count
     available = rand(20)
     if count < available
@@ -33,6 +33,14 @@ module ApplicationHelper
     end
 
     Anecdote.all(:order => 'created_at DESC', :limit => 1, :offset => available).first
+  end
+
+  def last_news_load
+    News.select("title, id, created_at").all(:order => 'created_at DESC', :limit => 10)
+  end
+
+  def last_articles_load
+    Article.select("title, id, created_at").all(:order => 'created_at DESC', :limit => 10)
   end
 
 

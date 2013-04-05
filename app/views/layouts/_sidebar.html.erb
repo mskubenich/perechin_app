@@ -1,28 +1,51 @@
 
 <% if params[:controller] =~ /admin\/[A-Za-z]*/ %>
+
     <div class="gadget">
       <ul class="sidebar-block sidebar-menu">
-        <li>
-          Навігація
+        <li class="dropdown">
+          Статистика
+          <div class="arrow-right-icon transformed_arrow"></div>
         </li>
         <li class="<%= current_page?(admin_index_path)?"selected_item":""%>">
           <%= link_to "Сторінка адміністратора", admin_index_path %>
           <div class="arrow-right-icon"></div>
         </li>
+      </ul>
+    </div>
+    <div class="gadget">
+      <ul class="sidebar-block sidebar-menu">
+        <li class="dropdown">
+          Користувачі
+          <div class="arrow-right-icon transformed_arrow"></div>
+        </li>
         <li class="<%= current_page?(admin_roles_path)?"selected_item":""%>">
           <%= link_to "Ролі", admin_roles_path %>
-          <div class="arrow-right-icon"></div>
-        </li>
-        <li class="<%= current_page?(admin_tags_path)?"selected_item":""%>">
-          <%= link_to "Категорії/теги", admin_tags_path %>
           <div class="arrow-right-icon"></div>
         </li>
         <li class="<%= current_page?(admin_users_path)?"selected_item":""%>">
           <%= link_to "Користувачі", admin_users_path %>
           <div class="arrow-right-icon"></div>
         </li>
-        <li>
-          <hr>
+      </ul>
+    </div>
+    <div class="gadget">
+      <ul class="sidebar-block sidebar-menu">
+        <li class="dropdown">
+          Новини/Статті
+          <div class="arrow-right-icon transformed_arrow"></div>
+        </li>
+        <li class="<%= current_page?(admin_tags_path)?"selected_item":""%>">
+          <%= link_to "Категорії/теги", admin_tags_path %>
+          <div class="arrow-right-icon"></div>
+        </li>
+      </ul>
+    </div>
+    <div class="gadget">
+      <ul class="sidebar-block sidebar-menu">
+        <li class="dropdown">
+          Мистецтво
+          <div class="arrow-right-icon transformed_arrow"></div>
         </li>
         <li class="<%= current_page?(admin_arts_path)?"selected_item":""%>">
           <%= link_to "Розділи мистецтва", admin_arts_path %>
@@ -32,8 +55,13 @@
           <%= link_to "Підрозділи мистецтва", admin_art_subcategories_path %>
           <div class="arrow-right-icon"></div>
         </li>
-        <li>
-          <hr>
+      </ul>
+    </div>
+    <div class="gadget">
+      <ul class="sidebar-block sidebar-menu">
+        <li class="dropdown">
+          Мапа
+          <div class="arrow-right-icon transformed_arrow"></div>
         </li>
         <li class="<%= current_page?(admin_populated_places_path)?"selected_item":""%>">
           <%= link_to "Населені пункти", admin_populated_places_path %>
@@ -45,4 +73,11 @@
         </li>
       </ul>
     </div>
+    <script>
+      j(document).ready(function(){
+          j(".dropdown").each(function(){
+              j(this).click();
+          });
+      });
+    </script>
 <% end %>

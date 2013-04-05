@@ -5,8 +5,9 @@
 <% end %>
 <div class="gadget">
   <ul class="sidebar-block sidebar-menu">
-    <li>
+    <li class="dropdown">
       Напрямки мистецтва
+      <div class="arrow-right-icon transformed_arrow"></div>
     </li>
     <li <%= (!params[:art_category])?"class='selected_item'":""%>>
       <%= link_to "Всі", arts_path(:author_id => params[:author_id]) %>
@@ -23,8 +24,9 @@
 <% if category%>
     <div class="gadget">
       <ul class="sidebar-block sidebar-menu">
-        <li>
+        <li class="dropdown">
           Мітки
+          <div class="arrow-right-icon transformed_arrow"></div>
         </li>
         <li <%= (!params[:art_subcategory])?"class='selected_item'":""%>>
           <%= link_to "Всі", arts_path(:art_category => category.id, :author_id => params[:author_id]) %>
@@ -39,3 +41,9 @@
       </ul>
     </div>
 <% end %>
+
+<%= render :partial => 'layouts/last_news' %>
+
+<%= render :partial => 'layouts/last_articles' %>
+
+<%= render :partial => 'layouts/anecdote' %>

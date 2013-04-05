@@ -1,0 +1,21 @@
+<% the_last_news = last_news_load %>
+<% unless the_last_news.blank? %>
+    <div class="gadget">
+      <ul class="sidebar-block">
+        <li>
+          Останні новини
+        </li>
+        <li>
+          <div class="sidebar-block-content">
+            <% the_last_news.each do |news|%>
+                <span class="gray_span">
+                  <%= news.created_at.day%>/<%= news.created_at.month %>/<%= news.created_at.year %>&nbsp;
+                </span>
+                <%= link_to news.title.to_s, news_path(news) %>
+                <br/>
+            <% end %>
+          </div>
+        </li>
+      </ul>
+    </div>
+<% end %>

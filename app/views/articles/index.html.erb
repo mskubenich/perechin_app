@@ -1,11 +1,11 @@
-<h2 class="block-header star"><%= link_to "Статті", articles_path %>: &nbsp;<%= @tag.title if @tag %></h2>
+<% if @tag %><h2 class="block-header star"><%= @tag.title %></h2><% end %>
 
 
-<%= will_paginate @articles %>
+<%= will_paginate @articles, :previous_label => 'Попередня', :next_label => 'Наступна'  %>
 <% @articles.each do |article|%>
     <%= render :partial => 'articles/article', :locals => {:article => article} %>
 <% end %>
-<%= will_paginate @articles %>
+<%= will_paginate @articles, :previous_label => 'Попередня', :next_label => 'Наступна'  %>
 
 
 

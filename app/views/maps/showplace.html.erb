@@ -1,0 +1,40 @@
+  <div class="list_item_holder">
+    <div class="item_title">
+      <div class="item_author">
+
+      </div>
+      <div class="item_meta">
+        <span class="item_title_text"><%= @place.name %></span>
+        <%# unless work.moderate %>
+            <!--<br/><span style="color:red;">Not moderated</span> -->
+        <%# end %>
+        <br/>
+        <!-- <div class="comments_icon"></div><%# link_to work.comments.count.to_s+" коментарів", art_path(work)%>-->
+        <!--<div class="review_icon"></div><%# link_to work.view_count.to_s+" переглядів", art_path(work)%> -->
+        <% if current_user && (current_user.role.name == "admin") %>
+            <div class="change_icon"></div><%= link_to "Змінити", maps_edit_showplace_path(@place)%>
+            <div class="delete_icon"></div><%= link_to "Видалити", maps_destroy_showplace_path(@place), :method => :delete, :confirm => "Are you sure ?" %>
+            <%#unless work.moderate %>
+                <!--<div class="moderate_icon"></div><%#link_to "Затвердити", "#", :onclick => "approve_work(#{@work.id}); return nil;"  if current_user.role.name == "admin" && !@work.moderate%> -->
+            <%#end %>
+        <% end %>
+      </div>
+      <div class="clr"></div>
+    </div>
+    <div class="divider">
+      <div class="divider_text">
+            <span>
+                <%= link_to @place.populated_place.title , maps_populated_place_path(@place.populated_place) %>
+              >
+              <%= link_to @place.places_category.name, maps_path(:category => @place.places_category.id) %>
+            </span>
+      </div>
+    </div>
+    <%= raw @place.description %><br/>
+
+  </div>
+
+  <%= content_for :sidebar do %>
+      <%= render :partial => 'sidebar' %>
+  <% end %>
+

@@ -49,9 +49,8 @@ class Admin::PopulatedPlacesController < ApplicationController
   def update
     real_desc = params[:populated_place][:description]
     params[:populated_place][:description] = "qwerty"
-
-    @place = PopulatedPlace.create(params[:populated_place])
-    if @place.save
+    @place = PopulatedPlace.find(params[:id])
+    if @place.update_attributes(params[:populated_place])
       #save attached images
       require 'nokogiri'
       page =  Nokogiri::HTML(real_desc)
@@ -83,8 +82,8 @@ class Admin::PopulatedPlacesController < ApplicationController
       redirect_to admin_populated_places_path
     else
       @place.description = real_desc
-      flash[:success] = "Error created place"
-      render 'new'
+      flash[:success] = "Error changed place"
+      render 'edit'
     end
   end
 

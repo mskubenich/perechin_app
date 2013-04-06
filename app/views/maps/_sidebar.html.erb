@@ -1,6 +1,6 @@
 <% if current_user && (current_user.role.name == "admin") %>
     <div class="gadget">
-      <%= link_to "Додати місце", "#", :class => "button submit_button big_button" %>
+      <%= link_to "Додати місце", maps_new_showplace_path, :class => "button submit_button big_button" %>
     </div>
 <% end %>
 
@@ -10,8 +10,8 @@
       Населені пункти:
       <div class="arrow-right-icon transformed_arrow"></div>
     </li>
-    <% places.each do |place| %>
-        <li <%= (place.id == params[:id].to_i)?"class='selected_item'":""%>>
+    <% populated_places.each do |place| %>
+        <li <%= (place.id == params[:sity].to_i)?"class='selected_item'":""%>>
           <%= link_to place.title, maps_populated_place_path(:id => place.id) %>
           <div class="arrow-right-icon"></div>
         </li>
@@ -25,7 +25,7 @@
       Категорії POI:
       <div class="arrow-right-icon transformed_arrow"></div>
     </li>
-    <% categories.each do |category| %>
+    <% poi_categories.each do |category| %>
         <li <%= (category.id == params[:category].to_i)?"class='selected_item'":""%>>
           <%= link_to category.name, url_for(:id => params[:id], :category => category.id) %>
           <div class="arrow-right-icon"></div>

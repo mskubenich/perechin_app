@@ -44,9 +44,14 @@ SampleApp::Application.routes.draw do
   end
 
   resources :maps, :only => :index
-  get '/maps/populated_place', :to => "maps#populated_place"
+  get '/maps/populated_place/:id', :to => "maps#populated_place", :as => 'maps_populated_place'
+  get '/maps/showplace/:id', :to => "maps#showplace", :as => 'maps_showplace'
+  get '/maps/new_showplace', :to => "maps#new_showplace"
+  post '/maps/create_showplace', :to => "maps#create_showplace"
+  get '/maps/edit_showplace/:id', :to => "maps#edit_showplace", :as => 'maps_edit_showplace'
+  put '/maps/update_showplace/:id', :to => "maps#update_showplace", :as => 'maps_update_showplace'
+  delete '/maps/destroy_showplace/:id', :to => "maps#destroy_showplace", :as => 'maps_destroy_showplace'
 
   resources :anecdotes, :except => :show
-
 
 end

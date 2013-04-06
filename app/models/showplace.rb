@@ -1,15 +1,30 @@
 class Showplace < ActiveRecord::Base
+  belongs_to :populated_place
+  belongs_to :places_category
+  has_many :attached_assets
   acts_as_gmappable :process_geocoding => false
-  attr_accessible :name
+  attr_accessible :name, :preview, :latitude, :longitude, :description, :populated_place_id, :places_category_id
+  validates :name, :presence => true
+  validates :preview, :presence => true
+  validates :longitude, :presence => true, :numericality => true
+  validates :latitude, :presence => true, :numericality => true
+  validates :populated_place_id, :presence => true
+  validates :places_category_id, :presence => true
 
-  def gmaps4rails_address
-#describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
-   # "#{self.street}, #{self.city}, #{self.country}"
-    "just desc"
+  def self.search(page = 1, category, sity)
+    items_per_page = 10
+    conditions = ""
+    unless category.to_s.blank?
+      cat = category.to_s.gsub /\D/, ""
+      conditions += "places_category_id = " + cat
+    end
+    unless sity.to_s.blank?
+      conditions += " AND " if conditions != ""
+      sit = sity.to_s.gsub /\D/, ""
+      conditions += "populated_place_id = " + sit
+    end
+    (conditions = " WHERE " + conditions)unless conditions.blank?
+    paginate_by_sql("SELECT showplaces.* FROM showplaces" + conditions, :page => page, :per_page => items_per_page)
   end
 
-
-  def gmaps4rails_infowindow
-    "<h4>#{name}</h4>"
-  end
 end

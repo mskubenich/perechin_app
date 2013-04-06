@@ -4,12 +4,53 @@
 <%= javascript_include_tag 'gmaps4rails/gmaps4rails.googlemaps' %>
 <%= yield :scripts %>
 
-POI<br/>
-<% @poi.each do |poi| %>
-  <%=  poi.name %><br/>
+
+<%= will_paginate @poi, :previous_label => 'Попередня', :next_label => 'Наступна'  %>
+
+<% @poi.each do |place| %>
+    <div class="list_item_holder">
+      <div class="item_title">
+        <div class="item_author">
+
+        </div>
+        <div class="item_meta">
+          <%= link_to place.name, maps_showplace_path(place), :class => "item_title_text" %><br/><br/>
+
+          <div class="divider_text">
+            <span>
+              <%= link_to place.populated_place.title, maps_populated_place_path(place.populated_place) %>
+              >
+              <%= link_to place.places_category.name, maps_path(:category => place.places_category.id) %>
+
+            </span>
+          </div>
+
+          <% if current_user && (current_user.role.name == "admin") %>
+                <div class="change_icon"></div><%= link_to "Змінити", maps_edit_showplace_path(place)%>
+                <div class="delete_icon"></div><%= link_to "Видалити", maps_destroy_showplace_path(place), :method => :delete, :confirm => "Are you sure ?" %>
+                <!--<div class="review_icon"></div><%#= link_to work.view_count.to_s+" переглядів", art_path(work)%>-->
+                <!--<div class="comments_icon"></div><%#= link_to work.comments.count.to_s+" коментарів", art_path(work)%>-->
+          <% end %>
+        </div>
+        <div class="clr"></div>
+      </div>
+      <div class="divider">
+
+      </div>
+
+      <% if place.attached_assets.count > 0 %>
+          <div class="preview_image"><div>
+            <%= image_tag place.attached_assets[0].asset.url(:original)%>
+          </div></div>
+      <% end %>
+
+      <%= raw preview_from_body(place.description) %><%= link_to "Читати детально...", maps_showplace_path(place),:class=>"readmore" %><br/><br/>
+
+    </div>
 <% end %>
 
-<div class="clr"></div>
+<%= will_paginate @poi, :previous_label => 'Попередня', :next_label => 'Наступна'  %>
+
 
 
 <%= content_for :sidebar do %>

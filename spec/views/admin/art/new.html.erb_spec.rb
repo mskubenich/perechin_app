@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe "arts/new.html.erb" do
+describe "arts/new_showplace.html.erb" do
   pending "add some examples to (or delete) #{__FILE__}"
 end

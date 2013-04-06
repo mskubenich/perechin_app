@@ -1,0 +1,49 @@
+<%= form_for(showplace, :html => {:multipart => true, :class => "poi_form"}, :url => showplace.id ? maps_update_showplace_path(showplace) : maps_create_showplace_path ) do |f| %>
+    <% if showplace.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(showplace.errors.count, "error") %>
+            prohibited this news from being saved:</h2>
+          <p>There were problems with the following fields:</p>
+          <ul>
+            <% showplace.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <div class="field">
+      <%= f.label 'Назва:' %><br />
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label 'Прев\'ю для infowindow:' %><br />
+      <%= f.text_area :preview, :rows => 6 %>
+    </div>
+    <div class="field">
+      <%= f.label 'Географічна широта:' %>
+      <%= f.text_field :latitude %>
+    </div>
+    <div class="field">
+      <%= f.label 'Географічна довгота:' %>
+      <%= f.text_field :longitude %>
+    </div>
+    <div class="field">
+      <%= f.label 'Населений пункт:' %>
+      <%= f.select :populated_place_id, options_for_select(populated_places.collect{ |place| [place.title, place.id] }) %>
+    </div>
+    <div class="field">
+      <%= f.label 'Категорія:' %>
+      <%= f.select :places_category_id, options_for_select(poi_categories.collect{ |cat| [cat.name, cat.id] }) %>
+    </div>
+    <div class="field">
+      <%= f.label 'Вікі:' %><br />
+      <%= f.text_area :description %>
+    </div>
+
+
+    <div class="actions">
+      <%= f.submit "Зберегти", :class => 'button submit_button' %>
+    </div>
+<% end %>
+
+

@@ -7,5 +7,5 @@ class AttachedAsset < ActiveRecord::Base
   has_attached_file :asset, :styles => { :original => "1000x1000>" },
                     :url  => "/assets/news/:id/:style/:basename.:extension",
                     :path => ":rails_root/app/assets/images/news/:id/:style/:basename.:extension"
-  attr_accessible :asset, :news_id, :article_id, :work_id, :populated_place_id
+  attr_accessible :asset, :news_id, :article_id, :work_id, :populated_place_id, :showplace_id
 end

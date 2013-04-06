@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130403065149) do
+ActiveRecord::Schema.define(:version => 20130406150328) do
 
   create_table "actions", :force => true do |t|
     t.string "controller"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20130403065149) do
     t.integer  "work_id"
     t.integer  "anecdote_id"
     t.integer  "populated_place_id"
+    t.integer  "showplace_id"
   end
 
   create_table "comments", :force => true do |t|
@@ -120,6 +121,10 @@ ActiveRecord::Schema.define(:version => 20130403065149) do
     t.float   "latitude"
     t.float   "longitude"
     t.boolean "gmaps"
+    t.integer "places_category_id"
+    t.integer "populated_place_id"
+    t.text    "description"
+    t.text    "preview"
   end
 
   create_table "tags", :force => true do |t|
@@ -142,6 +147,9 @@ ActiveRecord::Schema.define(:version => 20130403065149) do
     t.integer  "role_id"
     t.integer  "article_id"
     t.text     "about_me"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "gmaps"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

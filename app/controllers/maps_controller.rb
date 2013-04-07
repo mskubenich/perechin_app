@@ -34,6 +34,8 @@ class MapsController < ApplicationController
   def showplace
     @place = Showplace.find(params[:id])
     @title = @place.name
+    params[:category] = @place.places_category_id
+    params[:sity] = @place.populated_place_id
   end
 
   def new_showplace

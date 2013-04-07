@@ -1,7 +1,7 @@
 class Showplace < ActiveRecord::Base
   belongs_to :populated_place
   belongs_to :places_category
-  has_many :attached_assets
+  has_many :attached_assets, :dependent => :destroy
   acts_as_gmappable :process_geocoding => false
   attr_accessible :name, :preview, :latitude, :longitude, :description, :populated_place_id, :places_category_id
   validates :name, :presence => true

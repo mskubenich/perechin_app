@@ -1,2 +1,9 @@
-<h2><%= link_to place.name, maps_showplace_path(place) %></h2><br/>
-<%= place.preview %>
+<div class="infowindow">
+  <span class="window_title"><%= link_to place.name, maps_showplace_path(place) %></span><br/>
+  <% unless place.attached_assets.blank? %>
+    <div class="window_image">
+      <%= image_tag place.attached_assets[0].asset.url(:original)%>
+    </div>
+  <% end %>
+  <%= place.preview %>
+</div>

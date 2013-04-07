@@ -42,3 +42,20 @@
   float: right;
   width: 490px;
 }
+
+.infowindow{
+  width: 300px;
+}
+
+.window_title{
+  font-size: 18px;
+}
+
+.window_image{
+  background-color: #dedede;
+  width: 120px;
+  float: left;
+  img{
+    width: 100%;
+  }
+}

@@ -1097,3 +1097,15 @@ span.message_counter{
   }
 
 }
+
+.just_block{
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #e5e5e5;
+  -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+  -moz-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+  box-shadow: 0 1px 4px rgba(0,0,0,.065);
+  margin-bottom: 6px;
+  padding: 4px;
+}

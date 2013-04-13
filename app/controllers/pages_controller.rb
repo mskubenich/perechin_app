@@ -9,11 +9,14 @@ class PagesController < ApplicationController
       @galleria_news = News.find_by_sql("SELECT * FROM news ORDER BY created_at DESC LIMIT 10")
     end
 
-    @last_news = News.all(:limit => 30, :order => 'created_at DESC', :select => "title, created_at, view_count, id")
+    @last_news = News.all(:limit => 19, :order => 'created_at DESC', :select => "title, created_at, view_count, id")
 
-    @last_articles = Article.all(:limit => 10, :order => 'created_at DESC', :select => "title, created_at, view_count, id")
+    @last_articles = Article.all(:limit => 19, :order => 'created_at DESC', :select => "title, created_at, view_count, id")
 
     @tags = News.tags
+
+    last_arts = Work.all(:limit => 1, :order => 'created_at DESC')
+    @last_art = last_arts.first if last_arts.count > 0
   end
 
   def contact

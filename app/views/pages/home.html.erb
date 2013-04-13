@@ -1,10 +1,10 @@
 <div id="galleria">
 </div>
 <div class="news_list">
-  <br/>Останні новини:<br/>
+  Останні новини:<br/>
   <ul class="preview_block">
-    <% if @last_news[0..5]%>
-        <% @last_news[0..5].each do |news|%>
+    <% if @last_news[0..8]%>
+        <% @last_news[0..8].each do |news|%>
             <li>
             <div>
               <div>
@@ -20,9 +20,9 @@
         <% end %>
     <% end %>
   </ul>
-  <br/>
-  <% if @last_news[5..@last_news.length]%>
-      <% @last_news[5..@last_news.length].each do |news|%>
+  <div class="just_block">
+  <% if @last_news[9..@last_news.length]%>
+      <% @last_news[9..@last_news.length].each do |news|%>
         <span class="gray_span">
           <%= news.created_at.day%>/<%= news.created_at.month %>/<%= news.created_at.year %>&nbsp;
         </span>
@@ -30,14 +30,15 @@
         <br/>
       <% end %>
   <% end %>
+  </div>
   <%= link_to 'Більше новин', news_index_path, :class => "button link_button big_button" %>
 </div>
 
 <div class="news_list">
-<br/>Останні статті:<br/>
+Останні статті:<br/>
   <ul class="preview_block">
-    <% if @last_articles[0..5]%>
-        <% @last_articles[0..5].each do |article|%>
+    <% if @last_articles[0..8]%>
+        <% @last_articles[0..8].each do |article|%>
             <li>
               <div>
                 <div>
@@ -53,9 +54,9 @@
         <% end %>
     <% end %>
   </ul>
-  <br/>
-  <% if @last_articles[5..@last_articles.length]%>
-      <% @last_articles[5..@last_articles.length].each do |article|%>
+  <div class="just_block">
+  <% if @last_articles[9..@last_articles.length]%>
+      <% @last_articles[9..@last_articles.length].each do |article|%>
         <span class="gray_span">
           <%= article.created_at.day%>/<%= article.created_at.month %>/<%= article.created_at.year %>&nbsp;
         </span>
@@ -63,9 +64,9 @@
           <br/>
       <% end %>
   <% end %>
+  </div>
 <%= link_to 'Більше статей', articles_path, :class => "button link_button big_button" %>
 </div>
-
 
 <script type="text/javascript">
     j(document).ready(function(){

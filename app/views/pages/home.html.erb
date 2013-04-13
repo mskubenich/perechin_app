@@ -2,25 +2,67 @@
 </div>
 <div class="news_list">
   <br/>Останні новини:<br/>
-  <% @last_news.each do |news|%>
-    <span class="gray_span">
-      <%= news.created_at.day%>/<%= news.created_at.month %>/<%= news.created_at.year %>&nbsp;
-    </span>
-    <%= link_to news.title.to_s, news_path(news) %>
-      <br/>
+  <ul class="preview_block">
+    <% if @last_news[0..5]%>
+        <% @last_news[0..5].each do |news|%>
+            <li>
+            <div>
+              <div>
+                <% if news.attached_assets.count > 0 %>
+                      <%= image_tag news.attached_assets[0].asset.url(:original)%>
+                <% end %>
+              </div>
+              <span class="gray_span">
+                <%= news.created_at.day%>/<%= news.created_at.month %>/<%= news.created_at.year %>&nbsp;
+              </span>
+              <%= link_to news.title.to_s, news_path(news) %>
+            </div>
+        <% end %>
+    <% end %>
+  </ul>
+  <br/>
+  <% if @last_news[5..@last_news.length]%>
+      <% @last_news[5..@last_news.length].each do |news|%>
+        <span class="gray_span">
+          <%= news.created_at.day%>/<%= news.created_at.month %>/<%= news.created_at.year %>&nbsp;
+        </span>
+        <%= link_to news.title.to_s, news_path(news) %>
+        <br/>
+      <% end %>
   <% end %>
   <%= link_to 'Більше новин', news_index_path, :class => "button link_button big_button" %>
 </div>
 
 <div class="news_list">
 <br/>Останні статті:<br/>
-<% @last_articles.each do |article|%>
-    <span class="gray_span">
-      <%= article.created_at.day%>/<%= article.created_at.month %>/<%= article.created_at.year %>&nbsp;
-    </span>
-    <%= link_to article.title.to_s, articles_path(article) %>
-    <br/>
-<% end %>
+  <ul class="preview_block">
+    <% if @last_articles[0..5]%>
+        <% @last_articles[0..5].each do |article|%>
+            <li>
+              <div>
+                <div>
+                  <% if article.attached_assets.count > 0 %>
+                      <%= image_tag article.attached_assets[0].asset.url(:original)%>
+                  <% end %>
+                </div>
+              <span class="gray_span">
+                <%= article.created_at.day%>/<%= article.created_at.month %>/<%= article.created_at.year %>&nbsp;
+              </span>
+                <%= link_to article.title.to_s, articles_path(article) %>
+              </div>
+        <% end %>
+    <% end %>
+  </ul>
+  <br/>
+  <% if @last_articles[5..@last_articles.length]%>
+      <% @last_articles[5..@last_articles.length].each do |article|%>
+        <span class="gray_span">
+          <%= article.created_at.day%>/<%= article.created_at.month %>/<%= article.created_at.year %>&nbsp;
+        </span>
+          <%= link_to article.title.to_s, articles_path(article) %>
+          <br/>
+      <% end %>
+  <% end %>
 <%= link_to 'Більше статей', articles_path, :class => "button link_button big_button" %>
 </div>
 

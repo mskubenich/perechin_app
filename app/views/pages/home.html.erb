@@ -1,4 +1,4 @@
-<div id="galleria">
+<div id="galleria" xmlns="http://www.w3.org/1999/html">
 </div>
 <div class="news_list">
   Останні новини:<br/>
@@ -6,63 +6,75 @@
     <% if @last_news[0..8]%>
         <% @last_news[0..8].each do |news|%>
             <li>
-            <div>
+            <div class="label">
               <div>
+                <span class="gray_span">
+                <%= news.created_at.day%>.<%= news.created_at.month %>.<%= news.created_at.year %>&nbsp;</span>
+
+                <span class="gray_span2"><%= news.view_count.to_s %> переглядів  </span>
                 <% if news.attached_assets.count > 0 %>
                       <%= image_tag news.attached_assets[0].asset.url(:original)%>
-                <% end %>
-              </div>
-              <span class="gray_span">
-                <%= news.created_at.day%>/<%= news.created_at.month %>/<%= news.created_at.year %>&nbsp;
-              </span>
-              <%= link_to news.title.to_s, news_path(news) %>
+                <% end %><div class="clr"></div>
+              </div><br/>
+
+              <span class="title_span"><%= link_to news.title.to_s, news_path(news) %></span><br/>
+              <span class="preview_text"><%= raw preview_from_body(news.body) %></span><br/>
+              <%= link_to "Читати детально", news_path(news),:class=>"readmore2" %><div class="clr"></div>
             </div>
         <% end %>
     <% end %>
+
   </ul>
   <div class="just_block">
   <% if @last_news[9..@last_news.length]%>
       <% @last_news[9..@last_news.length].each do |news|%>
         <span class="gray_span">
-          <%= news.created_at.day%>/<%= news.created_at.month %>/<%= news.created_at.year %>&nbsp;
+          <%= news.created_at.day%>.<%= news.created_at.month %>.<%= news.created_at.year %>&nbsp;
         </span>
-        <%= link_to news.title.to_s, news_path(news) %>
-        <br/>
+        <span class="title_span"><%= link_to news.title.to_s, news_path(news) %></span>
+        <span class="gray_span2"><%= news.comments.count.to_s %> коментарів&nbsp;&nbsp; <%= news.view_count.to_s %> переглядів  </span><div class="clr"></div>
+
       <% end %>
   <% end %>
   </div>
   <%= link_to 'Більше новин', news_index_path, :class => "button link_button big_button" %>
 </div>
 
+
+
 <div class="news_list">
 Останні статті:<br/>
   <ul class="preview_block">
-    <% if @last_articles[0..8]%>
-        <% @last_articles[0..8].each do |article|%>
+    <% if @last_articles[0..5]%>
+        <% @last_articles[0..5].each do |news|%>
             <li>
-              <div>
+              <div class="label">
                 <div>
-                  <% if article.attached_assets.count > 0 %>
-                      <%= image_tag article.attached_assets[0].asset.url(:original)%>
-                  <% end %>
-                </div>
-              <span class="gray_span">
-                <%= article.created_at.day%>/<%= article.created_at.month %>/<%= article.created_at.year %>&nbsp;
-              </span>
-                <%= link_to article.title.to_s, articles_path(article) %>
+                <span class="gray_span">
+                <%= news.created_at.day%>.<%= news.created_at.month %>.<%= news.created_at.year %>&nbsp;</span>
+
+                  <span class="gray_span2"><%= news.view_count.to_s %> переглядів  </span>
+                  <div class="clr"></div>
+                </div><br/>
+
+                <span class="title_span"><%= link_to news.title.to_s, news_path(news) %></span><br/>
+                <span class="preview_text"><%= raw preview_from_body(news.body) %></span><br/>
+                <%= link_to "Читати детально", news_path(news),:class=>"readmore2" %><div class="clr"></div>
               </div>
         <% end %>
     <% end %>
+
   </ul>
   <div class="just_block">
-  <% if @last_articles[9..@last_articles.length]%>
-      <% @last_articles[9..@last_articles.length].each do |article|%>
+  <% if @last_articles[6..@last_articles.length]%>
+      <% @last_articles[6..@last_articles.length].each do |article|%>
         <span class="gray_span">
-          <%= article.created_at.day%>/<%= article.created_at.month %>/<%= article.created_at.year %>&nbsp;
+          <%= article.created_at.day%>.<%= article.created_at.month %>.<%= article.created_at.year %>&nbsp;
         </span>
-          <%= link_to article.title.to_s, articles_path(article) %>
-          <br/>
-      <% end %>
+          <span class="title_span"><%= link_to article.title.to_s, articles_path(article) %></span>
+          <span class="gray_span2"><%= article.comments.count.to_s %> коментарів&nbsp;&nbsp; <%= article.view_count.to_s %> переглядів  </span><div class="clr"></div>
+            <% end %>
+
   <% end %>
   </div>
 <%= link_to 'Більше статей', articles_path, :class => "button link_button big_button" %>

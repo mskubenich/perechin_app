@@ -6,7 +6,7 @@
 development:
   adapter: mysql2
   database: perechin
-  password: remeta
+  password: '123456'
   pool: 5
   timeout: 5000
   encoding: utf8
@@ -19,7 +19,7 @@ development:
 test:
   adapter: mysql2
   database: perechin
-  password: remeta
+  password: '123456'
   pool: 5
   timeout: 5000
   encoding: utf8
@@ -29,7 +29,7 @@ test:
 production:
   adapter: mysql2
   database: perechin
-  password: remeta
+  password: '123456'
   pool: 5
   timeout: 5000
   encoding: utf8

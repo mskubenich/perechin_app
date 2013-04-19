@@ -554,6 +554,31 @@ input.button{
 
 .gray_span{
   color: #a1a1a1;
+  float: left;
+  font-size: 12px;
+}
+
+.gray_span2{
+  color: #a1a1a1;
+  float: right;
+  font-size: 12px;
+}
+
+.title_span{
+  font-size: 14px;
+  line-height: 10px;}
+.title_span a{ text-decoration: none;}
+.title_span:hover a{ text-decoration: underline;}
+
+.preview_text{
+  color: #555555;
+  font-size: 12px;
+  line-height: 0px;
+  }
+.readmore2{
+  color: #0089ff;
+  font-size: 11px;
+  float: right;
 }
 
 /*   ОСНОВНЕ МЕНЮ САЙТУ  */

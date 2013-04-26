@@ -16,6 +16,10 @@ body {
     width:100%;
     color:#959595;
     font:normal 12px/1.8em Arial, Helvetica, sans-serif;
+  background-image: asset-url("fon.jpg", image);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 100%;
 
 }
 
@@ -30,9 +34,10 @@ html{
 
     position: absolute;
     background-color: rgba(0,0,0,0.7);
-    top: 20px;
+    top: 175px;
     left: 0px;
-    padding: 20px 20px 0 20px;background: -moz-linear-gradient(left,  rgba(0,0,0,0.65) 85%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+    padding: 20px 20px 0 20px;
+  background: -moz-linear-gradient(left,  rgba(0,0,0,0.65) 85%, rgba(0,0,0,0) 100%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, right top, color-stop(85%,rgba(0,0,0,0.65)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
   background: -webkit-linear-gradient(left,  rgba(0,0,0,0.65) 85%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
   background: -o-linear-gradient(left,  rgba(0,0,0,0.65) 85%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
@@ -128,7 +133,7 @@ a.rm, a.com {
 position:relative;
   height: 150px;
   margin: 0 auto;
-  margin-top: 40px;
+  padding-top: 160px;
   overflow: hidden;
   & div.animate{
     position:relative;
@@ -166,7 +171,7 @@ position:relative;
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=1 ); /* IE6-9 */
 
   position: absolute;
-    top: 0px;
+    top: 160px;
     right: 0px;
 }
 .menu_nav ul {

@@ -57,9 +57,9 @@
                   <div class="clr"></div>
                 </div><br/>
 
-                <span class="title_span"><%= link_to news.title.to_s, news_path(news) %></span><br/>
+                <span class="title_span"><%= link_to news.title.to_s, article_path(news) %></span><br/>
                 <span class="preview_text"><%= raw preview_from_body(news.body) %></span><br/>
-                <%= link_to "Читати детально", news_path(news),:class=>"readmore2" %><div class="clr"></div>
+                <%= link_to "Читати детально", article_path(news),:class=>"readmore2" %><div class="clr"></div>
               </div>
         <% end %>
     <% end %>
@@ -71,7 +71,7 @@
         <span class="gray_span">
           <%= article.created_at.day%>.<%= article.created_at.month %>.<%= article.created_at.year %>&nbsp;
         </span>
-          <span class="title_span"><%= link_to article.title.to_s, articles_path(article) %></span>
+          <span class="title_span"><%= link_to article.title.to_s, article_path(article) %></span>
           <span class="gray_span2"><%= article.comments.count.to_s %> коментарів&nbsp;&nbsp; <%= article.view_count.to_s %> переглядів  </span><div class="clr"></div>
             <% end %>
 

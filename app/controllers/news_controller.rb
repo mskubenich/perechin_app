@@ -1,9 +1,9 @@
-# -*- encoding : utf-8 -*-
+#encoding : utf-8
 class NewsController < ApplicationController
 
   def new
     @news = News.new
-    @title = "Add news"
+    @title = "Додати новину"
   end
 
   def create
@@ -49,7 +49,7 @@ class NewsController < ApplicationController
 
   def edit
     @news = News.find params[:id]
-    @title = "Add news"
+    @title = "Редагування запису"
   end
 
   def update
@@ -105,6 +105,7 @@ class NewsController < ApplicationController
     sql = ActiveRecord::Base.connection()
     sql.execute("UPDATE news SET view_count = #{(@news.view_count + 1).to_s} WHERE id = #{(@news.id).to_s}")
     @tags = News.tags
+    @title = @news.title
   end
 
   def create_comment
@@ -123,6 +124,7 @@ class NewsController < ApplicationController
     @news = News.search(params[:page], params[:tag])
     @tag = Tag.find(params[:tag]) if params[:tag]
     @tags = News.tags
+    @title = "Новини Перечинщини та Закарпаття"
   end
 
 end

@@ -1,6 +1,8 @@
+#encoding: utf-8;
+
 class ArtsController < ApplicationController
   def index
-    @title = "Art"
+    @title = "Мистецтво Перечинщини"
     @art_categories = ArtCategory.all
     role_author = Role.find_by_name("author")
     @authors = User.where(:role_id => role_author.id)
@@ -25,7 +27,7 @@ class ArtsController < ApplicationController
   end
 
   def new
-    @title = "Create Work"
+    @title = "Додати твір"
     @work = Work.new
     @art_categories = ArtCategory.all
   end
@@ -62,7 +64,7 @@ class ArtsController < ApplicationController
       flash[:success] = "You dont have permissions to access this action"
       redirect_to 'index'
     end
-    @title = "Edit Work"
+    @title = "Редагування запису"
     @work = Work.find(params[:id])
     @art_categories = ArtCategory.all
   end

@@ -1,12 +1,14 @@
+#encoding: utf-8
+
 class AnecdotesController < ApplicationController
   def index
     @anecdotes = Anecdote.search(params[:page])
-    @title = "Anecdotes"
+    @title = "Закарпатські фіглі"
   end
 
   def new
     @anecdote = Anecdote.new
-    @title = "Add anecdote"
+    @title = "Новий анекдот"
   end
 
   def create
@@ -38,7 +40,7 @@ class AnecdotesController < ApplicationController
 
   def edit
     @anecdote = Anecdote.find(params[:id])
-    @title = "Change anecdote"
+    @title = "Редагування запису"
   end
 
   def update

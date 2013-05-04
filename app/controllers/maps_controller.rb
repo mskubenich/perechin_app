@@ -1,10 +1,12 @@
+#encoding: utf-8
+
 class MapsController < ApplicationController
   def index
+    @title = "Перечинщина на мапі. Заклади, цікаві місця"
     @poi = Showplace.search(params[:page], params[:category], params[:sity])
     @json = @poi.to_gmaps4rails do |place,marker|
       marker.infowindow render_to_string(:partial => 'infowindow', :locals => {:place => place})
     end
-
 
     @options = {
       :map_options => { :auto_adjust => true,
@@ -16,6 +18,7 @@ class MapsController < ApplicationController
 
   def populated_place
     @place = PopulatedPlace.find(params[:id])
+    @title = @place.title + " на мапі. Заклади, цікаві місця"
     params[:sity] = @place.id
     @poi = Showplace.search(params[:page], params[:category], params[:sity])
     @json = @poi.to_gmaps4rails do |place,marker|
@@ -40,7 +43,7 @@ class MapsController < ApplicationController
 
   def new_showplace
     @showplace = Showplace.new
-    @title = "Add showplace"
+    @title = "Додати цікаве місце"
   end
 
   def create_showplace
@@ -76,7 +79,7 @@ class MapsController < ApplicationController
 
   def edit_showplace
     @showplace = Showplace.find(params[:id])
-    @title = "Change showplace"
+    @title = "Редагування запису"
   end
 
   def update_showplace

@@ -1,7 +1,9 @@
+#encoding: utf-8
+
 class PagesController < ApplicationController
 
   def home
-    @title = 'Home'
+    @title = 'Інформаційно розважальний молодіжний туристичний портал Перечинщини та Закарпаття'
 
     ActiveRecord::Base.connection.execute("SET @limit = (SELECT created_at FROM news ORDER BY created_at DESC LIMIT 25,1);")
     @galleria_news = News.find_by_sql("SELECT * FROM news WHERE DATE(created_at) > DATE(@limit) ORDER BY view_count DESC LIMIT 10")
@@ -20,14 +22,14 @@ class PagesController < ApplicationController
   end
 
   def contact
-    @title = 'Contact'
+    @title = "Зв'язок з нами"
   end
 
   def about
-    @title = 'About'
+    @title = "Про нас"
   end
 
   def help
-    @title = 'Help'
+    @title = "Допомога"
   end
 end

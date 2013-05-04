@@ -1,8 +1,10 @@
+#encoding: utf-8
+
 class ArticlesController < ApplicationController
 
     def new
       @article = Article.new
-      @title = "Add article"
+      @title = "Додати статтю"
     end
 
     def create
@@ -46,7 +48,7 @@ class ArticlesController < ApplicationController
 
     def edit
       @article = Article.find params[:id]
-      @title = "Add article"
+      @title = "Редагування запису"
     end
 
     def update
@@ -100,6 +102,7 @@ class ArticlesController < ApplicationController
 
     def show
       @article = Article.find(params[:id])
+      @title = @article.title
       sql = ActiveRecord::Base.connection()
       sql.execute("UPDATE articles SET view_count = #{(@article.view_count + 1).to_s} WHERE id = #{(@article.id).to_s}")
       @tags = Article.tags
@@ -118,6 +121,7 @@ class ArticlesController < ApplicationController
     end
 
     def index
+      @title = "Статті Перечинщини"
       @articles = Article.search(params[:page], params[:tag])
       @tag = Tag.find(params[:tag]) if params[:tag]
       @tags = Article.tags

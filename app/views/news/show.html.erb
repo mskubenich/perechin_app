@@ -27,6 +27,8 @@
   </div>
   <%= raw @news.body %><br/>
   <div>Джерело:&nbsp; <%= raw @news.source %></div>
+
+  <%= render :partial => 'layouts/vk_like_button' %>
 </div>
 
 <div id="comments">

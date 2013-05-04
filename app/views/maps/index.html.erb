@@ -44,7 +44,7 @@
           </div></div>
       <% end %>
 
-      <%= raw preview_from_body(place.description) %><%= link_to "Читати детально...", maps_showplace_path(place),:class=>"readmore" %><br/><br/>
+      <%= raw preview_from_body(place.description, 300) %><%= link_to "Читати детально...", maps_showplace_path(place),:class=>"readmore" %><br/><br/>
 
     </div>
 <% end %>

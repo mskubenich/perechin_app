@@ -35,7 +35,7 @@
       </div></div>
   <% end %>
 
-  <%= raw preview_from_body(news.body) %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Читати детально >>", news_path(news),:class=>"readmore" %><br/><br/><br/>
+  <%= raw preview_from_body(news.body, 300) %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Читати детально >>", news_path(news),:class=>"readmore" %><br/><br/><br/>
 </div>
 
 

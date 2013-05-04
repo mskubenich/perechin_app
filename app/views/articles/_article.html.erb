@@ -31,7 +31,7 @@
       </div></div>
   <% end %>
 
-  <%= raw preview_from_body(article.body) %>&nbsp;<%= link_to "Читати детально...", article_path(article) %><br/>
+  <%= raw preview_from_body(article.body, 300) %>&nbsp;<%= link_to "Читати детально...", article_path(article) %><br/>
 
   <div>Джерело:&nbsp; <%= raw article.source %></div>
 </div>

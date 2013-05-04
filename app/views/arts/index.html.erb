@@ -61,7 +61,7 @@
           </div></div>
         <% end %>
 
-        <%= raw preview_from_body(work.body) %><%= link_to "Читати детально...", art_path(work),:class=>"readmore" %><br/><br/>
+        <%= raw preview_from_body(work.body, 300) %><%= link_to "Читати детально...", art_path(work),:class=>"readmore" %><br/><br/>
 
       </div>
   <% end %>

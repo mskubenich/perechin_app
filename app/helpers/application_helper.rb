@@ -15,14 +15,10 @@ module ApplicationHelper
     %w'січня лютого березня квітня травня червня липня серпня вересня жовтня листопада грудня'[month_number - 1]
   end
 
-  def preview_from_body(body)
+  def preview_from_body(body, char_count)
     require 'nokogiri'
     page =  Nokogiri::HTML(body)
-    page.css("img").each do |img|
-      img.remove
-    end
-    page =  Nokogiri::HTML(page.css("body:first").inner_html[0..300])
-    page.css("body:first").inner_html
+    page.xpath("//text()").to_s[0..char_count]+"..."
   end
 
   def daily_anecdote

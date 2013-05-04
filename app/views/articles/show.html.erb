@@ -29,6 +29,8 @@
   <div>Джерело:&nbsp; <%= raw @article.source %></div>
 </div>
 
+<%= render :partial => 'layouts/vk_like_button' %>
+
 <div id="comments">
   <div class="just_title"><%= @article.comments.count.to_s %> коментарі:</div>
   <% @article.comments.each do |comment| %>

@@ -89,3 +89,8 @@
   <div class="clr"></div>
 </div>
 
+
+<%= content_for :sidebar do %>
+    <%= render :partial => 'sidebar', :locals => {:tags => @tags}%>
+<% end %>
+

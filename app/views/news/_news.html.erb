@@ -1,5 +1,15 @@
 <div class="list_item_holder">
   <div class="item_title">
+    <div class="add">
+      <%= news.created_at.day %>&nbsp;<%= month news.created_at.month %>&nbsp;<%= news.created_at.year %>&nbsp;<%= news.created_at.hour %>:<%= news.created_at.min %>
+    </div><div class="icons">
+    <% if current_user && (current_user.role.name == "admin") %>
+        <%= link_to raw("<div class='change_icon'></div>Змінити"), edit_news_path(news)%>
+        <%= link_to raw("<div class='delete_icon'></div>Видалити"), news_path(news), :method => :delete, :confirm => "Are you sure you wont to delete art ?" %>
+    <% end %>
+    <%= link_to raw("<div class='review_icon'></div>"+news.view_count.to_s), news_path(news)%>
+    <%= link_to raw("<div class='comments_icon'></div>"+news.comments.count.to_s), news_path(news)%>
+  </div><br>
     <div class="item_meta">
       <%= link_to news.title, news_path(news), :class => "item_title_text" %>
       <br/><br/>
@@ -11,18 +21,9 @@
                 <% end %>
             </span>
       </div>
-      <div class="add">Додав: <%= link_to news.user.name, user_path(news.user) %>&nbsp;
-      <%= news.created_at.day %>&nbsp;<%= month news.created_at.month %>&nbsp;<%= news.created_at.year %>&nbsp;<%= news.created_at.hour %>:<%= news.created_at.min %>
+
       </div>
-      </div>
-      <div class="icons">
-      <% if current_user && (current_user.role.name == "admin") %>
-          <%= link_to raw("<div class='change_icon'></div>Змінити"), edit_news_path(news)%>
-          <%= link_to raw("<div class='delete_icon'></div>Видалити"), news_path(news), :method => :delete, :confirm => "Are you sure you wont to delete art ?" %>
-      <% end %>
-        <%= link_to raw("<div class='review_icon'></div>"+news.view_count.to_s), news_path(news)%>
-      <%= link_to raw("<div class='comments_icon'></div>"+news.comments.count.to_s), news_path(news)%>
-    </div>
+
     </div>
     <div class="clr"></div>
   </div>

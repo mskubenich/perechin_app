@@ -1,16 +1,16 @@
 <div class="list_item_holder">
   <div class="item_title">
     <div class="item_meta">
-      Автор:<%= link_to @news.user.name, user_path(@news.user) %>&nbsp;
       <%= @news.created_at.day %>&nbsp;<%= month @news.created_at.month %>&nbsp;<%= @news.created_at.year %>&nbsp;<%= @news.created_at.hour %>:<%= @news.created_at.min %>
-      <br/>
-      <span class="item_title_text"><%= @news.title %></span>
-      <br/>
-      <div class="comments_icon"></div><%= @news.comments.count.to_s+" коментарів"%>
+      <div class="comm"><div class="comments_icon"></div><%= @news.comments.count.to_s+" коментарів"%>
       <div class="review_icon"></div><%= @news.view_count.to_s+" переглядів"%>
       <% if current_user && (current_user.role.name == "admin") %>
           <div class="change_icon"></div><%= link_to "Змінити", edit_news_path(@news)%>
           <div class="delete_icon"></div><%= link_to "Видалити", news_path(@news), :method => :delete, :confirm => "Are you sure you wont to delete art ?" %>
+      </div><br/>  <br/>
+      <span class="item_title_text"><%= @news.title %></span>
+      <br/>  <br/>
+
       <% end %>
     </div>
     <div class="clr"></div>

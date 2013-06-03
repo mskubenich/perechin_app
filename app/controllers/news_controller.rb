@@ -39,10 +39,10 @@ class NewsController < ApplicationController
       @news.view_count = 0
 
       @news.save
-      flash[:success] = "Succesfully created news: " + @news.title
+      flash[:success] = "Новина успішно додана: " + @news.title
       redirect_to root_path
     else
-      flash[:success] = "Error created news"
+      flash[:success] = "Невдалось додати новину"
       render 'new'
     end
   end

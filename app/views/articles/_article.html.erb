@@ -1,17 +1,17 @@
 <div class="list_item_holder">
   <div class="item_title">
     <div class="item_meta">
-      Розмістив:<%= link_to article.user.name, user_path(article.user) %>&nbsp;
       <%= article.created_at.day %>&nbsp;<%= month article.created_at.month %>&nbsp;<%= article.created_at.year %>&nbsp;<%= article.created_at.hour %>:<%= article.created_at.min %>
-      <br/>
+      <div class="comm"><div class="comments_icon"></div><%= link_to article.comments.count.to_s+" коментарів", article_path(article)%>
+        <div class="review_icon"></div><%= link_to article.view_count.to_s+" переглядів", article_path(article)%>
+        <% if current_user && (current_user.role.name == "admin") %>
+            <div class="change_icon"></div><%= link_to "Змінити", edit_article_path(article)%>
+            <div class="delete_icon"></div><%= link_to "Видалити", article_path(article), :method => :delete, :confirm => "Are you sure you wont to delete art ?" %>
+            </div><br/> <br/>
       <%= link_to article.title, article_path(article), :class => "item_title_text" %>
-      <br/>
-      <div class="comments_icon"></div><%= link_to article.comments.count.to_s+" коментарів", article_path(article)%>
-      <div class="review_icon"></div><%= link_to article.view_count.to_s+" переглядів", article_path(article)%>
-      <% if current_user && (current_user.role.name == "admin") %>
-          <div class="change_icon"></div><%= link_to "Змінити", edit_article_path(article)%>
-          <div class="delete_icon"></div><%= link_to "Видалити", article_path(article), :method => :delete, :confirm => "Are you sure you wont to delete art ?" %>
-      <% end %>
+      <br/> <br/>
+
+        <% end %>
     </div>
     <div class="clr"></div>
   </div>
@@ -22,7 +22,7 @@
                     <%= link_to tag.title, articles_path(:tag => tag.id)%>
                   >
                 <% end %>
-            </span>
+            </span> <br/><br/>
     </div>
   </div>
   <% if article.attached_assets.count > 0 %>

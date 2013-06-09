@@ -38,42 +38,48 @@
   </div>
 
 </div>
-<% flash.each do |key, value| %>
-    <div class="flash_message">
-      <%= content_tag(:div, value, :class => "flash_message #{key}") %>
-    </div>
-<% end %>
+
 <div class="content">
   <div class="content_resize">
+
     <ul class="menu">
       <li <%= (current_page?(root_path))?"class='active'":""%>>
-        <%= link_to raw("&nbsp;Додому"), root_path %>
+        <%= link_to raw("&nbsp;ДОДОМУ"), root_path %>
       </li>
       <li <%= (current_page?(news_index_path))?"class='active'":""%>>
-        <%= link_to "Новини", news_index_path %>
+        <%= link_to "НОВИНИ", news_index_path %>
       </li>
       <li <%= (current_page?(articles_path))?"class='active'":""%>>
-        <%= link_to "Статті", articles_path %>
+        <%= link_to "СТАТТІ", articles_path %>
       </li>
       <li <%= (current_page?(arts_path))?"class='active'":""%>>
-        <%= link_to "Мистецтво", arts_path %>
+        <%= link_to "МИСТЕЦТВО", arts_path %>
       </li>
       <li <%= (current_page?(maps_path))?"class='active'":""%>>
-        <%= link_to "Мапа", maps_path %>
+        <%= link_to "МІСЦЯ", maps_path %>
       </li>
       <li <%= (current_page?(anecdotes_path))?"class='active'":""%>>
-        <%= link_to "Закарпатські фіглі", anecdotes_path %>
+        <%= link_to "ЗАКАРПАТСЬКІ ФІГЛІ", anecdotes_path %>
       </li>
     </ul>
+
+    <% flash.each do |key, value| %>
+        <div class="flash_message">
+          <%= content_tag(:div, value, :class => "flash_message #{key}") %>
+        </div>
+    <% end %>
+
     <div class="mainbar">
       <%= yield %>
     </div>
+
     <div class="sidebar">
 
       <%= yield :sidebar %>
       <%=  render :partial => 'layouts/sidebar', :locals => {:tags => @tags} %>
 
     </div>
+
     <div class="clr"></div>
   </div>
 </div>

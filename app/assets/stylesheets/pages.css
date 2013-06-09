@@ -6,7 +6,8 @@
 }
 
 .news_list{
-    font-size: 17px;
+    font-size: 16px;
+    margin-top: 5px;
     color: #000000;
     font-family: "Arial", "Helvetica", sans-serif;
     background-color: #fff;
@@ -15,5 +16,5 @@
     border-radius: 3px;
 
     }
-.label{background-color: #fcfcfc;}
+.label{background-color: white;}
 

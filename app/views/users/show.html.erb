@@ -13,44 +13,44 @@
 
     <table class="user-info">
       <tr>
-        <td>
+        <td class="left">
           Ім'я:
         </td>
-        <td>
+        <td class="right">
           <%= @user.name %>
         </td>
       </tr>
       <% if current_user && current_user.id == @user.id %>
       <tr>
-        <td>
+        <td class="left">
           E-mail:
         </td>
-        <td>
+        <td class="right">
           <%= @user.email %>
         </td>
       </tr>
       <% end %>
       <tr>
-        <td>
+        <td class="left">
           Дата реєстрації:
         </td>
-        <td>
+        <td class="right">
           <%= @user.created_at %>
         </td>
       </tr>
       <tr>
-        <td>
+        <td class="left">
           Роль:
         </td>
-        <td>
+        <td class="right">
           <%= @user.role.name %>
         </td>
       </tr>
       <tr>
-        <td>
+        <td class="left">
           Про мене:
         </td>
-        <td>
+        <td class="right1">
           <%= @user.about_me %>
         </td>
       </tr>
@@ -68,18 +68,18 @@
 <h2 class="block-header star">Активність</h2>
 <table class="user-activity">
   <tr>
-    <td>
+    <td class="left">
       Кількість коментарів:
     </td>
-    <td>
+    <td class="right">
       <%= @user.comments.count %>
     </td>
   </tr>
   <tr>
-    <td>
+    <td class="left">
       Останні коментарі:
     </td>
-    <td>
+    <td class="right">
       <% @last_comments.each do |comment|%>
         <% if comment.news %>
           <%= comment.news.created_at.day%>/

@@ -28,7 +28,7 @@ j(document).ready(function(){
 
     j(".sidebar-block").each(function(){
         j(this).attr("real-height", j(this).css("height"));
-        j(this).css("max-height", j(this).css("height"));
+        //j(this).css("max-height", j(this).css("height"));
     });
 
     j(".dropdown").click(function(){

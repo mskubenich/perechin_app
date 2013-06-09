@@ -1,11 +1,11 @@
 <% if @tag%><h2 class="block-header star"><%= @tag.title %></h2><%end%>
 
 
-<%= will_paginate @news, :previous_label => 'Попередня', :next_label => 'Наступна'  %>
+<%= will_paginate @news, :previous_label => 'ПОПЕРЕДНЯ', :next_label => 'НАСТУПНА'  %>
 <% @news.each do |news|%>
     <%= render :partial => 'news/news', :locals => {:news => news} %>
 <% end %>
-<%= will_paginate @news, :previous_label => 'Попередня', :next_label => 'Наступна'  %>
+<%= will_paginate @news, :previous_label => 'ПОПЕРЕДНЯ', :next_label => 'НАСТУПНА'  %>
 
 
 

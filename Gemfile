@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.2.6'
 gem 'paperclip'
-gem 'rake', '0.8.7'
+gem 'rake', '10.0.4'
 gem 'mysql2'
 gem 'jquery-rails'
 
@@ -19,3 +19,8 @@ group :production do
   gem 'uglifier'
 end
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+end

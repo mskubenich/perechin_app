@@ -3,22 +3,26 @@ require 'spec_helper'
 describe UsersController do
   render_views
 
-  describe "GET 'new'" do
-    it "returns http success" do
+  before(:each) do
+    @standard_title = 'Perechin.net | '
+  end
+
+  describe 'GET "new"' do
+    it 'returns http success' do
       get 'new'
       response.should be_success
     end
 
     it 'should have the right title' do
       get 'new'
-      response.should have_selector 'title', :content => "Sign Up"
+      response.should have_selector 'title', :text => @standard_title + 'Sign Up'
     end
   end
 
   describe "GET 'show'" do
 
     before(:each) do
-      @user = Factory(:user)
+      @user = FactoryGirl.create(:user)
     end
 
     it "should be successful" do
@@ -33,7 +37,7 @@ describe UsersController do
 
     it "should have the right title" do
       get :show, :id => @user
-      response.should have_selector("title", :content => @user.name)
+      response.should have_selector("title", :content => @standard_title + @user.name)
     end
 
     it "should include the user's name" do
@@ -86,14 +90,14 @@ describe UsersController do
         end.should change(User, :count).by(1)
       end
 
-      it "should redirect to the user show page" do
+      it "should redirect to the home page" do
         post :create, :user => @attr
-        response.should redirect_to(user_path(assigns(:user)))
+        response.should redirect_to(root_path)
       end
 
       it "should have a welcome message" do
         post :create, :user => @attr
-        flash[:success].should =~ /welcome to the sample app/i
+        flash[:success].should =~ /Check you mail and confirm registration!/i
       end
 
     end

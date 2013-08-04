@@ -12,46 +12,49 @@
 //
 //= require jquery
 //= require jquery_ujs
-
-j = jQuery.noConflict();
-
+//= require kickstart
 
 
-j(document).ready(function(){
-    j(".flash_message").css("height", j(".flash_message").css("height"));
-    j(".flash_message").css("color", "red");
+//= require jquery.snippet.min
 
-    setTimeout('j(".flash_message").css("color", "transparent")', 5000);
-    setTimeout('j(".flash_message").css("padding", "0px")', 6200);
-    setTimeout('j(".flash_message").css("height", "0px")', 6400);
-    setTimeout('j(".flash_message").css("display", "none")', 7600);
 
-    j(".sidebar-block").each(function(){
-        j(this).attr("real-height", j(this).css("height"));
-        //j(this).css("max-height", j(this).css("height"));
-    });
-
-    j(".dropdown").click(function(){
-        hide_dropdown(j(this));
-    });
-});
-
-function hide_dropdown(el){
-    var list = el.parents(".sidebar-block");
-    list.css("max-height", "22px");
-    list.find(".arrow-right-icon").removeClass("transformed_arrow");
-    el.unbind("click");
-    el.click(function(){
-        show_dropdown(el);
-    });
-}
-
-function show_dropdown(el){
-    var list = el.parents(".sidebar-block");
-    list.css("max-height", list.attr("real-height").toString());
-    list.find(".arrow-right-icon").addClass("transformed_arrow");
-    el.unbind("click");
-    el.click(function(){
-        hide_dropdown(el);
-    });
-}
+//
+//
+//j(document).ready(function(){
+//    j(".flash_message").css("height", j(".flash_message").css("height"));
+//    j(".flash_message").css("color", "red");
+//
+//    setTimeout('j(".flash_message").css("color", "transparent")', 5000);
+//    setTimeout('j(".flash_message").css("padding", "0px")', 6200);
+//    setTimeout('j(".flash_message").css("height", "0px")', 6400);
+//    setTimeout('j(".flash_message").css("display", "none")', 7600);
+//
+//    j(".sidebar-block").each(function(){
+//        j(this).attr("real-height", j(this).css("height"));
+//        //j(this).css("max-height", j(this).css("height"));
+//    });
+//
+//    j(".dropdown").click(function(){
+//        hide_dropdown(j(this));
+//    });
+//});
+//
+//function hide_dropdown(el){
+//    var list = el.parents(".sidebar-block");
+//    list.css("max-height", "22px");
+//    list.find(".arrow-right-icon").removeClass("transformed_arrow");
+//    el.unbind("click");
+//    el.click(function(){
+//        show_dropdown(el);
+//    });
+//}
+//
+//function show_dropdown(el){
+//    var list = el.parents(".sidebar-block");
+//    list.css("max-height", list.attr("real-height").toString());
+//    list.find(".arrow-right-icon").addClass("transformed_arrow");
+//    el.unbind("click");
+//    el.click(function(){
+//        hide_dropdown(el);
+//    });
+//}

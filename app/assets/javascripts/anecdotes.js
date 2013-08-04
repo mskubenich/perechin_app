@@ -1,6 +1,4 @@
-//= require ./jquery_ui/jquery-ui.min
-//= require ./elrte/js/elrte.full
-//= require ./elrte/js/i18n/elrte.ru.js
+
 
 j(document).ready(function(){
     var opts = {

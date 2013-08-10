@@ -1,0 +1,29 @@
+- if @news.errors.any?
+  - @news.errors.full_messages.each do |msg|
+    .notice.error
+      %i.icon-remove-sign.icon-large
+      %i
+        = msg
+      %a.icon-remove{ href: "#close" }
+= form_for(@news, :html => {:multipart => true, :id => 'news_form' }) do |f|
+  = f.label 'Заголовок:'
+  = f.text_field :title
+  = f.label 'Теги:'
+  = f.select :tag_ids, options_for_select(@tags.map{|tag| [tag.title, tag.id]}), {}, id: 'tags', multiple: true
+  = f.label 'Текст новини:'
+  = f.text_area :body
+  = f.label 'Джерело:'
+  = f.text_field :source
+  = f.submit 'Зберегти', class: 'green'
+
+= content_for :assets do
+  = javascript_include_tag 'select2'
+  = stylesheet_link_tag 'select2'
+
+:javascript
+  $('#tags').select2({
+    placeholder: "Виберіть Теги",
+    minimumInputLength: 1,
+    maximumInputLength: 4,
+    allowClear: true
+  });

@@ -33,12 +33,13 @@
               = link_to 'Фіглі', anecdotes_path
         .col_1
     %section.page-content
-      = yield
-
-
-
-  -#          = yield :sidebar
-
+      .grid.flex
+        .col_3
+          text
+          = render partial: 'layouts/authentikation'
+          = content_for :sidebar
+        .col_9
+          = yield
 -#    <div class="menu_nav">
 -#      <ul>
 -#        <% if current_user && current_user.role.name == "admin" %>

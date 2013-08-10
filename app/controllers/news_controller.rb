@@ -4,9 +4,11 @@ class NewsController < ApplicationController
   def new
     @news = News.new
     @title = "Додати новину"
+    @tags = Tag.all
   end
 
   def create
+    @tags = Tag.all
     @news = current_user.news.build(params[:news])
     if @news.save
       #save attached images
@@ -23,18 +25,6 @@ class NewsController < ApplicationController
         end
       end
       @news.body = page.css("body:first").inner_html
-      #save tags
-      tags = []
-      if params[:tags]
-        params[:tags].each do |key, value|
-          tag = Tag.find_by_title key
-          unless tag
-            tag = Tag.create(:title => key)
-          end
-          tags << tag
-        end
-      end
-      @news.tags = tags
 
       @news.view_count = 0
 

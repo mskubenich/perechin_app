@@ -10,6 +10,8 @@ gem 'sass-rails',   '~> 3.2.3'
 gem 'coffee-rails', '~> 3.2.1'
 gem 'haml'
 
+gem 'select2-rails'
+
 gem 'nokogiri'
 gem 'will_paginate'
 gem 'whenever'

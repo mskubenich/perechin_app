@@ -127,6 +127,9 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    select2-rails (3.4.7)
+      sass-rails
+      thor (~> 0.14)
     sprockets (2.1.3)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -166,6 +169,7 @@ DEPENDENCIES
   rake (= 10.0.4)
   rspec-rails
   sass-rails (~> 3.2.3)
+  select2-rails
   uglifier
   whenever
   will_paginate

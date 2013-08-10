@@ -4,7 +4,7 @@ class News < ActiveRecord::Base
   belongs_to :user
   has_and_belongs_to_many :tags
 
-  attr_accessible :body, :title, :attached_assets, :source
+  attr_accessible :body, :title, :attached_assets, :source, :tag_ids
 
   validates :title, :presence => true
   validates :body, :presence => true

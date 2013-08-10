@@ -1,0 +1,18 @@
+%ul
+  - if current_user && current_user.role.name == "admin"
+    - if @admin_message && @admin_message != "0"
+      %li
+        %span.message_counter
+          @admin_message
+    %li
+      = link_to "Сторінка адміністратора", admin_index_path
+  - if signed_in?
+    %li
+      = link_to current_user.name, current_user
+    %li
+      = link_to "Вийти", signout_path, :method => :delete
+  - else
+    %li
+      = link_to "Увійти", signin_path
+    %li
+      = link_to "Зареєструватися", sign_up_path

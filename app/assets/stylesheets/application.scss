@@ -16,9 +16,14 @@ body{
   background-image: url('gray_jean.png');
 }
 
+body, html{
+  min-width: 700px;
+}
+
 header{
+  z-index: 1000000;
   position: fixed;
-  background-color: rgba(255, 255, 255, 0.45);
+  background-color: rgba(255, 255, 255, 0.65);
   width: 100%;
   box-shadow: 0 1px 12px -2px gray;
   .logo{
@@ -49,6 +54,8 @@ header{
   }
 }
 
-section{
+section.page-content{
+  width: 80%;
+  margin: 0 auto;
   padding-top: 90px;
 }

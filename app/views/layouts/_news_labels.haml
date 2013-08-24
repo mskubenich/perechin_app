@@ -1,0 +1,12 @@
+%ul.tabs.left
+  %li
+    %a{href: '#news_tags'}
+      %i.icon-tags
+      Новини за мітками:
+  %li
+#news_tags.tab-content
+  - News.tags.each do |tag|
+    = link_to tag['title'],
+      news_index_path(tag: tag['id']),
+      style: "font-size: #{tag['size']}px; opacity: #{tag['opacity']};",
+      class: 'tag_link'

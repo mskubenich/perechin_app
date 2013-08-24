@@ -1,17 +1,4 @@
-<div class="gadget">
-  <ul class="sidebar-block">
-    <li>
-      НОВИНИ ЗА МІТКАМИ
-    </li>
-    <li>
-      <div class="tags">
-        <% tags.each do |tag|%>
-            <%= link_to tag['title'], news_index_path(:tag => tag['id']), :style=>"font-size: #{tag['size']}px; opacity: #{tag['opacity']};"%>
-        <% end %>
-      </div>
-    </li>
-  </ul>
-</div>
+
 
        <div class="kurs">
         <%= render :partial => 'layouts/exchange_rate' %>

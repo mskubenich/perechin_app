@@ -4,20 +4,7 @@
     </div>
 <% end %>
 
-<div class="gadget">
-  <ul class="sidebar-block">
-    <li>
-      Мітки
-    </li>
-    <li>
-      <div class="tags">
-        <% tags.each do |tag|%>
-            <%= link_to tag['title'], news_index_path(:tag => tag['id']), :style=>"font-size: #{tag['size']}px; opacity: #{tag['opacity']};"%>
-        <% end %>
-      </div>
-    </li>
-  </ul>
-</div>
+<%= render partial: 'layouts/news_labels'%>
 
 
 <div class="gadget">

@@ -1,4 +1,6 @@
 SampleApp::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
+
   root :to => 'pages#home'
 
   resources :users
@@ -53,5 +55,7 @@ SampleApp::Application.routes.draw do
   delete '/maps/destroy_showplace/:id', :to => "maps#destroy_showplace", :as => 'maps_destroy_showplace'
 
   resources :anecdotes, :except => :show
+
+  mount Ckeditor::Engine => "/ckeditor"
 
 end

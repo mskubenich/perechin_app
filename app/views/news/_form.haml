@@ -11,7 +11,7 @@
   = f.label 'Теги:'
   = f.select :tag_ids, options_for_select(@tags.map{|tag| [tag.title, tag.id]}), {}, id: 'tags', multiple: true
   = f.label 'Текст новини:'
-  = f.text_area :body
+  = f.cktext_area :body, :class => "someclass", :ckeditor => {:language => "ru"}
   = f.label 'Джерело:'
   = f.text_field :source
   = f.submit 'Зберегти', class: 'green'
@@ -19,6 +19,7 @@
 = content_for :assets do
   = javascript_include_tag 'select2'
   = stylesheet_link_tag 'select2'
+  = javascript_include_tag 'ckeditor/init'
 
 :javascript
   $('#tags').select2({

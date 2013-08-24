@@ -17,6 +17,7 @@ gem 'will_paginate'
 gem 'whenever'
 gem 'gmaps4rails'
 gem 'geokit-rails3'
+gem "ckeditor", "~> 4.0.2"
 
 group :production do
   gem 'uglifier'

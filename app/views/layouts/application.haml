@@ -21,20 +21,19 @@
           = render partial: 'layouts/authentikation'
       .grid.flex
         .col_12
-          %i.icon-check
           %ul.menu.right
+            %li{ class: "#{ 'current' if controller.controller_name == 'pages'}"}
+              = link_to raw('<i class="icon-home"></i>Головна'), root_path
+            %li{ class: "#{ 'current' if controller.controller_name == 'news'}"}
+              = link_to raw('<i class="icon-globe" ></i>Новини'), news_index_path
             %li
-              = link_to raw('<i class="icon-inbox"></i>Головна'), root_path
+              = link_to raw('<i class="icon-book"></i>Статті'), articles_path
             %li
-              = link_to 'Новини', news_index_path
+              = link_to raw('<i class="icon-film"></i>Мистецтво'), arts_path
             %li
-              = link_to 'Статті', articles_path
+              = link_to raw('<i class=" icon-plane"></i>Місця'), maps_path
             %li
-              = link_to 'Мистецтво', arts_path
-            %li
-              = link_to 'Місця', maps_path
-            %li
-              = link_to 'Фіглі', anecdotes_path
+              = link_to raw('<i class="icon-lightbulb"></i>Фіглі'), anecdotes_path
         .col_3
           test
           = content_for :sidebar

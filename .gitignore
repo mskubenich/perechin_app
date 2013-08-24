@@ -25,6 +25,7 @@
 config/database.yml
 .sass-cache/
 public/assets/
+public/ckeditor_assets/
 /.idea
 
 /script/rails

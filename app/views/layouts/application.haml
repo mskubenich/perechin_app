@@ -9,18 +9,22 @@
     = favicon_link_tag 'favicon.ico'
     = yield :assets
   %body
-    %header
-      .grid.flex
-        .col_1
-        .col_3
+    .page
+      = render partial: 'layouts/full_ad_baner'
+      .grid.flex.header
+        .col_5
           .logo
             perechin.net
           %span.phrase
             Портал твого міста.
         .col_7.right
-          %ul
+          = render partial: 'layouts/authentikation'
+      .grid.flex
+        .col_12
+          %i.icon-check
+          %ul.menu.right
             %li
-              = link_to 'Головна', root_path
+              = link_to raw('<i class="icon-inbox"></i>Головна'), root_path
             %li
               = link_to 'Новини', news_index_path
             %li
@@ -31,12 +35,8 @@
               = link_to 'Місця', maps_path
             %li
               = link_to 'Фіглі', anecdotes_path
-        .col_1
-    %section.page-content
-      .grid.flex
         .col_3
-          text
-          = render partial: 'layouts/authentikation'
+          test
           = content_for :sidebar
         .col_9
           = yield

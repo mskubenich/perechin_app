@@ -6,6 +6,7 @@ gem 'rake', '10.0.4'
 gem 'mysql2'
 gem 'jquery-rails'
 
+gem 'thin'
 gem 'sass-rails',   '~> 3.2.3'
 gem 'coffee-rails', '~> 3.2.1'
 gem 'haml'

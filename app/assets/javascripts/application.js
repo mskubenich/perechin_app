@@ -11,10 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require kickstart
-
-
-//= require jquery.snippet.min
+//= require kickstart/kickstart
 
 
 //

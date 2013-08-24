@@ -1,10 +1,4 @@
-//= require kickstart
-//= require kickstart-buttons
-//= require kickstart-grid
-//= require zellner
-//= require jquery.fancybox-1.3.4
-//= require extra
-//= require rails-kickstart
+//= require kickstart/kickstart
 
 @font-face {
   font-family: NewYorkTimes;
@@ -20,12 +14,13 @@ body, html{
   min-width: 700px;
 }
 
-header{
-  z-index: 1000000;
-  position: fixed;
-  background-color: rgba(255, 255, 255, 1);
-  width: 100%;
-  box-shadow: 0 1px 12px -2px gray;
+.page{
+  width: 1007px;
+  margin: 0 auto;
+}
+
+.header{
+  height: 60px;
   .logo{
     font-family: NewYorkTimes;
     font-size: 41px;
@@ -54,8 +49,8 @@ header{
   }
 }
 
-section.page-content{
-  width: 80%;
-  margin: 0 auto;
-  padding-top: 90px;
+i{
+  width: 10px;
+  height: 10px;
 }
+

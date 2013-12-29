@@ -8,6 +8,6 @@ ActionMailer::Base.smtp_settings = {
     :domain => "perechin.net",
     :authentication => "plain",
     :user_name => "misha.skubenich@gmail.com",
-    :password => "wolverine",
+    :password => "secret",
     :enable_starttls_auto => true
 }
